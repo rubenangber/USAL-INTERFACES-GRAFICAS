@@ -27,7 +27,6 @@ namespace WpfApp1
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            int i = 0;
             et1.Content = "Has dado click";
             Label etnueva = new Label();
             etnueva.Content = "Nueva etiqueta";

@@ -3,9 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 
 namespace Proyectos.ElSegundo {
-    
+
     class Basica {
         [STAThread]
+        
         public static void Main() {
             Window win = new Window();
             win.Title = "Primer Programa";
