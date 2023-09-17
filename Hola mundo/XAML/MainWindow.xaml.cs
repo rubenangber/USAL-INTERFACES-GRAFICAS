@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XAML
+namespace WpfApp1
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
@@ -23,6 +23,17 @@ namespace XAML
         public MainWindow()
         {
             InitializeComponent();
+
+            et1.Content = "Una nueva frase";
+            et2.Foreground = Brushes.Blue;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            et1.Content = "Has dado click";
+            Label etnueva = new Label();
+            etnueva.Content = "Nueva etiqueta";
+            panel.Children.Add(etnueva);
         }
     }
 }
