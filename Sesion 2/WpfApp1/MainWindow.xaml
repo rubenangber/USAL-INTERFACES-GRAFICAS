@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel Name="TODO" Orientation="Horizontal">
+    <Window.Background>
+        <ImageBrush
+ ImageSource="958.png"/>
+    </Window.Background>
+    <StackPanel Orientation="Horizontal">
         <StackPanel>
             <Button Name="BotonInvierte" Content="Invierte" Margin="10" Click="BotonInvierte_Click"/>
             <Button Name="BotonMayus" Content="Mayusculas" Margin="10" Click="Mayusculas"/>
@@ -19,7 +23,7 @@
         </StackPanel>
         <StackPanel >
             <TextBox x:Name="Texto" Width="100" Margin="10"/>
-            <Label x:Name="Etiqueta" Width="100" Margin="10" Height="20"/>
+            <Label x:Name="Etiqueta" Width="100" Margin="10" Height="20" Background="White"/>
         </StackPanel>
     </StackPanel>
 </Window>

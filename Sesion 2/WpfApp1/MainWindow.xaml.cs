@@ -42,12 +42,14 @@ namespace WpfApp1
             etiq.Content = aux;
         }
         private void Rojo (object sender, RoutedEventArgs e) {
-            TODO.Background = Brushes.Red; 
+            Background = Brushes.Red; 
         }
 
         private void Verde (object sender, RoutedEventArgs e) {
-            TODO.Background = Brushes.Green;
+            Background = Brushes.Green;
         }
+
+        
 
     }
 }
