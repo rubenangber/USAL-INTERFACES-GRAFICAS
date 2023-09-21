@@ -1,0 +1,2 @@
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 2\Sesion 2\obj\Debug\Sesion 2.csproj.AssemblyReference.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 2\Sesion 2\obj\Debug\Sesion 2.csproj.CoreCompileInputs.cache
