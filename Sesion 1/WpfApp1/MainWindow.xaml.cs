@@ -48,8 +48,5 @@ namespace WpfApp1
         private void Verde (object sender, RoutedEventArgs e) {
             Background = Brushes.Green;
         }
-
-        
-
     }
 }
