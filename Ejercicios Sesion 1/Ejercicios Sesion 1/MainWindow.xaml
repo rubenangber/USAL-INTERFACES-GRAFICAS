@@ -6,34 +6,37 @@
         xmlns:local="clr-namespace:Ejercicios_Sesion_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel Orientation="Horizontal">
-        <StackPanel>
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
             <Button Margin="5">Add function</Button>
-            <Rectangle Fill="DeepPink" Margin="5" Width="100" Height="100"></Rectangle>
-            <TextBlock Margin="5">Minimun value of X:</TextBlock>
-            <TextBlock Margin="5">Minimun value of Y:</TextBlock>
-            <TextBlock Margin="5">Mark interval for X-axis:</TextBlock>
-            <TextBlock Margin="5">Line width:</TextBlock>
-        </StackPanel>
-        <StackPanel>
             <Button Margin="5">Remove function</Button>
-            <Rectangle Margin="5" Width="100" Height="100"></Rectangle>
-            <TextBox Margin="5"></TextBox>
-            <TextBox Margin="5"></TextBox>
-            <TextBox Margin="5"></TextBox>
-            <Slider Margin="5"></Slider>
         </StackPanel>
-        <StackPanel>
-            <Rectangle Margin="5" Width="100" Height="130"></Rectangle>
-            <TextBlock Margin="5">Maximun value of X:</TextBlock>
-            <TextBlock Margin="5">Maximun value of Y:</TextBlock>
-            <TextBlock Margin="5">Mark interval for Y-axis:</TextBlock>
+        <StackPanel Margin="5" Orientation="Horizontal">
+            <Rectangle Width="450" Height="100" Fill="Plum"></Rectangle>
         </StackPanel>
-        <StackPanel>
-            <Rectangle Margin="5" Width="100" Height="130"></Rectangle>
-            <TextBox Margin="5"></TextBox>
-            <TextBox Margin="5"></TextBox>
-            <TextBox Margin="5"></TextBox>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock Margin="5">Maximun value of X:</TextBlock>
+                <TextBlock Margin="5">Maximun value of Y:</TextBlock>
+                <TextBlock Margin="5">Mark interval for Y-axis:</TextBlock>
+                <TextBlock Margin="5">Line width:</TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBox Margin="5" Width="80"></TextBox>
+                <TextBox Margin="5" Width="80"></TextBox>
+                <TextBox Margin="5" Width="80"></TextBox>
+                <Slider Margin="5" Width="80"></Slider>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Margin="5">Maximun value of X:</TextBlock>
+                <TextBlock Margin="5">Maximun value of Y:</TextBlock>
+                <TextBlock Margin="5">Mark interval for Y-axis:</TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBox Margin="5" Width="80"></TextBox>
+                <TextBox Margin="5" Width="80"></TextBox>
+                <TextBox Margin="5" Width="80"></TextBox>
+            </StackPanel>
         </StackPanel>
     </StackPanel>
 </Window>
