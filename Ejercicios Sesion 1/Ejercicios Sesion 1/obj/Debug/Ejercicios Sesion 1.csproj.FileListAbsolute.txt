@@ -1,0 +1,15 @@
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\bin\Debug\Ejercicios Sesion 1.exe.config
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\bin\Debug\Ejercicios Sesion 1.exe
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\bin\Debug\Ejercicios Sesion 1.pdb
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios Sesion 1.csproj.AssemblyReference.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\MainWindow.g.cs
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\App.g.cs
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios Sesion 1_MarkupCompile.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios Sesion 1_MarkupCompile.lref
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\MainWindow.baml
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios Sesion 1.g.resources
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios_Sesion_1.Properties.Resources.resources
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios Sesion 1.csproj.GenerateResource.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios Sesion 1.csproj.CoreCompileInputs.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios Sesion 1.exe
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Ejercicios Sesion 1\Ejercicios Sesion 1\obj\Debug\Ejercicios Sesion 1.pdb
