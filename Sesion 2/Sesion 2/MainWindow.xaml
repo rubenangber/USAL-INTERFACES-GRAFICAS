@@ -30,7 +30,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Rectangle Name="rect" Stroke="Red" Fill="Transparent" StrokeThickness="3" Grid.Row="2" Grid.Column="2" RenderTransformOrigin="0.5 0.5">
+        <Rectangle Name="rect" Width="40" Height="40" Stroke="Red" Fill="Transparent" StrokeThickness="3" Grid.Row="2" Grid.Column="2" RenderTransformOrigin="0.5 0.5">
             <Rectangle.RenderTransform>
                 <RotateTransform x:Name="rotacion" Angle="45"></RotateTransform>
             </Rectangle.RenderTransform>
