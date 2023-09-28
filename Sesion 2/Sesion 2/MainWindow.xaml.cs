@@ -26,20 +26,44 @@ namespace Sesion_2
             InitializeComponent();
         }
         
-        private void pulsacion (object sender, KeyEventArgs e)
-        {
-            int aux;
+        private void pulsacion (object sender, KeyEventArgs e) {
+            //Aumentar-Disminuir tamaño
+            if (e.Key == Key.OemPlus || e.Key == Key.Add) {
+                rect.Width += 1;
+                rect.Height += 1;
+            }
+            if (e.Key == Key.OemMinus || e.Key == Key.Subtract) {
+                if (rect.Width > 1 && rect.Height > 1) {
+                    rect.Width -= 1;
+                    rect.Height -= 1;
+                }
+            }
+
+            //Movimiento de filas y columnas
+            int auxFil, auxCol;
             switch (e.Key) {
                 case Key.Down:
-                    aux = Grid.GetRow(rect);
-                    if (aux < grid.RowDefinitions.Count  - 1) {
-                        Grid.SetRow(rect, aux + 1);
+                    auxFil = Grid.GetRow(rect);
+                    if (auxFil < grid.RowDefinitions.Count - 1) {
+                        Grid.SetRow(rect, auxFil + 1);
                     }
                 break;
                 case Key.Up:
-                    aux = Grid.GetRow(rect);
-                    if(aux > 0) {
-                        Grid.SetRow(rect, aux - 1);
+                    auxFil = Grid.GetRow(rect);
+                    if(auxFil > 0) {
+                        Grid.SetRow(rect, auxFil - 1);
+                    }
+                break;
+                case Key.Left:
+                    auxCol = Grid.GetColumn(rect);
+                    if (auxCol > 0) {
+                        Grid.SetColumn(rect, auxCol - 1);
+                    }
+                break;
+                case Key.Right:
+                    auxCol = Grid.GetColumn(rect);
+                    if (auxCol < grid.ColumnDefinitions.Count - 1) {
+                        Grid.SetColumn(rect, auxCol + 1);
                     }
                 break;
             }
