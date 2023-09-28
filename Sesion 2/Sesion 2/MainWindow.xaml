@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sesion_2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        KeyDown="pulsacion">
+        KeyDown="pulsacion" MouseMove="movimiento">
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -30,7 +30,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Rectangle Name="rect" Stroke="Red" Fill="Transparent" StrokeThickness="3" Grid.Row="2" Grid.Column="2" RenderTransformOrigin="0.5 0.5" MouseMove="movimiento">
+        <Rectangle Name="rect" Stroke="Red" Fill="Transparent" StrokeThickness="3" Grid.Row="2" Grid.Column="2" RenderTransformOrigin="0.5 0.5">
             <Rectangle.RenderTransform>
                 <RotateTransform x:Name="rotacion" Angle="45"></RotateTransform>
             </Rectangle.RenderTransform>
