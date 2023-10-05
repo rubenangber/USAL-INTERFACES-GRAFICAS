@@ -1,0 +1,7 @@
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3\Sesion 3\bin\Debug\Sesion 3.exe.config
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3\Sesion 3\bin\Debug\Sesion 3.exe
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3\Sesion 3\bin\Debug\Sesion 3.pdb
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3\Sesion 3\obj\Debug\Sesion 3.csproj.AssemblyReference.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3\Sesion 3\obj\Debug\Sesion 3.csproj.CoreCompileInputs.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3\Sesion 3\obj\Debug\Sesion 3.exe
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3\Sesion 3\obj\Debug\Sesion 3.pdb
