@@ -1,0 +1,15 @@
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\bin\Debug\Sesion3.3.exe.config
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\bin\Debug\Sesion3.3.exe
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\bin\Debug\Sesion3.3.pdb
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3.3.csproj.AssemblyReference.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\MainWindow.g.cs
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\App.g.cs
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3.3_MarkupCompile.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3.3_MarkupCompile.lref
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\MainWindow.baml
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3.3.g.resources
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3._3.Properties.Resources.resources
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3.3.csproj.GenerateResource.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3.3.csproj.CoreCompileInputs.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3.3.exe
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion3.3\Sesion3.3\obj\Debug\Sesion3.3.pdb

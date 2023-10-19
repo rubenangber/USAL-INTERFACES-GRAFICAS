@@ -1,0 +1,25 @@
+﻿<Window x:Class="Sesion3._3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sesion3._3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FontFamily="Lucida Console">
+    <Grid Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" TextAlignment="Center">MONITORIZANDO EVENTOS</TextBlock>
+        <Button Grid.Row="1" Name="boton" Width="75">
+            <TextBlock Name="textoboton">Pulsar</TextBlock>
+        </Button>
+        <TextBlock Grid.Row="2" Background="Aqua" Name="cabecera"></TextBlock>
+        <ScrollViewer Grid.Row="3" Name="scroll">
+            <StackPanel Name="panel"></StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
