@@ -1,0 +1,16 @@
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\bin\Debug\Sesion 3.4.exe.config
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\bin\Debug\Sesion 3.4.exe
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\bin\Debug\Sesion 3.4.pdb
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion 3.4.csproj.AssemblyReference.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\MainWindow.g.cs
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\App.g.cs
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion 3.4_MarkupCompile.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion 3.4_MarkupCompile.lref
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\MainWindow.baml
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion 3.4.g.resources
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion_3._4.Properties.Resources.resources
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion 3.4.csproj.GenerateResource.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion 3.4.csproj.CoreCompileInputs.cache
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion 3.4.exe
+C:\Users\ruben\OneDrive\Documentos\INTERFACES-GRAFICAS\Sesion 3.4\Sesion 3.4\obj\Debug\Sesion 3.4.pdb
