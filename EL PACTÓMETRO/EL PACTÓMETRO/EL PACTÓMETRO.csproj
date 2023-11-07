@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="partidos.cs" />
+    <Compile Include="System\Windows\UI.cs" />
     <Compile Include="Ventana1.xaml.cs">
       <DependentUpon>Ventana1.xaml</DependentUpon>
     </Compile>

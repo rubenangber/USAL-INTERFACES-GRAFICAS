@@ -15,8 +15,10 @@
                     <MenuItem Header="Opción 3"/>
                 </ContextMenu>
             </Button.ContextMenu>
-            
         </Button>
-        
+        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Margin="0,25,0,0" FontSize="20">Elecciones Generales 23-7-2023</TextBlock>
+        <Canvas x:Name="miCanvas" Background="AliceBlue" SizeChanged="Canvas_SizeChanged" Margin="30,60,30,30">
+        </Canvas>
+
     </Grid>
 </Window>
