@@ -15,3 +15,5 @@ C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTÓMETRO\EL 
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTÓMETRO\EL PACTÓMETRO\obj\Debug\EL PACTÓMETRO.csproj.CoreCompileInputs.cache
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTÓMETRO\EL PACTÓMETRO\obj\Debug\EL PACTÓMETRO.exe
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTÓMETRO\EL PACTÓMETRO\obj\Debug\EL PACTÓMETRO.pdb
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTÓMETRO\EL PACTÓMETRO\obj\Debug\Gráfica1.g.cs
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTÓMETRO\EL PACTÓMETRO\obj\Debug\Gráfica1.baml

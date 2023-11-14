@@ -7,18 +7,62 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="  Opciones" HorizontalContentAlignment="Left" Click="MostrarMenu_Click" Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Opción 1" Click="AbrirPagina2_Click"/>
-                    <MenuItem Header="Opción 2"/>
-                    <MenuItem Header="Opción 3"/>
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
-        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Margin="0,25,0,0" FontSize="20">Elecciones Generales 23-7-2023</TextBlock>
-        <Canvas x:Name="miCanvas" Background="AliceBlue" SizeChanged="Canvas_SizeChanged" Margin="30,60,30,30">
-        </Canvas>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <!-- Columna 1 -->
+        <StackPanel Grid.Column="0">
+            <!-- PP -->
+            <Label Content="Votos para PP:"/>
+            <TextBox x:Name="votosPPTextBox"/>
+
+            <!-- PSOE -->
+            <Label Content="Votos para PSOE:"/>
+            <TextBox x:Name="votosPSOETextBox"/>
+
+            <!-- VOX -->
+            <Label Content="Votos para VOX:"/>
+            <TextBox x:Name="votosVOXTextBox"/>
+
+            <!-- SUMAR -->
+            <Label Content="Votos para SUMAR:"/>
+            <TextBox x:Name="votosSUMARTextBox"/>
+
+            <!-- ERC -->
+            <Label Content="Votos para ERC:"/>
+            <TextBox x:Name="votosERCTextBox"/>
+        </StackPanel>
+
+        <!-- Columna 2 -->
+        <StackPanel Grid.Column="1">
+            <!-- JUNTS -->
+            <Label Content="Votos para JUNTS:"/>
+            <TextBox x:Name="votosJUNTSTextBox"/>
+
+            <!-- BILDU -->
+            <Label Content="Votos para BILDU:"/>
+            <TextBox x:Name="votosBILDUTextBox"/>
+
+            <!-- PNV -->
+            <Label Content="Votos para PNV:"/>
+            <TextBox x:Name="votosPNVTextBox"/>
+
+            <!-- BNG -->
+            <Label Content="Votos para BNG:"/>
+            <TextBox x:Name="votosBNGTextBox"/>
+
+            <!-- CCA -->
+            <Label Content="Votos para CCA:"/>
+            <TextBox x:Name="votosCCATextBox"/>
+
+            <!-- UPN -->
+            <Label Content="Votos para UPN:"/>
+            <TextBox x:Name="votosUPNTextBox"/>
+
+            <!-- Botón para guardar votos -->
+            <Button Content="Guardar Votos" Click="GuardarVotosClick"/>
+        </StackPanel>
     </Grid>
 </Window>

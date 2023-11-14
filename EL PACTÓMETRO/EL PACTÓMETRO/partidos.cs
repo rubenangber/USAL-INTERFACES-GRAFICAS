@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EL_PACTÓMETRO
 {
-    internal class partidos {
-        private int votosPP = 124;
-        private int votosPSOE = 30;
+    public class partidos {
+        private int votosPP;
+        private int votosPSOE;
         private int votosVOX;
         private int votosSUMAR;
         private int votosERC;
