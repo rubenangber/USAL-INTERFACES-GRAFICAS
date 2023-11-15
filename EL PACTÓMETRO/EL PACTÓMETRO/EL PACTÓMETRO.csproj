@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class1.cs" />
     <Compile Include="Gráfica1.xaml.cs">
       <DependentUpon>Gráfica1.xaml</DependentUpon>
     </Compile>

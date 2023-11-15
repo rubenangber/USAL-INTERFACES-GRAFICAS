@@ -14,6 +14,8 @@ namespace EL_PACTÓMETRO
             InitializeComponent();
         }
 
+        Class1 c1;
+
         private void GuardarVotosClick(object sender, RoutedEventArgs e)
         {
             partidos Partidos = new partidos();
@@ -29,6 +31,8 @@ namespace EL_PACTÓMETRO
             Partidos.setVotosBNG(Convert.ToInt32(votosBNGTextBox.Text));
             Partidos.setVotosCCA(Convert.ToInt32(votosCCATextBox.Text));
             Partidos.setVotosUPN(Convert.ToInt32(votosUPNTextBox.Text));
+
+            c1.guardarEnArrayList(Partidos);
 
             //Crear ventana gráficos
             Gráfica1 g1 = new Gráfica1();

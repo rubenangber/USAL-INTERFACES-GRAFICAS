@@ -36,7 +36,9 @@ namespace EL_PACTÓMETRO
         }
         private void Canvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+            Class1 c1 = new Class1();
             partidos partidos = new partidos();
+            partidos = c1.getPartido();
             // Borra cualquier contenido existente en el Canvas cuando se maximiza y minimiza la pantalla
             miCanvas.Children.Clear();
 
