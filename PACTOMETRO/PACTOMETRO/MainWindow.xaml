@@ -33,26 +33,37 @@
         <Label Grid.Column="0" Grid.Row="5" Content="Escaños ERC" Margin="5" FontSize="15"/>
         <Label Grid.Column="0" Grid.Row="6" Content="Escaños JUNTS" Margin="5" FontSize="15"/>
         <!--COLUMNA 2-->
-        <TextBox Grid.Column="1" Grid.Row="1" x:Name="EscañosPP" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="2" x:Name="EscañosPSOE" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="3" x:Name="EscañosVOX" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="4" x:Name="EscañosSUMAR" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="5" x:Name="EscañosERC" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="6" x:Name="EscañosJUNTS" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="EscañosPP" Margin="5" SelectionChanged="introducirPP_SelectionChanged"/>
+        <Label Name="errorpp" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="EscañosPSOE" Margin="5" SelectionChanged="introducirPSOE_SelectionChanged"/>
+        <Label Name="errorpsoe" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="EscañosVOX" Margin="5" SelectionChanged="introducirVOX_SelectionChanged"/>
+        <Label Name="errorvox" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="EscañosSUMAR" Margin="5" SelectionChanged="introducirSUMAR_SelectionChanged"/>
+        <Label Name="errorsumar" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="1" Grid.Row="5" x:Name="EscañosERC" Margin="5" SelectionChanged="introducirERC_SelectionChanged"/>
+        <Label Name="errorerc" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="1" Grid.Row="6" x:Name="EscañosJUNTS" Margin="5" SelectionChanged="introducirJUNTS_SelectionChanged"/>
+        <Label Name="errorjunts" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
         <!--COLUMNA 3-->
         <Label Grid.Column="2" Grid.Row="0" Content="PACTÓMETRO" Margin="5" FontWeight="Bold" FontSize="25"/>
-        <Button Grid.Column="2" Grid.Row="8" Content="Siguiente" MinWidth="100" MinHeight="30" FontSize="15" Click="Guardar_escaños"/>
+        <Button Grid.Column="2" Grid.Row="8" Name="Siguiente"  Content="Siguiente" MinWidth="100" MinHeight="30" FontSize="15" Click="Guardar_escaños"/>
         <!--COLUMNA 4-->
-        <Label Grid.Column="3" Grid.Row="1" Content="Escaños PP" Margin="5" FontSize="15"/>
-        <Label Grid.Column="3" Grid.Row="2" Content="Escaños PSOE" Margin="5" FontSize="15"/>
-        <Label Grid.Column="3" Grid.Row="3" Content="Escaños VOX" Margin="5" FontSize="15"/>
-        <Label Grid.Column="3" Grid.Row="4" Content="Escaños SUMAR" Margin="5" FontSize="15"/>
-        <Label Grid.Column="3" Grid.Row="5" Content="Escaños ERC" Margin="5" FontSize="15"/>
+        <Label Grid.Column="3" Grid.Row="1" Content="Escaños BILDU" Margin="5" FontSize="15"/>
+        <Label Grid.Column="3" Grid.Row="2" Content="Escaños PNV" Margin="5" FontSize="15"/>
+        <Label Grid.Column="3" Grid.Row="3" Content="Escaños BNG" Margin="5" FontSize="15"/>
+        <Label Grid.Column="3" Grid.Row="4" Content="Escaños CCA" Margin="5" FontSize="15"/>
+        <Label Grid.Column="3" Grid.Row="5" Content="Escaños UPN" Margin="5" FontSize="15"/>
         <!--COLUMNA 5-->
-        <TextBox Grid.Column="4" Grid.Row="1" x:Name="EscañosBILDU" Margin="5" />
-        <TextBox Grid.Column="4" Grid.Row="2" x:Name="EscañosPNV" Margin="5"/>
-        <TextBox Grid.Column="4" Grid.Row="3" x:Name="EscañosBNG" Margin="5"/>
-        <TextBox Grid.Column="4" Grid.Row="4" x:Name="EscañosCCA" Margin="5"/>
-        <TextBox Grid.Column="4" Grid.Row="5" x:Name="EscañosUPN" Margin="5"/>
+        <TextBox Grid.Column="4" Grid.Row="1" x:Name="EscañosBILDU" Margin="5" SelectionChanged="introducirBILDU_SelectionChanged"/>
+        <Label Name="errorbildu" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="4" Grid.Row="2" x:Name="EscañosPNV" Margin="5" SelectionChanged="introducirPNV_SelectionChanged"/>
+        <Label Name="errorpnv" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="4" Grid.Row="3" x:Name="EscañosBNG" Margin="5" SelectionChanged="introducirBNG_SelectionChanged"/>
+        <Label Name="errorbng" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="4" Grid.Row="4" x:Name="EscañosCCA" Margin="5" SelectionChanged="introducirCCA_SelectionChanged"/>
+        <Label Name="errorcca" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
+        <TextBox Grid.Column="4" Grid.Row="5" x:Name="EscañosUPN" Margin="5" SelectionChanged="introducirUPN_SelectionChanged"/>
+        <Label Name="errorupn" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
     </Grid>
 </Window>

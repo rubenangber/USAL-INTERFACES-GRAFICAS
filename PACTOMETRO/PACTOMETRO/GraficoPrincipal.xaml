@@ -11,11 +11,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Button Content="Opciones" Grid.Row="0" HorizontalContentAlignment="Left" Click="MostrarMenu_Click">
             <Button.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Opcion1"/>
+                    <MenuItem Header="Opcion1" Click="OpcionListados"/>
                     <MenuItem Header="Opcion2"/>
                     <MenuItem Header="Opcion3"/>
                 </ContextMenu>
@@ -79,5 +80,18 @@
                 </Rectangle.ToolTip>
             </Rectangle>
         </Canvas>
+        <StackPanel Grid.Row="4" Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Margin="0,2,20,2" Width="Auto" Content="PP" FontSize="15" Foreground="Blue"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="PSOE" FontSize="15" Foreground="Red"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="VOX" FontSize="15" Foreground="GreenYellow"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="SUMAR" FontSize="15" Foreground="Pink"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="ERC" FontSize="15" Foreground="Yellow"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="JUNTS" FontSize="15" Foreground="Aquamarine"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="BILDU" FontSize="15" Foreground="LightBlue"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="PNV" FontSize="15" Foreground="DarkGreen"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="BNG" FontSize="15" Foreground="Azure"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="CCA" FontSize="15" Foreground="Gray"/>
+            <Label Margin="0,2,20,2" Width="Auto" Content="UPN" FontSize="15" Foreground="Purple"/>
+        </StackPanel>
     </Grid>
 </Window>

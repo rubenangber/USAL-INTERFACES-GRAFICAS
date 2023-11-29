@@ -1,0 +1,80 @@
+﻿<Window x:Class="PACTOMETRO.Listados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PACTOMETRO"
+        mc:Ignorable="d"
+        Title="Listados" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <!--BOTONES AÑADIR, ELIMINAR, MODIFICAR VEHICULO-->
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" Margin="20" VerticalAlignment="Stretch" >
+            <Button Name="Btaddcar" BorderThickness="0" Background="White" Width="24" Height="24" Click="AddCar">
+                <Button.Content>
+                    Nuevo
+                </Button.Content>
+            </Button>
+            <Button Name="Btdeletecar" BorderThickness="0" Background="White" Width="24" Height="24" Click="DeleteCar">
+                <Button.Content>
+                    Borrar
+                </Button.Content>
+            </Button>
+            <Button Name="Bteditcar" BorderThickness="0" Background="White" Width="24" Height="24" Click="EditCar">
+                <Button.Content>
+                    Editar
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+        <!--BOTONES AÑADIR, ELIMINAR, MODIFICAR REPOSTAJE-->
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="20" VerticalAlignment="Stretch">
+            <Button Name="Btaddfuel"  BorderThickness="0" Background="White" Width="24" Height="24" Click="AddFuel">
+                <Button.Content>
+                    Nuevo
+                </Button.Content>
+            </Button>
+            <Button Name="Btdeletefuel" BorderThickness="0" Background="White" Width="24" Height="24" Click="DeleteFuel">
+                <Button.Content>
+                    Quitar
+                </Button.Content>
+            </Button>
+            <Button Name="Bteditfuel" BorderThickness="0" Background="White" Width="24" Height="24" Click="EditFuel">
+                <Button.Content>
+                    Editar
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+        <ListView Name="listacoches" Margin="10,10,10,10" Grid.Row="0" Grid.Column="0" SelectionChanged="lista_SelectionCoche" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="MATRICULA" Width="auto"  DisplayMemberBinding="{Binding Matricula}"/>
+                    <GridViewColumn Header="MARCA" Width="auto" DisplayMemberBinding="{Binding Marca}"/>
+                    <GridViewColumn Header="KILOMETRAJE" Width="auto" DisplayMemberBinding="{Binding Kilometro}"/>
+                    <GridViewColumn Header="MEDIA CONSUMO 100KM" Width="auto" DisplayMemberBinding="{Binding MediaConsumo100}"/>
+                    <GridViewColumn Header="MEDIA COSTE 100KM" Width="auto" DisplayMemberBinding="{Binding MediaCoste100}"/>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Name="listarepostajes" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="FECHA" Width="auto" DisplayMemberBinding="{Binding Fecha}"/>
+                    <GridViewColumn Header="KILOMETRAJE" Width="auto" DisplayMemberBinding="{Binding Kilometraje}"/>
+                    <GridViewColumn Header="LITROS" Width="auto" DisplayMemberBinding="{Binding Litros}"/>
+                    <GridViewColumn Header="COSTE" Width="auto" DisplayMemberBinding="{Binding Coste}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
