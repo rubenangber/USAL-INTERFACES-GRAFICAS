@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:EL_PACTOMETRO"
         mc:Ignorable="d"
         Closing="TablasClose"
+        ResizeMode="NoResize"
         MouseDown="Window_MouseDown" 
         Title="Tablas" Height="450" Width="800">
     <Grid>
@@ -17,19 +18,19 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <!--BOTONES AÑADIR, ELIMINAR, MODIFICAR-->
+        <!--GENERALES-->
         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" Margin="20" VerticalAlignment="Stretch" >
-            <Button Name="Btaddcar" BorderThickness="0" Background="White" Width="24" Height="24" Click="AddEleccion">
+            <Button Name="BtaddEl" BorderThickness="0" Background="White" Width="24" Height="24" Click="AddEleccion">
                 <Button.Content>
                     ADD
                 </Button.Content>
             </Button>
-            <Button Name="Btdeletecar" BorderThickness="0" Background="White" Width="24" Height="24" Click="DeleteCar">
+            <Button Name="BtdelEl" BorderThickness="0" Background="White" Width="24" Height="24" Click="DelEleccion">
                 <Button.Content>
                     DELETE
                 </Button.Content>
             </Button>
-            <Button Name="Bteditcar" BorderThickness="0" Background="White" Width="24" Height="24" Click="EditCar">
+            <Button Name="BteditEl" BorderThickness="0" Background="White" Width="24" Height="24" Click="EditEleccion">
                 <Button.Content>
                     EDIT
                 </Button.Content>
@@ -39,8 +40,36 @@
         <ListView Name="listaVotos" Margin="10,10,10,10" Grid.Row="0" Grid.Column="0" SelectionChanged="lista_SelectionElecciones" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ELECCION" Width="auto"  DisplayMemberBinding="{Binding Nombre}"/>
-                    <GridViewColumn Header="FECHA" Width="auto"/>
+                    <GridViewColumn Header="ELECCION" Width="auto" DisplayMemberBinding="{Binding Nombre}"/>
+                    <GridViewColumn Header="FECHA" Width="auto" DisplayMemberBinding="{Binding Fecha}"/>
+                    <GridViewColumn Header="Numero de escaños" Width="auto" DisplayMemberBinding="{Binding Escaños}"/>
+                    <GridViewColumn Header="Mayoria absoluta" Width="auto" DisplayMemberBinding="{Binding Mayoria}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!--AUTONOMICAS-->
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="20" VerticalAlignment="Stretch" >
+            <Button Name="BtaddGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="AddGeneral">
+                <Button.Content>
+                    ADD
+                </Button.Content>
+            </Button>
+            <Button Name="BtdelGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="DelGeneral">
+                <Button.Content>
+                    DELETE
+                </Button.Content>
+            </Button>
+            <Button Name="BteditGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="EditGeneral">
+                <Button.Content>
+                    EDIT
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        <ListView Name="listaAutonomicas" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0" SelectionChanged="lista_SelectionAutonomicas" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ELECCION" Width="auto" DisplayMemberBinding="{Binding Nombre}"/>
+                    <GridViewColumn Header="FECHA" Width="auto" DisplayMemberBinding="{Binding Fecha}"/>
                     <GridViewColumn Header="Numero de escaños" Width="auto" DisplayMemberBinding="{Binding Escaños}"/>
                     <GridViewColumn Header="Mayoria absoluta" Width="auto" DisplayMemberBinding="{Binding Mayoria}"/>
                 </GridView>

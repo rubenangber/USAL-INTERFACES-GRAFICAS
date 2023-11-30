@@ -15,7 +15,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <!--BOTONES AÑADIR, ELIMINAR, MODIFICAR VEHICULO-->
+        <!--BOTONES AÑADIR, ELIMINAR, MODIFICAR ELECCION-->
         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" Margin="20" VerticalAlignment="Stretch" >
             <Button Name="Btaddcar" BorderThickness="0" Background="White" Width="24" Height="24" Click="AddCar">
                 <Button.Content>

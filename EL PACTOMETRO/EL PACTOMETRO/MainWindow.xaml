@@ -14,11 +14,9 @@
         <DockPanel Grid.ColumnSpan="2">
             <Menu IsMainMenu="True" DockPanel.Dock="Top" Name="menu1" VerticalAlignment="Top">
                 <MenuItem Header="_Archivo">
-                    <MenuItem Header="_Exportar" />
-                    <MenuItem Header="_Importar" />
+                    
                 </MenuItem>
                 <MenuItem Header="_Tablas" Click="Mostrar_Tablas"/>
-                <MenuItem Name="BtGraficoTodos" Header="Grafico Todos"/>
             </Menu>
         </DockPanel>
     </Grid>

@@ -55,9 +55,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Autonomicas.cs" />
+    <Compile Include="EditElec.xaml.cs">
+      <DependentUpon>EditElec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elecciones.cs" />
+    <Compile Include="NuevaElecciones.xaml.cs">
+      <DependentUpon>NuevaElecciones.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tablas.xaml.cs">
       <DependentUpon>Tablas.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditElec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +82,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NuevaElecciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Tablas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

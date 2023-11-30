@@ -18,19 +18,18 @@ namespace EL_PACTOMETRO {
     /// Lógica de interacción para Tablas.xaml
     /// </summary>
 
-    public class AutoSeleccionadoEventArgs : EventArgs {
+    public class EleccionSeleccionadoEventArgs : EventArgs {
         public Elecciones el { get; set; }
-        public AutoSeleccionadoEventArgs(Elecciones e)
-        {
+        public EleccionSeleccionadoEventArgs(Elecciones e) {
             el = e;
         }
     }
     public partial class Tablas : Window {
-        public event EventHandler<AutoSeleccionadoEventArgs> AutoSeleccionado;
+        public event EventHandler<EleccionSeleccionadoEventArgs> EleccionSeleccionada;
         ObservableCollection<Elecciones> listaElecciones;
 
-        void OnAutoSeleccionado(AutoSeleccionadoEventArgs e) {
-            AutoSeleccionado?.Invoke(this, e);
+        void OnEleccionSeleccionado(EleccionSeleccionadoEventArgs e) {
+            EleccionSeleccionada?.Invoke(this, e);
         }
         public Tablas(ObservableCollection<Elecciones> lstElecciones) {
             InitializeComponent();
@@ -47,42 +46,43 @@ namespace EL_PACTOMETRO {
         private void lista_SelectionElecciones(object sender, SelectionChangedEventArgs e) {
             if ((Elecciones)listaVotos.SelectedItem != null) {
                 Elecciones autoeselect = listaVotos.SelectedItem as Elecciones;
-                AutoSeleccionadoEventArgs aux = new AutoSeleccionadoEventArgs(autoeselect);
-                OnAutoSeleccionado(aux);
+                EleccionSeleccionadoEventArgs aux = new EleccionSeleccionadoEventArgs(autoeselect);
+                OnEleccionSeleccionado(aux);
+            }
+        }
+        private void lista_SelectionGenerales(object sender, SelectionChangedEventArgs e) {
+            if ((Elecciones)listaVotos.SelectedItem != null) {
+                Elecciones autoeselect = listaVotos.SelectedItem as Elecciones;
+                EleccionSeleccionadoEventArgs aux = new EleccionSeleccionadoEventArgs(autoeselect);
+                OnEleccionSeleccionado(aux);
             }
         }
 
-        //BOTONES TABLA VEHICULOS
+
+        //BOTONES TABLA ELECCIONES
         private void AddEleccion(object sender, RoutedEventArgs e) {
             NuevaElecciones nEl = new NuevaElecciones();
             nEl.ShowDialog();
             if (nEl.DialogResult == true) {
                 listaElecciones.Add(nEl.AddElecciones);
             }
-
         }
-        /*private void EditCar(object sender, RoutedEventArgs e)
-        {
-            if ((Automovil)listacoches.SelectedItem != null)
-            {
-                Automovil autoedit = listacoches.SelectedItem as Automovil;
-                string messageBoxTextedit = "¿Está seguro de modificar los datos del vehiculo con matricula " + autoedit.Matricula + "?";
+        private void EditEleccion(object sender, RoutedEventArgs e) {
+            if ((Elecciones)listaVotos.SelectedItem != null) {
+                Elecciones autoedit = listaVotos.SelectedItem as Elecciones;
+                string messageBoxTextedit = "¿Está seguro de modificar la eleccion selecionada?";
                 string captiondelete = "Modificar";
                 MessageBoxButton buttonedit = MessageBoxButton.YesNo;
                 MessageBoxImage iconedit = MessageBoxImage.Asterisk;
                 MessageBoxResult result;
                 result = MessageBox.Show(messageBoxTextedit, captiondelete, buttonedit, iconedit, MessageBoxResult.No);
-                if (result == MessageBoxResult.Yes)
-                {
-                    EditAuto editauto = new EditAuto(autoedit);
+                if (result == MessageBoxResult.Yes) {
+                    EditElec editauto = new EditElec(autoedit);
                     editauto.ShowDialog();
-                    if (editauto.DialogResult == true)
-                    {
-                        MessageBox.Show("Datos Automovil modificados.", "", MessageBoxButton.OK, MessageBoxImage.None);
+                    if (editauto.DialogResult == true) {
+                        MessageBox.Show("Datos eleccion modificados.", "", MessageBoxButton.OK, MessageBoxImage.None);
                     }
-                }
-                else
-                {
+                } else {
                     string messageBoxTextcheck = "Por favor, seleccione un elemento de la lista.";
                     MessageBoxButton buttoncheck = MessageBoxButton.OK;
                     MessageBoxImage iconcheck = MessageBoxImage.Exclamation;
@@ -91,12 +91,11 @@ namespace EL_PACTOMETRO {
                 }
             }
         }
-        private void DeleteCar(object sender, RoutedEventArgs e)
-        {
-            if ((Automovil)listacoches.SelectedItem != null)
-            {
-                Automovil autodelete = listacoches.SelectedItem as Automovil;
-                string messageBoxTextdelete = "¿Está seguro de eliminar el vehiculo con matricula " + autodelete.Matricula + " ?";
+
+        private void DelEleccion(object sender, RoutedEventArgs e) {
+            if ((Elecciones)listaVotos.SelectedItem != null) {
+                Elecciones delE = listaVotos.SelectedItem as Elecciones;
+                string messageBoxTextdelete = "¿Está seguro de eliminar el la eleccion seleccionada?";
                 string captiondelete = "Eliminar";
                 MessageBoxButton buttondelete = MessageBoxButton.YesNo;
                 MessageBoxImage icondelete = MessageBoxImage.Warning;
@@ -104,19 +103,24 @@ namespace EL_PACTOMETRO {
                 result = MessageBox.Show(messageBoxTextdelete, captiondelete, buttondelete, icondelete, MessageBoxResult.No);
                 if (result == MessageBoxResult.Yes)
                 {
-                    listaautos.Remove(autodelete);
-                    autodelete.Repostaje.Clear();
+                    listaElecciones.Remove(delE);
                 }
-            }
-            else
-            {
-                string messageBoxTextcheck = "Por favor, seleccione un elemento de la lista.";
+            } else {
+                string messageBoxTextcheck = "Por favor, seleccione una eleccion de la lista.";
                 MessageBoxButton buttoncheck = MessageBoxButton.OK;
                 MessageBoxImage iconcheck = MessageBoxImage.Exclamation;
                 MessageBoxResult resultcheck;
                 resultcheck = MessageBox.Show(messageBoxTextcheck, "Error", buttoncheck, iconcheck, MessageBoxResult.OK);
             }
+        }
 
-        }*/
+        //BOTONES TABLA AUTONOMICAS
+        private void AddAutonomicas(object sender, RoutedEventArgs e) {
+            NuevaAutonomica nAu = new NuevaAutonomica();
+            nAu.ShowDialog();
+            if (nAu.DialogResult == true) {
+                listaElecciones.Add(nAu.AddAutonomicas);
+            }
+        }
     }
 }

@@ -9,19 +9,30 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace EL_PACTOMETRO {
     /// <summary>
-    /// Lógica de interacción para NuevaElecciones.xaml
+    /// Lógica de interacción para EditElec.xaml
     /// </summary>
-    public partial class NuevaElecciones : Window {
-        Elecciones newEleccion;
-        public Elecciones AddElecciones { get { return newEleccion; } }
-        public NuevaElecciones() {
+    public partial class EditElec : Window {
+        private readonly Elecciones elecciones;
+        public EditElec(Elecciones elecciones) {
             InitializeComponent();
+            this.elecciones = elecciones;
+            EscañosPP.Text = Convert.ToString(elecciones.PP);
+            EscañosPSOE.Text = Convert.ToString(elecciones.PSOE);
+            EscañosVOX.Text = Convert.ToString(elecciones.VOX);
+            EscañosSUMAR.Text = Convert.ToString(elecciones.SUMAR);
+            EscañosERC.Text = Convert.ToString(elecciones.ERC);
+            EscañosJUNTS.Text = Convert.ToString(elecciones.JUNTS);
+            EscañosBILDU.Text = Convert.ToString(elecciones.BILDU);
+            EscañosPNV.Text = Convert.ToString(elecciones.PNV);
+            EscañosBNG.Text = Convert.ToString(elecciones.BNG);
+            EscañosCCA.Text = Convert.ToString(elecciones.CCA);
+            EscañosUPN.Text = Convert.ToString(elecciones.UPN);
+            introducirfecha.Text = Convert.ToString(elecciones.Fecha);
         }
 
         private void introducirPP_SelectionChanged(object sender, RoutedEventArgs e) {
@@ -84,15 +95,23 @@ namespace EL_PACTOMETRO {
             errorfecha.Visibility = Visibility.Hidden;
         }
 
-        private void Añadir_Eleccion(object sender, RoutedEventArgs e) {
+        public void Editar_Eleccion(object sender, RoutedEventArgs e) {
             if (Comprobar() == true) {
-                newEleccion = new Elecciones("Generales", int.Parse(EscañosPP.Text), int.Parse(EscañosPSOE.Text), int.Parse(EscañosVOX.Text), int.Parse(EscañosSUMAR.Text),
-                    int.Parse(EscañosERC.Text), int.Parse(EscañosJUNTS.Text), int.Parse(EscañosBILDU.Text), int.Parse(EscañosPNV.Text),
-                    int.Parse(EscañosBNG.Text), int.Parse(EscañosCCA.Text), int.Parse(EscañosUPN.Text), introducirfecha.SelectedDate.Value.Date);
+                elecciones.PP = int.Parse(EscañosPP.Text);
+                elecciones.PSOE = int.Parse(EscañosPSOE.Text);
+                elecciones.VOX = int.Parse(EscañosVOX.Text);
+                elecciones.SUMAR = int.Parse(EscañosSUMAR.Text);
+                elecciones.ERC = int.Parse(EscañosERC.Text);
+                elecciones.JUNTS = int.Parse(EscañosJUNTS.Text);
+                elecciones.BILDU = int.Parse(EscañosBILDU.Text);
+                elecciones.PNV = int.Parse(EscañosPNV.Text);
+                elecciones.BNG = int.Parse(EscañosBNG.Text);
+                elecciones.CCA = int.Parse(EscañosCCA.Text);
+                elecciones.UPN = int.Parse(EscañosUPN.Text);
+                elecciones.Fecha = introducirfecha.SelectedDate.Value.Date;
                 DialogResult = true;
             }
         }
-
         private bool Comprobar() {
             bool comprobar = true;
 
@@ -158,6 +177,5 @@ namespace EL_PACTOMETRO {
             }
             return comprobar;
         }
-
     }
 }

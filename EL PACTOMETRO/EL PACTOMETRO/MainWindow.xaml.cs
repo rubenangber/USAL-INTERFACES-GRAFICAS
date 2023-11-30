@@ -27,12 +27,22 @@ namespace EL_PACTOMETRO {
     public partial class MainWindow : Window {
         Tablas t;
         ObservableCollection<Elecciones> listElecciones = new ObservableCollection<Elecciones>();
+        ObservableCollection<Autonomicas> listAutonomicas = new ObservableCollection<Autonomicas>();
+        Elecciones select;
+        Autonomicas select2;
+        bool cambio = true;
         public MainWindow() {
             InitializeComponent();
-            t = new Tablas(listElecciones);
+            t = new Tablas(listElecciones, listAutonomicas);
             t.Show();
-            listElecciones.CollectionChanged += listElecciones_CollectionChanged;
-            t.AutoSeleccionado += AutoSelect;
+            //listElecciones.CollectionChanged += listElecciones_CollectionChanged;
+            t.EleccionSeleccionada += EleccionSelect;
+        }
+
+        void EleccionSelect(object sender, EleccionSeleccionadoEventArgs e) {
+            cambio = false;
+            //Grafico(e.el);
+            select = e.el;
         }
 
         private void Mostrar_Tablas(object sender, RoutedEventArgs e) {
