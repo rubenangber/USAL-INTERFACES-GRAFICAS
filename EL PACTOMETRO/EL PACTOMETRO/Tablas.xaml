@@ -49,23 +49,23 @@
         </ListView>
         <!--AUTONOMICAS-->
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="20" VerticalAlignment="Stretch" >
-            <Button Name="BtaddGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="AddGeneral">
+            <Button Name="BtaddGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="AddAutonomicas">
                 <Button.Content>
                     ADD
                 </Button.Content>
             </Button>
-            <Button Name="BtdelGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="DelGeneral">
+            <Button Name="BtdelGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="DelAutonomicas">
                 <Button.Content>
                     DELETE
                 </Button.Content>
             </Button>
-            <Button Name="BteditGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="EditGeneral">
+            <Button Name="BteditGe" BorderThickness="0" Background="White" Width="24" Height="24" Click="EditAutonomicas">
                 <Button.Content>
                     EDIT
                 </Button.Content>
             </Button>
         </StackPanel>
-        <ListView Name="listaAutonomicas" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0" SelectionChanged="lista_SelectionAutonomicas" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView Name="listaVAutonomicas" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0" SelectionChanged="lista_SelectionAutonomicas" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ELECCION" Width="auto" DisplayMemberBinding="{Binding Nombre}"/>

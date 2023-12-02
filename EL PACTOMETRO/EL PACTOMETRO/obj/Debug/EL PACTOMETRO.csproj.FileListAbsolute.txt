@@ -19,3 +19,7 @@ C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL P
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\NuevaElecciones.baml
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\EditElec.g.cs
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\EditElec.baml
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\EditAutonomica.g.cs
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\NuevaAutonomica.g.cs
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\EditAutonomica.baml
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\NuevaAutonomica.baml

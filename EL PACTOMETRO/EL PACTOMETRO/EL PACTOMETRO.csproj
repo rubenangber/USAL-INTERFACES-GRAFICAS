@@ -56,16 +56,26 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Autonomicas.cs" />
+    <Compile Include="EditAutonomica.xaml.cs">
+      <DependentUpon>EditAutonomica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditElec.xaml.cs">
       <DependentUpon>EditElec.xaml</DependentUpon>
     </Compile>
     <Compile Include="Elecciones.cs" />
+    <Compile Include="NuevaAutonomica.xaml.cs">
+      <DependentUpon>NuevaAutonomica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NuevaElecciones.xaml.cs">
       <DependentUpon>NuevaElecciones.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tablas.xaml.cs">
       <DependentUpon>Tablas.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditAutonomica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditElec.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,6 +92,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NuevaAutonomica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NuevaElecciones.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
