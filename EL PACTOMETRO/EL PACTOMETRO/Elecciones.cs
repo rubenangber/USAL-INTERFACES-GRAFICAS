@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EL_PACTOMETRO {
+    [Serializable]
     public class Elecciones : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
         string nombre;

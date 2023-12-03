@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EL_PACTOMETRO"
         mc:Ignorable="d"
+        Closing="MainWindow_Closing"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -13,8 +14,9 @@
         </Grid.ColumnDefinitions>
         <DockPanel Grid.ColumnSpan="2">
             <Menu IsMainMenu="True" DockPanel.Dock="Top" Name="menu1" VerticalAlignment="Top">
-                <MenuItem Header="_Archivo">
-                    
+                <MenuItem Header="Archivo">
+                    <MenuItem Header="Exportar" Click="ExportarCSV"/>
+                    <MenuItem Header="Importar" Click="ImportarCSV"/>
                 </MenuItem>
                 <MenuItem Header="_Tablas" Click="Mostrar_Tablas"/>
             </Menu>

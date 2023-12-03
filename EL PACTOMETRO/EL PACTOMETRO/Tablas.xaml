@@ -8,6 +8,7 @@
         Closing="TablasClose"
         ResizeMode="NoResize"
         MouseDown="Window_MouseDown" 
+        WindowStyle="None"
         Title="Tablas" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>

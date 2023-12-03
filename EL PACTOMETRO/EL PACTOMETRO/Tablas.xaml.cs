@@ -169,7 +169,6 @@ namespace EL_PACTOMETRO {
             }
         }
 
-
         private void DelAutonomicas(object sender, RoutedEventArgs e) {
             if (listaVAutonomicas.SelectedItem is Autonomicas delE) {
                 string messageBoxTextdelete = "¿Está seguro de eliminar la elección seleccionada?";
@@ -189,6 +188,5 @@ namespace EL_PACTOMETRO {
                 resultcheck = MessageBox.Show(messageBoxTextcheck, "Error", buttoncheck, iconcheck, MessageBoxResult.OK);
             }
         }
-
     }
 }
