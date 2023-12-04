@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:EL_PACTOMETRO"
         mc:Ignorable="d"
         Closing="MainWindow_Closing"
-        Title="MainWindow" Height="450" Width="800">
+        Title="EL PACTÓMETRO" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="399*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <DockPanel Grid.ColumnSpan="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
             <Menu IsMainMenu="True" DockPanel.Dock="Top" Name="menu1" VerticalAlignment="Top">
                 <MenuItem Header="Archivo">
                     <MenuItem Header="Exportar" Click="ExportarCSV"/>
@@ -21,5 +22,7 @@
                 <MenuItem Header="_Tablas" Click="Mostrar_Tablas"/>
             </Menu>
         </DockPanel>
+        <Canvas Grid.Row="1" Name="CanvaFondo" Background="#FFDDDDD3" Margin="20"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="StackPanelPartidos"></StackPanel>
     </Grid>
 </Window>

@@ -10,7 +10,7 @@
         MouseDown="Window_MouseDown" 
         WindowStyle="None"
         Title="Tablas" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="25">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -38,7 +38,7 @@
             </Button>
         </StackPanel>
 
-        <ListView Name="listaVotos" Margin="10,10,10,10" Grid.Row="0" Grid.Column="0" SelectionChanged="lista_SelectionElecciones" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView Name="listaVotos" Margin="10,10,10,10" Grid.Row="0" Grid.Column="0" SelectionChanged="lista_SelectionElecciones" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ELECCION" Width="auto" DisplayMemberBinding="{Binding Nombre}"/>
@@ -66,7 +66,7 @@
                 </Button.Content>
             </Button>
         </StackPanel>
-        <ListView Name="listaVAutonomicas" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0" SelectionChanged="lista_SelectionAutonomicas" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView Name="listaVAutonomicas" Margin="10,10,10,10" Grid.Row="1" Grid.Column="0" SelectionChanged="lista_SelectionAutonomicas" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ELECCION" Width="auto" DisplayMemberBinding="{Binding Nombre}"/>

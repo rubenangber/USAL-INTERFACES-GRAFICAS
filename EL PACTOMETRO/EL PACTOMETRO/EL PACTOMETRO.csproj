@@ -72,6 +72,12 @@
     <Compile Include="Tablas.xaml.cs">
       <DependentUpon>Tablas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tablas2.xaml.cs">
+      <DependentUpon>Tablas2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas3.xaml.cs">
+      <DependentUpon>Tablas3.xaml</DependentUpon>
+    </Compile>
     <Page Include="EditAutonomica.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +107,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tablas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tablas2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tablas3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -66,13 +66,26 @@ namespace EL_PACTOMETRO {
                 Elecciones autoeselect = listaVotos.SelectedItem as Elecciones;
                 EleccionSeleccionadoEventArgs aux = new EleccionSeleccionadoEventArgs(autoeselect);
                 OnEleccionSeleccionado(aux);
+                MostrarVentanaElementoSeleccionado(autoeselect);
             }
         }
+
+        private void MostrarVentanaElementoSeleccionado(Elecciones eleccion) {
+            Tablas2 detallesVentana = new Tablas2(eleccion);
+            detallesVentana.ShowDialog();
+        }
+
         private void lista_SelectionAutonomicas(object sender, SelectionChangedEventArgs e) {
             if (listaVAutonomicas.SelectedItem is Autonomicas selectedAutonomica) {
                 AutonomicaSeleccionadoEventArgs args = new AutonomicaSeleccionadoEventArgs(selectedAutonomica);
                 OnAutonomicaSeleccionado(args);
+                MostrarVentanaElementoSeleccionado(selectedAutonomica);
             }
+        }
+
+        private void MostrarVentanaElementoSeleccionado(Autonomicas eleccion) {
+            Tablas3 detallesVentana = new Tablas3(eleccion);
+            detallesVentana.ShowDialog();
         }
 
 

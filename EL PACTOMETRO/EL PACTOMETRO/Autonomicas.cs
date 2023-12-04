@@ -96,5 +96,14 @@ namespace EL_PACTOMETRO {
             if (PropertyChanged != null)
             PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
         }
+        public int ObtenerMayorValor() {
+            // Obtener todas las propiedades de tipo entero excepto "Escaños" y "Mayoria" usando reflexión
+            var propiedades = this.GetType().GetProperties()
+                .Where(prop => prop.PropertyType == typeof(int) && prop.Name != "Escaños" && prop.Name != "Mayoria")
+                .Select(prop => (int)prop.GetValue(this, null));
+
+            // Devolver el valor máximo
+            return propiedades.Max();
+        }
     }
 }
