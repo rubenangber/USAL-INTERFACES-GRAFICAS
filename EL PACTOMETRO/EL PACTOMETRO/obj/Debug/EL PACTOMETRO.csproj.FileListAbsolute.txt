@@ -27,3 +27,5 @@ C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL P
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\Tablas2.baml
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\Tablas3.g.cs
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\Tablas3.baml
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\Comun.g.cs
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\EL PACTOMETRO\EL PACTOMETRO\obj\Debug\Comun.baml

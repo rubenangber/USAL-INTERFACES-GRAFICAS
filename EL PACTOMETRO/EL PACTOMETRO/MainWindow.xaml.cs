@@ -25,7 +25,6 @@ namespace EL_PACTOMETRO {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    [Serializable]
     public partial class MainWindow : Window {
         Tablas t;
         ObservableCollection<Elecciones> listElecciones = new ObservableCollection<Elecciones>();
@@ -33,7 +32,7 @@ namespace EL_PACTOMETRO {
         public MainWindow() {
             InitializeComponent();
             t = new Tablas(listElecciones, listAutonomicas);
-            t.Show();
+            //t.Show();
             t.EleccionSeleccionada += t_EleccionSeleccionada;
             t.AutonomicaSeleccionada += t_AutonomicaSeleccionada;
         }
@@ -207,46 +206,57 @@ namespace EL_PACTOMETRO {
             Label PP = new Label();
             PP.Content = "PP";
             PP.Foreground = new SolidColorBrush(Colors.Blue);
+            PP.FontWeight = FontWeights.Bold;
 
             Label PSOE = new Label();
             PSOE.Content = "PSOE";
             PSOE.Foreground = new SolidColorBrush(Colors.Red);
+            PSOE.FontWeight = FontWeights.Bold;
 
             Label VOX = new Label();
             VOX.Content = "VOX";
             VOX.Foreground = new SolidColorBrush(Colors.LightGreen);
+            VOX.FontWeight = FontWeights.Bold;
 
             Label SUMAR = new Label();
             SUMAR.Content = "SUMAR";
             SUMAR.Foreground = new SolidColorBrush(Colors.Pink);
+            SUMAR.FontWeight = FontWeights.Bold;
 
             Label ERC = new Label();
             ERC.Content = "ERC";
             ERC.Foreground = new SolidColorBrush(Colors.Yellow);
+            ERC.FontWeight = FontWeights.Bold;
 
             Label JUNTS = new Label();
             JUNTS.Content = "JUNTS";
             JUNTS.Foreground = new SolidColorBrush(Colors.Aquamarine);
+            JUNTS.FontWeight = FontWeights.Bold;
 
             Label BILDU = new Label();
             BILDU.Content = "BILDU";
             BILDU.Foreground = new SolidColorBrush(Colors.LightBlue);
+            BILDU.FontWeight = FontWeights.Bold;
 
             Label PNV = new Label();
             PNV.Content = "PNV";
             PNV.Foreground = new SolidColorBrush(Colors.Green);
+            PNV.FontWeight = FontWeights.Bold;
 
             Label BNG = new Label();
             BNG.Content = "BNG";
             BNG.Foreground = new SolidColorBrush(Colors.Blue);
+            BNG.FontWeight = FontWeights.Bold;
 
             Label CCA = new Label();
             CCA.Content = "CCA";
             CCA.Foreground = new SolidColorBrush(Colors.Gray);
+            CCA.FontWeight = FontWeights.Bold;
 
             Label UPN = new Label();
             UPN.Content = "UPN";
             UPN.Foreground = new SolidColorBrush(Colors.Purple);
+            UPN.FontWeight = FontWeights.Bold;
 
             StackPanelPartidos.Children.Add(PP);
             StackPanelPartidos.Children.Add(PSOE);
@@ -382,34 +392,42 @@ namespace EL_PACTOMETRO {
             Label PP = new Label();
             PP.Content = "PP";
             PP.Foreground = new SolidColorBrush(Colors.Blue);
+            PP.FontWeight = FontWeights.Bold;
 
             Label PSOE = new Label();
             PSOE.Content = "PSOE";
             PSOE.Foreground = new SolidColorBrush(Colors.Red);
+            PSOE.FontWeight = FontWeights.Bold;
 
             Label VOX = new Label();
             VOX.Content = "VOX";
             VOX.Foreground = new SolidColorBrush(Colors.LightGreen);
+            VOX.FontWeight = FontWeights.Bold;
 
             Label UPL = new Label();
             UPL.Content = "UPL";
             UPL.Foreground = new SolidColorBrush(Colors.LightPink);
+            UPL.FontWeight = FontWeights.Bold;
 
             Label SY = new Label();
             SY.Content = "SY";
             SY.Foreground = new SolidColorBrush(Colors.Black);
+            SY.FontWeight = FontWeights.Bold;
 
             Label PODEMOS = new Label();
             PODEMOS.Content = "PODEMOS";
             PODEMOS.Foreground = new SolidColorBrush(Colors.Purple);
+            PODEMOS.FontWeight = FontWeights.Bold;
 
             Label CS = new Label();
             CS.Content = "CS";
             CS.Foreground = new SolidColorBrush(Colors.Orange);
+            CS.FontWeight = FontWeights.Bold;
 
             Label XAV = new Label();
             XAV.Content = "XAV";
             XAV.Foreground = new SolidColorBrush(Colors.Yellow);
+            XAV.FontWeight = FontWeights.Bold;
 
             StackPanelPartidos.Children.Add(PP);
             StackPanelPartidos.Children.Add(PSOE);
@@ -513,16 +531,20 @@ namespace EL_PACTOMETRO {
             }
         }
 
+        private void Grafico_Comun(object sender, RoutedEventArgs e) { 
+            Comun c = new Comun(listElecciones, listAutonomicas);
+            t.Hide();
+            c.Show();
+        }
+
         //Cerrar todas las ventanas
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             // Obtener todas las ventanas abiertas
             foreach (Window window in App.Current.Windows) {
-                // Verificar si la ventana no es la principal y cerrarla
                 if (window != this) {
                     window.Close();
                 }
             }
         }
-
     }
 }

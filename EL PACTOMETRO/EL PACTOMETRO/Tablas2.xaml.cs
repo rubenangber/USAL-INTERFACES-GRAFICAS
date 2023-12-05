@@ -27,8 +27,7 @@ namespace EL_PACTOMETRO {
             DataGrid dg = new DataGrid();
             dg.AutoGenerateColumns = false;
 
-            dg.Columns.Add(new DataGridTextColumn
-            {
+            dg.Columns.Add(new DataGridTextColumn {
                 Header = "Fecha",
                 Binding = new Binding("Fecha"),
                 HeaderStringFormat = "dd/MM/yyyy"

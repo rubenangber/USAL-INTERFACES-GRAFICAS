@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Autonomicas.cs" />
+    <Compile Include="Comun.xaml.cs">
+      <DependentUpon>Comun.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditAutonomica.xaml.cs">
       <DependentUpon>EditAutonomica.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
     <Compile Include="Tablas3.xaml.cs">
       <DependentUpon>Tablas3.xaml</DependentUpon>
     </Compile>
+    <Page Include="Comun.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditAutonomica.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
