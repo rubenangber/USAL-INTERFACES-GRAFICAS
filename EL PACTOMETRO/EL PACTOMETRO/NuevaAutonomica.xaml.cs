@@ -68,10 +68,8 @@ namespace EL_PACTOMETRO {
             errorfecha.Visibility = Visibility.Hidden;
         }
 
-        private void Añadir_Eleccion(object sender, RoutedEventArgs e)
-        {
-            if (Comprobar() == true)
-            {
+        private void Añadir_Eleccion(object sender, RoutedEventArgs e) {
+            if (Comprobar() == true) {
                 newAutonomicas = new Autonomicas("Autonómicas CYL", int.Parse(EscañosPP.Text), int.Parse(EscañosPSOE.Text), int.Parse(EscañosVOX.Text), int.Parse(EscañosUPL.Text),
                     int.Parse(EscañosSY.Text), int.Parse(EscañosPODEMOS.Text), int.Parse(EscañosCS.Text), int.Parse(EscañosXAV.Text),
                     introducirfecha.SelectedDate.Value.Date);
@@ -81,49 +79,105 @@ namespace EL_PACTOMETRO {
 
         private bool Comprobar() {
             bool comprobar = true;
-            if (String.IsNullOrEmpty(EscañosPP.Text)) {
+            int suma = 0;
+            int cuenta;
+
+            //PP
+            if (!String.IsNullOrEmpty(EscañosPP.Text) && int.TryParse(EscañosPP.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += int.Parse(EscañosPP.Text);
+                }
+            } else {
                 EscañosPP.BorderBrush = Brushes.Red;
                 errorpp.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosPSOE.Text)) {
+
+            //PSOE
+            if (!String.IsNullOrEmpty(EscañosPSOE.Text) && int.TryParse(EscañosPSOE.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += int.Parse(EscañosPSOE.Text);
+                }
+            } else {
                 EscañosPSOE.BorderBrush = Brushes.Red;
                 errorpsoe.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosVOX.Text)) {
+
+            //VOX
+            if (!String.IsNullOrEmpty(EscañosVOX.Text) && int.TryParse(EscañosVOX.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += int.Parse(EscañosVOX.Text);
+                }
+            } else {
                 EscañosVOX.BorderBrush = Brushes.Red;
                 errorvox.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosUPL.Text)) {
+
+            //UPL
+            if (!String.IsNullOrEmpty(EscañosUPL.Text) && int.TryParse(EscañosUPL.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += int.Parse(EscañosUPL.Text);
+                }
+            } else {
                 EscañosUPL.BorderBrush = Brushes.Red;
                 errorupl.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosSY.Text)) {
+
+            //SY
+            if (!String.IsNullOrEmpty(EscañosSY.Text) && int.TryParse(EscañosSY.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += int.Parse(EscañosSY.Text);
+                }
+            } else {
                 EscañosSY.BorderBrush = Brushes.Red;
                 errorsy.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosPODEMOS.Text)) {
+
+            //PODEMOS
+            if (!String.IsNullOrEmpty(EscañosPODEMOS.Text) && int.TryParse(EscañosPODEMOS.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += int.Parse(EscañosPODEMOS.Text);
+                }
+            } else {
                 EscañosPODEMOS.BorderBrush = Brushes.Red;
                 errorpodemos.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosCS.Text)) {
+
+            //CS
+            if (!String.IsNullOrEmpty(EscañosCS.Text) && int.TryParse(EscañosCS.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += int.Parse(EscañosCS.Text);
+                }
+            } else {
                 EscañosCS.BorderBrush = Brushes.Red;
                 errorcs.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosXAV.Text)) {
+
+            //XAV
+            if (!String.IsNullOrEmpty(EscañosXAV.Text) && int.TryParse(EscañosXAV.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += int.Parse(EscañosXAV.Text);
+                }
+            } else {
                 EscañosXAV.BorderBrush = Brushes.Red;
                 errorxav.Visibility = Visibility.Visible;
                 comprobar = false;
             }
+
             if (String.IsNullOrEmpty(introducirfecha.Text)) {
                 introducirfecha.BorderBrush = Brushes.Red;
                 errorfecha.Visibility = Visibility.Visible;
+                comprobar = false;
+            }
+
+            if (suma != 81) {
+                errorsuma.Visibility = Visibility.Visible;
                 comprobar = false;
             }
             return comprobar;

@@ -32,7 +32,7 @@ namespace EL_PACTOMETRO {
         public MainWindow() {
             InitializeComponent();
             t = new Tablas(listElecciones, listAutonomicas);
-            //t.Show();
+            t.Show();
             t.EleccionSeleccionada += t_EleccionSeleccionada;
             t.AutonomicaSeleccionada += t_AutonomicaSeleccionada;
         }
@@ -501,24 +501,29 @@ namespace EL_PACTOMETRO {
                         while (!sr.EndOfStream) {
                             string[] line = sr.ReadLine().Split(',');
                             if (line.Length == 15) {
-                                // Crea una nueva instancia de Elecciones y agrega a la lista
-                                Elecciones nuevaEleccion = new Elecciones(
-                                    line[0], int.Parse(line[1]), int.Parse(line[2]), int.Parse(line[3]),
-                                    int.Parse(line[4]), int.Parse(line[5]), int.Parse(line[6]), int.Parse(line[7]),
-                                    int.Parse(line[8]), int.Parse(line[9]), int.Parse(line[10]), int.Parse(line[11]),
-                                    DateTime.Parse(line[14])
-                                );
-                                listElecciones.Add(nuevaEleccion);
+                                //Comprobar si los datos introducidos son correctos
+                                if (ComprobarImportarEleccion(line)) {
+                                    // Crea una nueva instancia de Elecciones y agrega a la lista
+                                    Elecciones nuevaEleccion = new Elecciones(
+                                        line[0], int.Parse(line[1]), int.Parse(line[2]), int.Parse(line[3]),
+                                        int.Parse(line[4]), int.Parse(line[5]), int.Parse(line[6]), int.Parse(line[7]),
+                                        int.Parse(line[8]), int.Parse(line[9]), int.Parse(line[10]), int.Parse(line[11]),
+                                        DateTime.Parse(line[14])
+                                    );
+                                    listElecciones.Add(nuevaEleccion);
+                                }
                             } else if(line.Length == 12) {
-                                // Crea una nueva instancia de Autonomicas y agrega a la lista
-                                Autonomicas nuevaAutonomica = new Autonomicas(
-                                    line[0], int.Parse(line[1]), int.Parse(line[2]), int.Parse(line[3]),
-                                    int.Parse(line[4]), int.Parse(line[5]), int.Parse(line[6]), int.Parse(line[7]),
-                                    int.Parse(line[8]), DateTime.Parse(line[11])
-                                );
-                                listAutonomicas.Add(nuevaAutonomica);
-                            }
-                            else {
+                                //Comprobar si los datos introducidos son correctos
+                                if (ComprobarImportarAutonomica(line)) {
+                                    // Crea una nueva instancia de Autonomicas y agrega a la lista
+                                    Autonomicas nuevaAutonomica = new Autonomicas(
+                                        line[0], int.Parse(line[1]), int.Parse(line[2]), int.Parse(line[3]),
+                                        int.Parse(line[4]), int.Parse(line[5]), int.Parse(line[6]), int.Parse(line[7]),
+                                        int.Parse(line[8]), DateTime.Parse(line[11])
+                                    );
+                                    listAutonomicas.Add(nuevaAutonomica);
+                                }
+                            } else {
                                 // Puedes manejar un error o mostrar un mensaje de advertencia si la línea no tiene el formato esperado
                                 MessageBox.Show($"Error en el formato de la línea: {string.Join(",", line)}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
@@ -531,8 +536,228 @@ namespace EL_PACTOMETRO {
             }
         }
 
+        private bool ComprobarImportarEleccion(string[] line) {
+            bool correcto = true;
+            int suma = 0;
+            int cuenta;
+
+            if (int.TryParse(line[1], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[2], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[3], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[4], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[5], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[6], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[7], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[8], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[9], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[10], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[11], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (suma != 350) { 
+                correcto = false;
+            }
+
+            return correcto;
+        }
+
+        private bool ComprobarImportarAutonomica(string[] line) {
+            bool correcto = true;
+            int suma = 0;
+            int cuenta;
+
+            if (int.TryParse(line[1], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[2], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[3], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[4], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[5], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[6], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[7], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[8], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (suma != 81) {
+                correcto = false;
+            }
+
+            return correcto;
+        }
+
         private void Grafico_Comun(object sender, RoutedEventArgs e) { 
             Comun c = new Comun(listElecciones, listAutonomicas);
+            t.Hide();
+            c.Show();
+        }
+
+        private void Grafico_Comparativo(object sender, RoutedEventArgs e) {
+            Comparativo c = new Comparativo(listElecciones, listAutonomicas);
             t.Hide();
             c.Show();
         }

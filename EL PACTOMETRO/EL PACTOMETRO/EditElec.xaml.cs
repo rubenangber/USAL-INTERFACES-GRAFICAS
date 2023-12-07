@@ -114,66 +114,140 @@ namespace EL_PACTOMETRO {
         }
         private bool Comprobar() {
             bool comprobar = true;
+            int sum = 0;
+            int cuenta;
 
-            if (String.IsNullOrEmpty(EscañosPP.Text)) {
+            //PP
+            if (!String.IsNullOrEmpty(EscañosPP.Text) && int.TryParse(EscañosPP.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosPP.Text);
+                }
+            } else {
                 EscañosPP.BorderBrush = Brushes.Red;
                 errorpp.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosPSOE.Text)) {
+
+            //PSOE
+            if (!String.IsNullOrEmpty(EscañosPSOE.Text) && int.TryParse(EscañosPSOE.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosPSOE.Text);
+                }
+            } else {
                 EscañosPSOE.BorderBrush = Brushes.Red;
                 errorpsoe.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosVOX.Text)) {
+
+            //VOX
+            if (!String.IsNullOrEmpty(EscañosVOX.Text) && int.TryParse(EscañosVOX.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosVOX.Text);
+                }
+            } else {
                 EscañosVOX.BorderBrush = Brushes.Red;
                 errorvox.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosSUMAR.Text)) {
+
+            //SUMAR
+            if (!String.IsNullOrEmpty(EscañosSUMAR.Text) && int.TryParse(EscañosSUMAR.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosSUMAR.Text);
+                }
+            } else {
                 EscañosSUMAR.BorderBrush = Brushes.Red;
                 errorsumar.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosERC.Text)) {
+
+            //ERC
+            if (!String.IsNullOrEmpty(EscañosERC.Text) && int.TryParse(EscañosERC.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosERC.Text);
+                }
+            } else {
                 EscañosERC.BorderBrush = Brushes.Red;
                 errorerc.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosJUNTS.Text)) {
+
+            //JUNTS
+            if (!String.IsNullOrEmpty(EscañosJUNTS.Text) && int.TryParse(EscañosJUNTS.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosJUNTS.Text);
+                }
+            } else {
                 EscañosJUNTS.BorderBrush = Brushes.Red;
                 errorjunts.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosBILDU.Text)) {
+
+            //BILDU
+            if (!String.IsNullOrEmpty(EscañosBILDU.Text) && int.TryParse(EscañosBILDU.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosBILDU.Text);
+                }
+            } else {
                 EscañosBILDU.BorderBrush = Brushes.Red;
                 errorbildu.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosPNV.Text)) {
+
+            //PNV
+            if (!String.IsNullOrEmpty(EscañosPNV.Text) && int.TryParse(EscañosPNV.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosPNV.Text);
+                }
+            } else {
                 EscañosPNV.BorderBrush = Brushes.Red;
                 errorpnv.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosBNG.Text)) {
+
+            //BNG
+            if (!String.IsNullOrEmpty(EscañosBNG.Text) && int.TryParse(EscañosBNG.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosBNG.Text);
+                }
+            } else {
                 EscañosBNG.BorderBrush = Brushes.Red;
                 errorbng.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosCCA.Text)) {
+
+            //CCA
+            if (!String.IsNullOrEmpty(EscañosCCA.Text) && int.TryParse(EscañosCCA.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosCCA.Text);
+                }
+            } else {
                 EscañosCCA.BorderBrush = Brushes.Red;
                 errorcca.Visibility = Visibility.Visible;
                 comprobar = false;
             }
-            if (String.IsNullOrEmpty(EscañosUPN.Text)) {
+
+            //UPN
+            if (!String.IsNullOrEmpty(EscañosUPN.Text) && int.TryParse(EscañosUPN.Text, out cuenta)) {
+                if (cuenta >= 0)
+                {
+                    sum += int.Parse(EscañosUPN.Text);
+                }
+            } else {
                 EscañosUPN.BorderBrush = Brushes.Red;
                 errorupn.Visibility = Visibility.Visible;
                 comprobar = false;
             }
+
             if (String.IsNullOrEmpty(introducirfecha.Text)) {
                 introducirfecha.BorderBrush = Brushes.Red;
                 errorfecha.Visibility = Visibility.Visible;
                 comprobar = false;
+            }
+
+            if (sum != 350) {
+                comprobar = false;
+                errorsuma.Visibility = Visibility.Visible;
             }
             return comprobar;
         }

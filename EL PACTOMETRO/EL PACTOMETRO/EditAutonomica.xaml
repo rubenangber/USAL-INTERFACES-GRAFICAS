@@ -43,8 +43,9 @@
         <TextBox Grid.Column="1" Grid.Row="5" x:Name="EscañosSY" Margin="5" SelectionChanged="introducirSY_SelectionChanged"/>
         <Label Name="errorsy" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Campo vacio, por favor introduzca un valor" FontSize="8" Foreground="Red" Visibility="Hidden"/>
         <!--COLUMNA 3-->
-        <Label Grid.Column="2" Grid.Row="0" Content="Autonomicas" Margin="5" FontWeight="Bold" FontSize="25"/>
+        <Label Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Content="Autonomicas" Margin="5" FontWeight="Bold" FontSize="25"/>
         <Button Grid.Column="2" Grid.Row="7" Name="Siguiente" Content="Editar" MinWidth="100" MinHeight="30" FontSize="15" Click="Editar_Eleccion"/>
+        <Label Name="errorsuma" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Content="La suma de los escaños no es 81" FontSize="15" Foreground="Red" Visibility="Hidden"/>
         <!--COLUMNA 4-->
         <Label Grid.Column="3" Grid.Row="1" Content="Escaños PODEMOS" Margin="5" FontSize="15"/>
         <Label Grid.Column="3" Grid.Row="2" Content="Escaños CS" Margin="5" FontSize="15"/>
