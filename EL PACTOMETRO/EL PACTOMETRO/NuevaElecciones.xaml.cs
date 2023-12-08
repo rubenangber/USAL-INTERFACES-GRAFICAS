@@ -79,6 +79,31 @@ namespace EL_PACTOMETRO {
             errorupn.Visibility = Visibility.Hidden;
         }
 
+        private void introducirPODEMOS_SelectionChanged(object sender, RoutedEventArgs e) {
+            EscañosPODEMOS.BorderBrush = Brushes.Black;
+            errorpodemos.Visibility = Visibility.Hidden;
+        }
+
+        private void introducirCS_SelectionChanged(object sender, RoutedEventArgs e) {
+            EscañosCS.BorderBrush = Brushes.Black;
+            errorcs.Visibility = Visibility.Hidden;
+        }
+
+        private void introducirMASPAIS_SelectionChanged(object sender, RoutedEventArgs e) {
+            EscañosMASPAIS.BorderBrush = Brushes.Black;
+            errormaspais.Visibility = Visibility.Hidden;
+        }
+
+        private void introducirCUP_SelectionChanged(object sender, RoutedEventArgs e) {
+            EscañosCUP.BorderBrush = Brushes.Black;
+            errorcup.Visibility = Visibility.Hidden;
+        }
+
+        private void introducirOTROS_SelectionChanged(object sender, RoutedEventArgs e) {
+            EscañosOTROS.BorderBrush = Brushes.Black;
+            errorotros.Visibility = Visibility.Hidden;
+        }
+
         private void introducirFecha_SelectionChanged(object sender, RoutedEventArgs e) {
             introducirfecha.BorderBrush = Brushes.Black;
             errorfecha.Visibility = Visibility.Hidden;
@@ -88,7 +113,8 @@ namespace EL_PACTOMETRO {
             if (Comprobar() == true) {
                 newEleccion = new Elecciones("Generales", int.Parse(EscañosPP.Text), int.Parse(EscañosPSOE.Text), int.Parse(EscañosVOX.Text), int.Parse(EscañosSUMAR.Text),
                     int.Parse(EscañosERC.Text), int.Parse(EscañosJUNTS.Text), int.Parse(EscañosBILDU.Text), int.Parse(EscañosPNV.Text),
-                    int.Parse(EscañosBNG.Text), int.Parse(EscañosCCA.Text), int.Parse(EscañosUPN.Text), introducirfecha.SelectedDate.Value.Date);
+                    int.Parse(EscañosBNG.Text), int.Parse(EscañosCCA.Text), int.Parse(EscañosUPN.Text), int.Parse(EscañosPODEMOS.Text),
+                    int.Parse(EscañosCS.Text), int.Parse(EscañosMASPAIS.Text), int.Parse(EscañosCUP.Text), int.Parse(EscañosOTROS.Text), introducirfecha.SelectedDate.Value.Date);
                 DialogResult = true;
             }
         }
@@ -216,6 +242,61 @@ namespace EL_PACTOMETRO {
             } else {
                 EscañosUPN.BorderBrush = Brushes.Red;
                 errorupn.Visibility = Visibility.Visible;
+                comprobar = false;
+            }
+
+            //PODEMOS
+            if (!String.IsNullOrEmpty(EscañosPODEMOS.Text) && int.TryParse(EscañosPODEMOS.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosPODEMOS.Text);
+                }
+            } else {
+                EscañosPODEMOS.BorderBrush = Brushes.Red;
+                errorpodemos.Visibility = Visibility.Visible;
+                comprobar = false;
+            }
+
+            //CIUDADANOS
+            if (!String.IsNullOrEmpty(EscañosCS.Text) && int.TryParse(EscañosCS.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosCS.Text);
+                }
+            } else {
+                EscañosCS.BorderBrush = Brushes.Red;
+                errorcs.Visibility = Visibility.Visible;
+                comprobar = false;
+            }
+
+            //MASPAIS
+            if (!String.IsNullOrEmpty(EscañosMASPAIS.Text) && int.TryParse(EscañosMASPAIS.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosMASPAIS.Text);
+                }
+            } else {
+                EscañosMASPAIS.BorderBrush = Brushes.Red;
+                errormaspais.Visibility = Visibility.Visible;
+                comprobar = false;
+            }
+
+            //CUP
+            if (!String.IsNullOrEmpty(EscañosCUP.Text) && int.TryParse(EscañosCUP.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosCUP.Text);
+                }
+            } else {
+                EscañosCUP.BorderBrush = Brushes.Red;
+                errorcup.Visibility = Visibility.Visible;
+                comprobar = false;
+            }
+
+            //OTROS
+            if (!String.IsNullOrEmpty(EscañosOTROS.Text) && int.TryParse(EscañosOTROS.Text, out cuenta)) {
+                if (cuenta >= 0) {
+                    sum += int.Parse(EscañosOTROS.Text);
+                }
+            } else {
+                EscañosOTROS.BorderBrush = Brushes.Red;
+                errorotros.Visibility = Visibility.Visible;
                 comprobar = false;
             }
 

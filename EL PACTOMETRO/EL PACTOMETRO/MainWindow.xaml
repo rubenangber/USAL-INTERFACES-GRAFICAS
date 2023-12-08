@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:EL_PACTOMETRO"
         mc:Ignorable="d"
         Closing="MainWindow_Closing"
-        Title="EL PACTÓMETRO" Height="450" Width="800">
+        Title="EL PACTÓMETRO" Height="450" Width="800"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

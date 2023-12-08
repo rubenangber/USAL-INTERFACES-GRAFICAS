@@ -133,7 +133,32 @@ namespace EL_PACTOMETRO {
             Rectangle R_UPN = new Rectangle();
             R_UPN.Height = ((((altocanva - 20) * el.UPN) / max));
             R_UPN.Width = 20;
-            R_UPN.Fill = new SolidColorBrush(Colors.Purple);
+            R_UPN.Fill = new SolidColorBrush(Colors.LightPink);
+
+            Rectangle R_PODEMOS = new Rectangle();
+            R_PODEMOS.Height = ((((altocanva - 20) * el.PODEMOS) / max));
+            R_PODEMOS.Width = 20;
+            R_PODEMOS.Fill = new SolidColorBrush(Colors.Purple);
+
+            Rectangle R_CS = new Rectangle();
+            R_CS.Height = ((((altocanva - 20) * el.CS) / max));
+            R_CS.Width = 20;
+            R_CS.Fill = new SolidColorBrush(Colors.Orange);
+
+            Rectangle R_MASPAIS = new Rectangle();
+            R_MASPAIS.Height = ((((altocanva - 20) * el.MASPAIS) / max));
+            R_MASPAIS.Width = 20;
+            R_MASPAIS.Fill = new SolidColorBrush(Colors.Purple);
+
+            Rectangle R_CUP = new Rectangle();
+            R_CUP.Height = ((((altocanva - 20) * el.CUP) / max));
+            R_CUP.Width = 20;
+            R_CUP.Fill = new SolidColorBrush(Colors.Purple);
+
+            Rectangle R_OTROS = new Rectangle();
+            R_OTROS.Height = ((((altocanva - 20) * el.OTROS) / max));
+            R_OTROS.Width = 20;
+            R_OTROS.Fill = new SolidColorBrush(Colors.Black);
 
             CanvaFondo.Children.Add(R_PP);
             CanvaFondo.Children.Add(R_PSOE);
@@ -146,6 +171,11 @@ namespace EL_PACTOMETRO {
             CanvaFondo.Children.Add(R_BNG);
             CanvaFondo.Children.Add(R_CCA);
             CanvaFondo.Children.Add(R_UPN);
+            CanvaFondo.Children.Add(R_PODEMOS);
+            CanvaFondo.Children.Add(R_CS);
+            CanvaFondo.Children.Add(R_MASPAIS);
+            CanvaFondo.Children.Add(R_CUP);
+            CanvaFondo.Children.Add(R_OTROS);
 
             Canvas.SetBottom(R_PP, 0);
             Canvas.SetLeft(R_PP, 0 * 80 + 10 + 50);
@@ -180,6 +210,21 @@ namespace EL_PACTOMETRO {
             Canvas.SetBottom(R_UPN, 0);
             Canvas.SetLeft(R_UPN, 10 * 80 + 10 + 50);
 
+            Canvas.SetBottom(R_PODEMOS, 0);
+            Canvas.SetLeft(R_PODEMOS, 11 * 80 + 10 + 50);
+
+            Canvas.SetBottom(R_CS, 0);
+            Canvas.SetLeft(R_CS, 12 * 80 + 10 + 50);
+
+            Canvas.SetBottom(R_MASPAIS, 0);
+            Canvas.SetLeft(R_MASPAIS, 13 * 80 + 10 + 50);
+
+            Canvas.SetBottom(R_CUP, 0);
+            Canvas.SetLeft(R_CUP, 14 * 80 + 10 + 50);
+
+            Canvas.SetBottom(R_OTROS, 0);
+            Canvas.SetLeft(R_OTROS, 15 * 80 + 10 + 50);
+
             R_PP.MouseEnter += (sender, e) => MostrarValor(el.PP, 0 * 80 + 10 + 50);
             R_PP.MouseLeave += (sender, e) => OcultarValor();
             R_PSOE.MouseEnter += (sender, e) => MostrarValor(el.PSOE, 1 * 80 + 10 + 50);
@@ -202,6 +247,16 @@ namespace EL_PACTOMETRO {
             R_CCA.MouseLeave += (sender, e) => OcultarValor();
             R_UPN.MouseEnter += (sender, e) => MostrarValor(el.UPN, 10 * 80 + 10 + 50);
             R_UPN.MouseLeave += (sender, e) => OcultarValor();
+            R_PODEMOS.MouseEnter += (sender, e) => MostrarValor(el.PODEMOS, 11 * 80 + 10 + 50);
+            R_PODEMOS.MouseLeave += (sender, e) => OcultarValor();
+            R_CS.MouseEnter += (sender, e) => MostrarValor(el.CS, 12 * 80 + 10 + 50);
+            R_CS.MouseLeave += (sender, e) => OcultarValor();
+            R_MASPAIS.MouseEnter += (sender, e) => MostrarValor(el.MASPAIS, 13 * 80 + 10 + 50);
+            R_MASPAIS.MouseLeave += (sender, e) => OcultarValor();
+            R_CUP.MouseEnter += (sender, e) => MostrarValor(el.CUP, 14 * 80 + 10 + 50);
+            R_CUP.MouseLeave += (sender, e) => OcultarValor();
+            R_OTROS.MouseEnter += (sender, e) => MostrarValor(el.OTROS, 15 * 80 + 10 + 50);
+            R_OTROS.MouseLeave += (sender, e) => OcultarValor();
 
             Label PP = new Label();
             PP.Content = "PP";
@@ -255,8 +310,34 @@ namespace EL_PACTOMETRO {
 
             Label UPN = new Label();
             UPN.Content = "UPN";
-            UPN.Foreground = new SolidColorBrush(Colors.Purple);
+            UPN.Foreground = new SolidColorBrush(Colors.LightPink);
             UPN.FontWeight = FontWeights.Bold;
+
+            Label PODEMOS = new Label();
+            PODEMOS.Content = "PODEMOS";
+            PODEMOS.Foreground = new SolidColorBrush(Colors.Purple);
+            PODEMOS.FontWeight = FontWeights.Bold;
+
+            Label CS = new Label();
+            CS.Content = "CS";
+            CS.Foreground = new SolidColorBrush(Colors.Orange);
+            CS.FontWeight = FontWeights.Bold;
+
+            Label MASPAIS = new Label();
+            MASPAIS.Content = "MAS PAIS";
+            MASPAIS.Foreground = new SolidColorBrush(Colors.Purple);
+            MASPAIS.FontWeight = FontWeights.Bold;
+
+            Label CUP = new Label();
+            CUP.Content = "CUP";
+            CUP.Foreground = new SolidColorBrush(Colors.Purple);
+            CUP.FontWeight = FontWeights.Bold;
+
+            Label OTROS = new Label();
+            OTROS.Content = "OTROS";
+            OTROS.Foreground = new SolidColorBrush(Colors.Black);
+            OTROS.FontWeight = FontWeights.Bold;
+
 
             StackPanelPartidos.Children.Add(PP);
             StackPanelPartidos.Children.Add(PSOE);
@@ -269,7 +350,22 @@ namespace EL_PACTOMETRO {
             StackPanelPartidos.Children.Add(BNG);
             StackPanelPartidos.Children.Add(CCA);
             StackPanelPartidos.Children.Add(UPN);
+            StackPanelPartidos.Children.Add(PODEMOS);
+            StackPanelPartidos.Children.Add(CS);
+            StackPanelPartidos.Children.Add(MASPAIS);
+            StackPanelPartidos.Children.Add(CUP);
+            StackPanelPartidos.Children.Add(OTROS);
+
+            CanvaFondo.MouseEnter += (sender, e) => ReDibujar(el);
         }
+
+        void ReDibujar(Elecciones el) {
+            GraficaElecciones(el);
+        }
+        void ReDibujar(Autonomicas el) {
+            GraficaAutonomicas(el);
+        }
+
 
         private void GraficaAutonomicas(Autonomicas el) {
             //LIMPIAMOS EL CANVAS
@@ -437,6 +533,8 @@ namespace EL_PACTOMETRO {
             StackPanelPartidos.Children.Add(PODEMOS);
             StackPanelPartidos.Children.Add(CS);
             StackPanelPartidos.Children.Add(XAV);
+
+            CanvaFondo.MouseEnter += (sender, e) => ReDibujar(el);
         }
 
         void MostrarValor(int valor, int left) {
@@ -479,7 +577,7 @@ namespace EL_PACTOMETRO {
             if (exploradorArchivos.ShowDialog() == true) {
                 using (StreamWriter sw = new StreamWriter(exploradorArchivos.FileName)) {
                     foreach (var eleccion in listElecciones) {
-                        sw.WriteLine($"{eleccion.Nombre},{eleccion.PP},{eleccion.PSOE},{eleccion.VOX},{eleccion.SUMAR},{eleccion.ERC},{eleccion.JUNTS},{eleccion.BILDU},{eleccion.PNV},{eleccion.BNG},{eleccion.CCA},{eleccion.UPN},{eleccion.Escaños},{eleccion.Mayoria},{eleccion.Fecha}");
+                        sw.WriteLine($"{eleccion.Nombre},{eleccion.PP},{eleccion.PSOE},{eleccion.VOX},{eleccion.SUMAR},{eleccion.ERC},{eleccion.JUNTS},{eleccion.BILDU},{eleccion.PNV},{eleccion.BNG},{eleccion.CCA},{eleccion.UPN},{eleccion.PODEMOS},{eleccion.CS},{eleccion.MASPAIS},{eleccion.CUP},{eleccion.OTROS},{eleccion.Escaños},{eleccion.Mayoria},{eleccion.Fecha}");
                     }
                     foreach (var eleccion in listAutonomicas) {
                         sw.WriteLine($"{eleccion.Nombre},{eleccion.PP},{eleccion.PSOE},{eleccion.VOX},{eleccion.UPL},{eleccion.SY},{eleccion.PODEMOS},{eleccion.CS},{eleccion.XAV},{eleccion.Escaños},{eleccion.Mayoria},{eleccion.Fecha}");
@@ -500,7 +598,7 @@ namespace EL_PACTOMETRO {
                     using (StreamReader sr = new StreamReader(exploradorArchivos.FileName)) {
                         while (!sr.EndOfStream) {
                             string[] line = sr.ReadLine().Split(',');
-                            if (line.Length == 15) {
+                            if (line.Length == 20) {
                                 //Comprobar si los datos introducidos son correctos
                                 if (ComprobarImportarEleccion(line)) {
                                     // Crea una nueva instancia de Elecciones y agrega a la lista
@@ -508,7 +606,8 @@ namespace EL_PACTOMETRO {
                                         line[0], int.Parse(line[1]), int.Parse(line[2]), int.Parse(line[3]),
                                         int.Parse(line[4]), int.Parse(line[5]), int.Parse(line[6]), int.Parse(line[7]),
                                         int.Parse(line[8]), int.Parse(line[9]), int.Parse(line[10]), int.Parse(line[11]),
-                                        DateTime.Parse(line[14])
+                                        int.Parse(line[12]), int.Parse(line[13]), int.Parse(line[14]), int.Parse(line[15]), 
+                                        int.Parse(line[16]), DateTime.Parse(line[19])
                                     );
                                     listElecciones.Add(nuevaEleccion);
                                 }
@@ -642,6 +741,56 @@ namespace EL_PACTOMETRO {
             }
 
             if (int.TryParse(line[11], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[12], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[13], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[14], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[15], out cuenta)) {
+                if (cuenta >= 0) {
+                    suma += cuenta;
+                } else {
+                    correcto = false;
+                }
+            } else {
+                correcto = false;
+            }
+
+            if (int.TryParse(line[16], out cuenta)) {
                 if (cuenta >= 0) {
                     suma += cuenta;
                 } else {

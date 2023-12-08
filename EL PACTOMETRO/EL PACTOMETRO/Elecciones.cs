@@ -22,6 +22,11 @@ namespace EL_PACTOMETRO {
         int bng;
         int cca;
         int upn;
+        int podemos;
+        int cs;
+        int maspais;
+        int cup;
+        int otros;
         const int escaños = 350;
         const int mayoria = 176;
         DateTime fecha;
@@ -36,8 +41,13 @@ namespace EL_PACTOMETRO {
         int t_bng = 2;
         int t_cca = 2;
         int t_upn = 2;
+        int t_podemos = 2;
+        int t_cs = 1;
+        int t_maspais = 2;
+        int t_cup = 2;
+        int t_otros = 1;
 
-        public Elecciones(string Nombre, int PP, int PSOE, int VOX, int SUMAR, int ERC, int JUNTS, int BILDU, int PNV, int BNG, int CCA, int UPN, DateTime FECHA) {
+        public Elecciones(string Nombre, int PP, int PSOE, int VOX, int SUMAR, int ERC, int JUNTS, int BILDU, int PNV, int BNG, int CCA, int UPN, int PODEMOS, int CS, int MASPAIS, int CUP, int OTROS, DateTime FECHA) {
             nombre = Nombre;
             pp = PP;
             psoe = PSOE;
@@ -50,8 +60,14 @@ namespace EL_PACTOMETRO {
             bng = BNG;
             cca = CCA;
             upn = UPN;
+            podemos = PODEMOS;
+            cs = CS;
+            maspais = MASPAIS;
+            cup = CUP;
+            otros = OTROS;
             fecha = FECHA.Date;
         }
+
         public string Nombre {
             get { return nombre; }
             set { nombre = value; OnPropertyChanged("Nombre"); }
@@ -100,6 +116,32 @@ namespace EL_PACTOMETRO {
             get { return upn; }
             set { upn = value; OnPropertyChanged("UPN"); }
         }
+
+        public int PODEMOS {
+            get { return podemos; }
+            set { podemos = value; OnPropertyChanged("PODEMOS"); }
+        }
+
+        public int CS {
+            get { return cs; }
+            set { cs = value; OnPropertyChanged("CS"); }
+        }
+
+        public int MASPAIS {
+            get { return maspais; }
+            set { maspais = value; OnPropertyChanged("MASPAIS"); }
+        }
+
+        public int CUP {
+            get { return cup; }
+            set { cup = value; OnPropertyChanged("CUP"); }
+        }
+
+        public int OTROS {
+            get { return otros; }
+            set { otros = value; OnPropertyChanged("OTROS"); }
+        }
+
         public int Escaños {
             get { return escaños; }
         }
@@ -167,6 +209,31 @@ namespace EL_PACTOMETRO {
         public int t_UPN {
             get { return t_upn; }
             set { t_upn = value; OnPropertyChanged("t_upn"); }
+        }
+
+        public int t_PODEMOS {
+            get { return t_podemos; }
+            set { t_podemos = value; OnPropertyChanged("t_podemos"); }
+        }
+
+        public int t_CS {
+            get { return t_cs; }
+            set { t_cs = value; OnPropertyChanged("t_cs"); }
+        }
+
+        public int t_MASPAIS {
+            get { return t_maspais; }
+            set { t_maspais = value; OnPropertyChanged("t_maspais"); }
+        }
+
+        public int t_CUP {
+            get { return t_cup; }
+            set { t_cup = value; OnPropertyChanged("t_cup"); }
+        }
+
+        public int t_OTROS {
+            get { return t_otros; }
+            set { t_otros = value; OnPropertyChanged("t_otros"); }
         }
 
         public int ObtenerMayorValor() {

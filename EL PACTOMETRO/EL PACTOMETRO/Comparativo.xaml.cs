@@ -43,27 +43,49 @@ namespace EL_PACTOMETRO {
         private void GraficaElecciones(ObservableCollection<Elecciones> listElecciones) {
             // LIMPIAMOS EL CANVAS
             CanvaFondo.Children.Clear();
+
             // METODO DE GENERAR LA GRÁFICA
             int i;
             float altocanva = (float)CanvaFondo.ActualHeight;
             float anchocanva = (float)CanvaFondo.ActualWidth;
             int cont = 0;
+            int max = 0;
 
             if (listElecciones == null || listElecciones.Count == 0) {
                 return;
-            }else if (listElecciones.Count == 1) {
+            } else if (listElecciones.Count == 1) {
                 cont = 1;
+                max = listElecciones[0].ObtenerMayorValor();
             } else if (listElecciones.Count == 2) {
                 cont = 2;
+                if (listElecciones[0].ObtenerMayorValor() > listElecciones[1].ObtenerMayorValor()) { 
+                    max = listElecciones[0].ObtenerMayorValor();
+                } else {
+                    max = listElecciones[1].ObtenerMayorValor();
+                }
             } else if (listElecciones.Count == 3) {
                 cont = 3;
+                if (listElecciones[0].ObtenerMayorValor() > listElecciones[1].ObtenerMayorValor() && listElecciones[0].ObtenerMayorValor() > listElecciones[2].ObtenerMayorValor()) {
+                    max = listElecciones[0].ObtenerMayorValor();
+                } else if (listElecciones[1].ObtenerMayorValor() > listElecciones[0].ObtenerMayorValor() && listElecciones[1].ObtenerMayorValor() > listElecciones[2].ObtenerMayorValor()) {
+                    max = listElecciones[1].ObtenerMayorValor();
+                } else if (listElecciones[2].ObtenerMayorValor() > listElecciones[0].ObtenerMayorValor() && listElecciones[2].ObtenerMayorValor() > listElecciones[1].ObtenerMayorValor()) {
+                    max = listElecciones[2].ObtenerMayorValor();
+                }
             } else {
                 cont = 3;
+                if (listElecciones[0].ObtenerMayorValor() > listElecciones[1].ObtenerMayorValor() && listElecciones[0].ObtenerMayorValor() > listElecciones[2].ObtenerMayorValor()) {
+                    max = listElecciones[0].ObtenerMayorValor();
+                } else if (listElecciones[1].ObtenerMayorValor() > listElecciones[0].ObtenerMayorValor() && listElecciones[1].ObtenerMayorValor() > listElecciones[2].ObtenerMayorValor()) {
+                    max = listElecciones[1].ObtenerMayorValor();
+                } else if (listElecciones[2].ObtenerMayorValor() > listElecciones[0].ObtenerMayorValor() && listElecciones[2].ObtenerMayorValor() > listElecciones[1].ObtenerMayorValor()) {
+                    max = listElecciones[2].ObtenerMayorValor();
+                }
             }
 
             for (i = 0; i < cont; i++) {
                 Rectangle R_PP = new Rectangle();
-                R_PP.Height = ((((altocanva - 20) * listElecciones[i].PP) / 180));
+                R_PP.Height = ((((altocanva - 20) * listElecciones[i].PP) / max));
                 R_PP.Width = 20;
                 R_PP.Fill = new SolidColorBrush(Colors.Blue);
                 CanvaFondo.Children.Add(R_PP);
@@ -71,7 +93,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_PP, i * 80);
 
                 Rectangle R_PSOE = new Rectangle();
-                R_PSOE.Height = ((((altocanva - 20) * listElecciones[i].PSOE) / 180));
+                R_PSOE.Height = ((((altocanva - 20) * listElecciones[i].PSOE) / max));
                 R_PSOE.Width = 20;
                 R_PSOE.Fill = new SolidColorBrush(Colors.Red);
                 CanvaFondo.Children.Add(R_PSOE);
@@ -79,7 +101,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_PSOE, i * 80 + 20);
 
                 Rectangle R_VOX = new Rectangle();
-                R_VOX.Height = ((((altocanva - 20) * listElecciones[i].VOX) / 180));
+                R_VOX.Height = ((((altocanva - 20) * listElecciones[i].VOX) / max));
                 R_VOX.Width = 20;
                 R_VOX.Fill = new SolidColorBrush(Colors.LightGreen);
                 CanvaFondo.Children.Add(R_VOX);
@@ -87,7 +109,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_VOX, i * 80 + 40);
 
                 Rectangle R_SUMAR = new Rectangle();
-                R_SUMAR.Height = ((((altocanva - 20) * listElecciones[i].SUMAR) / 180));
+                R_SUMAR.Height = ((((altocanva - 20) * listElecciones[i].SUMAR) / max));
                 R_SUMAR.Width = 20;
                 R_SUMAR.Fill = new SolidColorBrush(Colors.Pink);
                 CanvaFondo.Children.Add(R_SUMAR);
@@ -95,7 +117,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_SUMAR, i * 80 + 50 + 60);
 
                 Rectangle R_ERC = new Rectangle();
-                R_ERC.Height = ((((altocanva - 20) * listElecciones[i].ERC) / 180));
+                R_ERC.Height = ((((altocanva - 20) * listElecciones[i].ERC) / max));
                 R_ERC.Width = 20;
                 R_ERC.Fill = new SolidColorBrush(Colors.Yellow);
                 CanvaFondo.Children.Add(R_ERC);
@@ -103,7 +125,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_ERC, i * 80 + 50 + 100);
 
                 Rectangle R_JUNTS = new Rectangle();
-                R_JUNTS.Height = ((((altocanva - 20) * listElecciones[i].JUNTS) / 180));
+                R_JUNTS.Height = ((((altocanva - 20) * listElecciones[i].JUNTS) / max));
                 R_JUNTS.Width = 20;
                 R_JUNTS.Fill = new SolidColorBrush(Colors.Aquamarine);
                 CanvaFondo.Children.Add(R_JUNTS);
@@ -111,7 +133,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_JUNTS, i * 80 + 50 + 120);
 
                 Rectangle R_BILDU = new Rectangle();
-                R_BILDU.Height = ((((altocanva - 20) * listElecciones[i].BILDU) / 180));
+                R_BILDU.Height = ((((altocanva - 20) * listElecciones[i].BILDU) / max));
                 R_BILDU.Width = 20;
                 R_BILDU.Fill = new SolidColorBrush(Colors.LightBlue);
                 CanvaFondo.Children.Add(R_BILDU);
@@ -119,7 +141,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_BILDU, i * 80 + 50 + 140);
 
                 Rectangle R_PNV = new Rectangle();
-                R_PNV.Height = ((((altocanva - 20) * listElecciones[i].PNV) / 180));
+                R_PNV.Height = ((((altocanva - 20) * listElecciones[i].PNV) / max));
                 R_PNV.Width = 20;
                 R_PNV.Fill = new SolidColorBrush(Colors.Green);
                 CanvaFondo.Children.Add(R_PNV);
@@ -127,7 +149,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_PNV, i * 80 + 50 + 160);
 
                 Rectangle R_BNG = new Rectangle();
-                R_BNG.Height = ((((altocanva - 20) * listElecciones[i].BNG) / 180));
+                R_BNG.Height = ((((altocanva - 20) * listElecciones[i].BNG) / max));
                 R_BNG.Width = 20;
                 R_BNG.Fill = new SolidColorBrush(Colors.Blue);
                 CanvaFondo.Children.Add(R_BNG);
@@ -135,7 +157,7 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_BNG, i * 80 + 50 + 180);
 
                 Rectangle R_CCA = new Rectangle();
-                R_CCA.Height = ((((altocanva - 20) * listElecciones[i].CCA) / 180));
+                R_CCA.Height = ((((altocanva - 20) * listElecciones[i].CCA) / max));
                 R_CCA.Width = 20;
                 R_CCA.Fill = new SolidColorBrush(Colors.Gray);
                 CanvaFondo.Children.Add(R_CCA);
@@ -143,16 +165,17 @@ namespace EL_PACTOMETRO {
                 Canvas.SetLeft(R_CCA, i * 80 + 50 + 200);
 
                 Rectangle R_UPN = new Rectangle();
-                R_UPN.Height = ((((altocanva - 20) * listElecciones[i].UPN) / 180));
+                R_UPN.Height = ((((altocanva - 20) * listElecciones[i].UPN) / max));
                 R_UPN.Width = 20;
                 R_UPN.Fill = new SolidColorBrush(Colors.Purple);
                 CanvaFondo.Children.Add(R_UPN);
                 Canvas.SetBottom(R_UPN, 0);
                 Canvas.SetLeft(R_UPN, i * 80 + 50 + 220);
             }
+            CanvaFondo.MouseEnter += (sender, e) => ReDibujar(listElecciones);
         }
 
-            private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             // Obtener todas las ventanas abiertas
             foreach (Window window in App.Current.Windows) {
                 // Verificar si la ventana no es la principal y si es una ventana "Tablas", cerrarla
@@ -160,6 +183,14 @@ namespace EL_PACTOMETRO {
                     window.Hide();
                 }
             }
+        }
+
+        void ReDibujar(ObservableCollection<Elecciones> listElecciones) {
+            GraficaElecciones(listElecciones);
+        }
+
+        void ReDibujar(Autonomicas el) {
+            //GraficaAutonomicas(el);
         }
     }
 }

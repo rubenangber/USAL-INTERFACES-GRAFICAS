@@ -43,6 +43,11 @@ namespace EL_PACTOMETRO {
             dg.Columns.Add(new DataGridTextColumn { Header = "BNG", Binding = new Binding("BNG") });
             dg.Columns.Add(new DataGridTextColumn { Header = "CCA", Binding = new Binding("CCA") });
             dg.Columns.Add(new DataGridTextColumn { Header = "UPN", Binding = new Binding("UPN") });
+            dg.Columns.Add(new DataGridTextColumn { Header = "PODEMOS", Binding = new Binding("PODEMOS") });
+            dg.Columns.Add(new DataGridTextColumn { Header = "CIUDADANOS", Binding = new Binding("CS") });
+            dg.Columns.Add(new DataGridTextColumn { Header = "MAS PAIS", Binding = new Binding("MASPAIS") });
+            dg.Columns.Add(new DataGridTextColumn { Header = "CUP", Binding = new Binding("CUP") });
+            dg.Columns.Add(new DataGridTextColumn { Header = "OTROS", Binding = new Binding("OTROS") });
 
             dg.IsReadOnly = true; // Establecer IsReadOnly en true para hacer la tabla no editable
             dg.CanUserAddRows = false;
