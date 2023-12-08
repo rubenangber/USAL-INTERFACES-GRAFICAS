@@ -519,7 +519,6 @@ namespace EL_PACTOMETRO {
             Canvas.SetBottom(r, ((((altocanva - 20) * el.Mayoria) / max)));
             Canvas.SetLeft(r, 0);
 
-            CanvaFondo.MouseLeftButtonDown += (sender, e) => ReDibujar(el);
         }
 
         void MoverPP(Elecciones el) {
@@ -848,11 +847,11 @@ namespace EL_PACTOMETRO {
             Canvas.SetLeft(der, anchocanva / 6 * 3);
             CanvaFondo.Children.Add(der);
 
-            R_PP.MouseEnter += (sender, e) => MostrarValor(el.PP, 0 * 80 + 10 + 50);
+            R_PP.MouseEnter += (sender, e) => MostrarValor(el.PP, 1 * 80 + 10 + 50);
             R_PP.MouseLeave += (sender, e) => OcultarValor();
             R_PSOE.MouseEnter += (sender, e) => MostrarValor(el.PSOE, 1 * 80 + 10 + 50);
             R_PSOE.MouseLeave += (sender, e) => OcultarValor();
-            R_VOX.MouseEnter += (sender, e) => MostrarValor(el.VOX, 0 * 80 + 10 + 50);
+            R_VOX.MouseEnter += (sender, e) => MostrarValor(el.VOX, 1 * 80 + 10 + 50);
             R_VOX.MouseLeave += (sender, e) => OcultarValor();
             R_UPL.MouseEnter += (sender, e) => MostrarValor(el.UPL, 1 * 80 + 10 + 50);
             R_UPL.MouseLeave += (sender, e) => OcultarValor();
@@ -932,7 +931,6 @@ namespace EL_PACTOMETRO {
             Canvas.SetBottom(r, ((((altocanva - 20) * el.Mayoria) / max)));
             Canvas.SetLeft(r, 0);
 
-            CanvaFondo.MouseLeftButtonDown += (sender, e) => ReDibujar(el);
         }
 
         void MoverPP(Autonomicas el) {
@@ -1014,7 +1012,7 @@ namespace EL_PACTOMETRO {
                     Foreground = Brushes.Black,
                     FontSize = 12,
                 };
-                Canvas.SetTop(valorTextBlock, 20);
+                Canvas.SetTop(valorTextBlock, -20);
                 Canvas.SetLeft(valorTextBlock, left - 10);
                 CanvaFondo.Children.Add(valorTextBlock);
             } else {
@@ -1023,7 +1021,7 @@ namespace EL_PACTOMETRO {
                     Foreground = Brushes.Black,
                     FontSize = 12
                 };
-                Canvas.SetTop(valorTextBlock, 20);
+                Canvas.SetTop(valorTextBlock, -20);
                 Canvas.SetLeft(valorTextBlock, left - 10);
                 CanvaFondo.Children.Add(valorTextBlock);
             }
@@ -1032,18 +1030,10 @@ namespace EL_PACTOMETRO {
         void OcultarValor() {
             var valorTextBlocks = CanvaFondo.Children.OfType<TextBlock>().ToList();
             foreach (var textBlock in valorTextBlocks) {
-                if (Canvas.GetTop(textBlock) == 20) {
+                if (Canvas.GetTop(textBlock) == -20) {
                     CanvaFondo.Children.Remove(textBlock);
                 }
             }
-        }
-
-        void ReDibujar(Elecciones el) {
-            GraficaElecciones(el);
-        }
-
-        void ReDibujar(Autonomicas el) {
-            GraficaAutonomicas(el);
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
