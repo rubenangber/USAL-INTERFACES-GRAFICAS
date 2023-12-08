@@ -519,7 +519,7 @@ namespace EL_PACTOMETRO {
             Canvas.SetBottom(r, ((((altocanva - 20) * el.Mayoria) / max)));
             Canvas.SetLeft(r, 0);
 
-            CanvaFondo.MouseEnter += (sender, e) => ReDibujar(el);
+            CanvaFondo.MouseLeftButtonDown += (sender, e) => ReDibujar(el);
         }
 
         void MoverPP(Elecciones el) {
@@ -932,7 +932,7 @@ namespace EL_PACTOMETRO {
             Canvas.SetBottom(r, ((((altocanva - 20) * el.Mayoria) / max)));
             Canvas.SetLeft(r, 0);
 
-            CanvaFondo.MouseEnter += (sender, e) => ReDibujar(el);
+            CanvaFondo.MouseLeftButtonDown += (sender, e) => ReDibujar(el);
         }
 
         void MoverPP(Autonomicas el) {

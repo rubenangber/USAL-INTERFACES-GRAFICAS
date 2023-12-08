@@ -82,82 +82,82 @@ namespace EL_PACTOMETRO {
 
             Rectangle R_PP = new Rectangle();
             R_PP.Height = ((((altocanva - 20) * el.PP) / max));
-            R_PP.Width = 20;
+            R_PP.Width = anchocanva / 34;
             R_PP.Fill = new SolidColorBrush(Colors.Blue);
 
             Rectangle R_PSOE = new Rectangle();
             R_PSOE.Height = ((((altocanva - 20) * el.PSOE) / max));
-            R_PSOE.Width = 20;
+            R_PSOE.Width = anchocanva / 34;
             R_PSOE.Fill = new SolidColorBrush(Colors.Red);
 
             Rectangle R_VOX = new Rectangle();
             R_VOX.Height = ((((altocanva - 20) * el.VOX) / max));
-            R_VOX.Width = 20;
+            R_VOX.Width = anchocanva / 34;
             R_VOX.Fill = new SolidColorBrush(Colors.LightGreen);
 
             Rectangle R_SUMAR = new Rectangle();
             R_SUMAR.Height = ((((altocanva - 20) * el.SUMAR) / max));
-            R_SUMAR.Width = 20;
+            R_SUMAR.Width = anchocanva / 34;
             R_SUMAR.Fill = new SolidColorBrush(Colors.Pink);
 
             Rectangle R_ERC = new Rectangle();
             R_ERC.Height = ((((altocanva - 20) * el.ERC) / max));
-            R_ERC.Width = 20;
+            R_ERC.Width = anchocanva / 34;
             R_ERC.Fill = new SolidColorBrush(Colors.Yellow);
 
             Rectangle R_JUNTS = new Rectangle();
             R_JUNTS.Height = ((((altocanva - 20) * el.JUNTS) / max));
-            R_JUNTS.Width = 20;
+            R_JUNTS.Width = anchocanva / 34;
             R_JUNTS.Fill = new SolidColorBrush(Colors.Aquamarine);
 
             Rectangle R_BILDU = new Rectangle();
             R_BILDU.Height = ((((altocanva - 20) * el.BILDU) / max));
-            R_BILDU.Width = 20;
+            R_BILDU.Width = anchocanva / 34;
             R_BILDU.Fill = new SolidColorBrush(Colors.LightBlue);
 
             Rectangle R_PNV = new Rectangle();
             R_PNV.Height = ((((altocanva - 20) * el.PNV) / max));
-            R_PNV.Width = 20;
+            R_PNV.Width = anchocanva / 34;
             R_PNV.Fill = new SolidColorBrush(Colors.Green);
 
             Rectangle R_BNG = new Rectangle();
             R_BNG.Height = ((((altocanva - 20) * el.BNG) / max));
-            R_BNG.Width = 20;
+            R_BNG.Width = anchocanva / 34;
             R_BNG.Fill = new SolidColorBrush(Colors.Blue);
 
             Rectangle R_CCA = new Rectangle();
             R_CCA.Height = ((((altocanva - 20) * el.CCA) / max));
-            R_CCA.Width = 20;
+            R_CCA.Width = anchocanva / 34;
             R_CCA.Fill = new SolidColorBrush(Colors.Gray);
 
             Rectangle R_UPN = new Rectangle();
             R_UPN.Height = ((((altocanva - 20) * el.UPN) / max));
-            R_UPN.Width = 20;
+            R_UPN.Width = anchocanva / 34;
             R_UPN.Fill = new SolidColorBrush(Colors.LightPink);
 
             Rectangle R_PODEMOS = new Rectangle();
             R_PODEMOS.Height = ((((altocanva - 20) * el.PODEMOS) / max));
-            R_PODEMOS.Width = 20;
+            R_PODEMOS.Width = anchocanva / 34;
             R_PODEMOS.Fill = new SolidColorBrush(Colors.Purple);
 
             Rectangle R_CS = new Rectangle();
             R_CS.Height = ((((altocanva - 20) * el.CS) / max));
-            R_CS.Width = 20;
+            R_CS.Width = anchocanva / 34;
             R_CS.Fill = new SolidColorBrush(Colors.Orange);
 
             Rectangle R_MASPAIS = new Rectangle();
             R_MASPAIS.Height = ((((altocanva - 20) * el.MASPAIS) / max));
-            R_MASPAIS.Width = 20;
+            R_MASPAIS.Width = anchocanva / 34;
             R_MASPAIS.Fill = new SolidColorBrush(Colors.Purple);
 
             Rectangle R_CUP = new Rectangle();
             R_CUP.Height = ((((altocanva - 20) * el.CUP) / max));
-            R_CUP.Width = 20;
+            R_CUP.Width = anchocanva / 34;
             R_CUP.Fill = new SolidColorBrush(Colors.Purple);
 
             Rectangle R_OTROS = new Rectangle();
             R_OTROS.Height = ((((altocanva - 20) * el.OTROS) / max));
-            R_OTROS.Width = 20;
+            R_OTROS.Width = anchocanva / 34;
             R_OTROS.Fill = new SolidColorBrush(Colors.Black);
 
             CanvaFondo.Children.Add(R_PP);
@@ -178,84 +178,84 @@ namespace EL_PACTOMETRO {
             CanvaFondo.Children.Add(R_OTROS);
 
             Canvas.SetBottom(R_PP, 0);
-            Canvas.SetLeft(R_PP, 0 * 80 + 10 + 50);
+            Canvas.SetLeft(R_PP, 2 * anchocanva / 34);
 
             Canvas.SetBottom(R_PSOE, 0);
-            Canvas.SetLeft(R_PSOE, 1 * 80 + 10 + 50);
+            Canvas.SetLeft(R_PSOE, 4 * anchocanva / 34);
 
             Canvas.SetBottom(R_VOX, 0);
-            Canvas.SetLeft(R_VOX, 2 * 80 + 10 + 50);
+            Canvas.SetLeft(R_VOX, 6 * anchocanva / 34);
 
             Canvas.SetBottom(R_SUMAR, 0);
-            Canvas.SetLeft(R_SUMAR, 3 * 80 + 10 + 50);
+            Canvas.SetLeft(R_SUMAR, 8 * anchocanva / 34);
 
             Canvas.SetBottom(R_ERC, 0);
-            Canvas.SetLeft(R_ERC, 4 * 80 + 10 + 50);
+            Canvas.SetLeft(R_ERC, 10 * anchocanva / 34);
 
             Canvas.SetBottom(R_JUNTS, 0);
-            Canvas.SetLeft(R_JUNTS, 5 * 80 + 10 + 50);
+            Canvas.SetLeft(R_JUNTS, 12 * anchocanva / 34);
 
             Canvas.SetBottom(R_BILDU, 0);
-            Canvas.SetLeft(R_BILDU, 6 * 80 + 10 + 50);
+            Canvas.SetLeft(R_BILDU, 14 * anchocanva / 34);
 
             Canvas.SetBottom(R_PNV, 0);
-            Canvas.SetLeft(R_PNV, 7 * 80 + 10 + 50);
+            Canvas.SetLeft(R_PNV, 16 * anchocanva / 34);
 
             Canvas.SetBottom(R_BNG, 0);
-            Canvas.SetLeft(R_BNG, 8 * 80 + 10 + 50);
+            Canvas.SetLeft(R_BNG, 18 * anchocanva / 34);
 
             Canvas.SetBottom(R_CCA, 0);
-            Canvas.SetLeft(R_CCA, 9 * 80 + 10 + 50);
+            Canvas.SetLeft(R_CCA, 20 * anchocanva / 34);
 
             Canvas.SetBottom(R_UPN, 0);
-            Canvas.SetLeft(R_UPN, 10 * 80 + 10 + 50);
+            Canvas.SetLeft(R_UPN, 22 * anchocanva / 34);
 
             Canvas.SetBottom(R_PODEMOS, 0);
-            Canvas.SetLeft(R_PODEMOS, 11 * 80 + 10 + 50);
+            Canvas.SetLeft(R_PODEMOS, 24 * anchocanva / 34);
 
             Canvas.SetBottom(R_CS, 0);
-            Canvas.SetLeft(R_CS, 12 * 80 + 10 + 50);
+            Canvas.SetLeft(R_CS, 26 * anchocanva / 34);
 
             Canvas.SetBottom(R_MASPAIS, 0);
-            Canvas.SetLeft(R_MASPAIS, 13 * 80 + 10 + 50);
+            Canvas.SetLeft(R_MASPAIS, 28 * anchocanva / 34);
 
             Canvas.SetBottom(R_CUP, 0);
-            Canvas.SetLeft(R_CUP, 14 * 80 + 10 + 50);
+            Canvas.SetLeft(R_CUP, 30 * anchocanva / 34);
 
             Canvas.SetBottom(R_OTROS, 0);
-            Canvas.SetLeft(R_OTROS, 15 * 80 + 10 + 50);
+            Canvas.SetLeft(R_OTROS, 32 * anchocanva / 34);
 
-            R_PP.MouseEnter += (sender, e) => MostrarValor(el.PP, 0 * 80 + 10 + 50);
+            R_PP.MouseEnter += (sender, e) => MostrarValor(el.PP, (int)(2 * anchocanva / 34));
             R_PP.MouseLeave += (sender, e) => OcultarValor();
-            R_PSOE.MouseEnter += (sender, e) => MostrarValor(el.PSOE, 1 * 80 + 10 + 50);
+            R_PSOE.MouseEnter += (sender, e) => MostrarValor(el.PSOE, (int)(4 * anchocanva / 34));
             R_PSOE.MouseLeave += (sender, e) => OcultarValor();
-            R_VOX.MouseEnter += (sender, e) => MostrarValor(el.VOX, 2 * 80 + 10 + 50);
+            R_VOX.MouseEnter += (sender, e) => MostrarValor(el.VOX, (int)(6 * anchocanva / 34));
             R_VOX.MouseLeave += (sender, e) => OcultarValor();
-            R_SUMAR.MouseEnter += (sender, e) => MostrarValor(el.SUMAR, 3 * 80 + 10 + 50);
+            R_SUMAR.MouseEnter += (sender, e) => MostrarValor(el.SUMAR, (int)(8 * anchocanva / 34));
             R_SUMAR.MouseLeave += (sender, e) => OcultarValor();
-            R_ERC.MouseEnter += (sender, e) => MostrarValor(el.ERC, 4 * 80 + 10 + 50);
+            R_ERC.MouseEnter += (sender, e) => MostrarValor(el.ERC, (int)(10 * anchocanva / 34));
             R_ERC.MouseLeave += (sender, e) => OcultarValor();
-            R_JUNTS.MouseEnter += (sender, e) => MostrarValor(el.JUNTS, 5 * 80 + 10 + 50);
+            R_JUNTS.MouseEnter += (sender, e) => MostrarValor(el.JUNTS, (int)(12 * anchocanva / 34));
             R_JUNTS.MouseLeave += (sender, e) => OcultarValor();
-            R_BILDU.MouseEnter += (sender, e) => MostrarValor(el.BILDU, 6 * 80 + 10 + 50);
+            R_BILDU.MouseEnter += (sender, e) => MostrarValor(el.BILDU, (int)(14 * anchocanva / 34));
             R_BILDU.MouseLeave += (sender, e) => OcultarValor();
-            R_PNV.MouseEnter += (sender, e) => MostrarValor(el.PNV, 7 * 80 + 10 + 50);
+            R_PNV.MouseEnter += (sender, e) => MostrarValor(el.PNV, (int)(16 * anchocanva / 34));
             R_PNV.MouseLeave += (sender, e) => OcultarValor();
-            R_BNG.MouseEnter += (sender, e) => MostrarValor(el.BNG, 8 * 80 + 10 + 50);
+            R_BNG.MouseEnter += (sender, e) => MostrarValor(el.BNG, (int)(18 * anchocanva / 34));
             R_BNG.MouseLeave += (sender, e) => OcultarValor();
-            R_CCA.MouseEnter += (sender, e) => MostrarValor(el.CCA, 9 * 80 + 10 + 50);
+            R_CCA.MouseEnter += (sender, e) => MostrarValor(el.CCA, (int)(20 * anchocanva / 34));
             R_CCA.MouseLeave += (sender, e) => OcultarValor();
-            R_UPN.MouseEnter += (sender, e) => MostrarValor(el.UPN, 10 * 80 + 10 + 50);
+            R_UPN.MouseEnter += (sender, e) => MostrarValor(el.UPN, (int)(22 * anchocanva / 34));
             R_UPN.MouseLeave += (sender, e) => OcultarValor();
-            R_PODEMOS.MouseEnter += (sender, e) => MostrarValor(el.PODEMOS, 11 * 80 + 10 + 50);
+            R_PODEMOS.MouseEnter += (sender, e) => MostrarValor(el.PODEMOS, (int)(24 * anchocanva / 34));
             R_PODEMOS.MouseLeave += (sender, e) => OcultarValor();
-            R_CS.MouseEnter += (sender, e) => MostrarValor(el.CS, 12 * 80 + 10 + 50);
+            R_CS.MouseEnter += (sender, e) => MostrarValor(el.CS, (int)(26 * anchocanva / 34));
             R_CS.MouseLeave += (sender, e) => OcultarValor();
-            R_MASPAIS.MouseEnter += (sender, e) => MostrarValor(el.MASPAIS, 13 * 80 + 10 + 50);
+            R_MASPAIS.MouseEnter += (sender, e) => MostrarValor(el.MASPAIS, (int)(28 * anchocanva / 34));
             R_MASPAIS.MouseLeave += (sender, e) => OcultarValor();
-            R_CUP.MouseEnter += (sender, e) => MostrarValor(el.CUP, 14 * 80 + 10 + 50);
+            R_CUP.MouseEnter += (sender, e) => MostrarValor(el.CUP, (int)(30 * anchocanva / 34));
             R_CUP.MouseLeave += (sender, e) => OcultarValor();
-            R_OTROS.MouseEnter += (sender, e) => MostrarValor(el.OTROS, 15 * 80 + 10 + 50);
+            R_OTROS.MouseEnter += (sender, e) => MostrarValor(el.OTROS, (int)(32 * anchocanva / 34));
             R_OTROS.MouseLeave += (sender, e) => OcultarValor();
 
             Label PP = new Label();
@@ -356,7 +356,7 @@ namespace EL_PACTOMETRO {
             StackPanelPartidos.Children.Add(CUP);
             StackPanelPartidos.Children.Add(OTROS);
 
-            CanvaFondo.MouseEnter += (sender, e) => ReDibujar(el);
+            CanvaFondo.MouseLeftButtonDown += (sender, e) => ReDibujar(el);
         }
 
         void ReDibujar(Elecciones el) {
@@ -396,42 +396,42 @@ namespace EL_PACTOMETRO {
 
             Rectangle R_PP = new Rectangle();
             R_PP.Height = ((((altocanva - 20) * el.PP) / max));
-            R_PP.Width = 20;
+            R_PP.Width = anchocanva / 18;
             R_PP.Fill = new SolidColorBrush(Colors.Blue);
 
             Rectangle R_PSOE = new Rectangle();
             R_PSOE.Height = ((((altocanva - 20) * el.PSOE) / max));
-            R_PSOE.Width = 20;
+            R_PSOE.Width = anchocanva / 18;
             R_PSOE.Fill = new SolidColorBrush(Colors.Red);
 
             Rectangle R_VOX = new Rectangle();
             R_VOX.Height = ((((altocanva - 20) * el.VOX) / max));
-            R_VOX.Width = 20;
+            R_VOX.Width = anchocanva / 18;
             R_VOX.Fill = new SolidColorBrush(Colors.LightGreen);
 
             Rectangle R_UPL = new Rectangle();
             R_UPL.Height = ((((altocanva - 20) * el.UPL) / max));
-            R_UPL.Width = 20;
+            R_UPL.Width = anchocanva / 18;
             R_UPL.Fill = new SolidColorBrush(Colors.LightPink);
 
             Rectangle R_SY = new Rectangle();
             R_SY.Height = ((((altocanva - 20) * el.SY) / max));
-            R_SY.Width = 20;
+            R_SY.Width = anchocanva / 18;
             R_SY.Fill = new SolidColorBrush(Colors.Black);
 
             Rectangle R_PODEMOS = new Rectangle();
             R_PODEMOS.Height = ((((altocanva - 20) * el.PODEMOS) / max));
-            R_PODEMOS.Width = 20;
+            R_PODEMOS.Width = anchocanva / 18;
             R_PODEMOS.Fill = new SolidColorBrush(Colors.Purple);
 
             Rectangle R_CS = new Rectangle();
             R_CS.Height = ((((altocanva - 20) * el.CS) / max));
-            R_CS.Width = 20;
+            R_CS.Width = anchocanva / 18;
             R_CS.Fill = new SolidColorBrush(Colors.Orange);
 
             Rectangle R_XAV = new Rectangle();
             R_XAV.Height = ((((altocanva - 20) * el.XAV) / max));
-            R_XAV.Width = 20;
+            R_XAV.Width = anchocanva / 18;
             R_XAV.Fill = new SolidColorBrush(Colors.Yellow);
 
             CanvaFondo.Children.Add(R_PP);
@@ -444,44 +444,44 @@ namespace EL_PACTOMETRO {
             CanvaFondo.Children.Add(R_XAV);
 
             Canvas.SetBottom(R_PP, 0);
-            Canvas.SetLeft(R_PP, 0 * 80 + 10 + 50);
+            Canvas.SetLeft(R_PP, 2 * anchocanva / 18);
 
             Canvas.SetBottom(R_PSOE, 0);
-            Canvas.SetLeft(R_PSOE, 1 * 80 + 10 + 50);
+            Canvas.SetLeft(R_PSOE, 4 * anchocanva / 18);
 
             Canvas.SetBottom(R_VOX, 0);
-            Canvas.SetLeft(R_VOX, 2 * 80 + 10 + 50);
+            Canvas.SetLeft(R_VOX, 6 * anchocanva / 18);
 
             Canvas.SetBottom(R_UPL, 0);
-            Canvas.SetLeft(R_UPL, 3 * 80 + 10 + 50);
+            Canvas.SetLeft(R_UPL, 8 * anchocanva / 18);
 
             Canvas.SetBottom(R_SY, 0);
-            Canvas.SetLeft(R_SY, 4 * 80 + 10 + 50);
+            Canvas.SetLeft(R_SY, 10 * anchocanva / 18);
 
             Canvas.SetBottom(R_PODEMOS, 0);
-            Canvas.SetLeft(R_PODEMOS, 5 * 80 + 10 + 50);
+            Canvas.SetLeft(R_PODEMOS, 12 * anchocanva / 18);
 
             Canvas.SetBottom(R_CS, 0);
-            Canvas.SetLeft(R_CS, 6 * 80 + 10 + 50);
+            Canvas.SetLeft(R_CS, 14 * anchocanva / 18);
 
             Canvas.SetBottom(R_XAV, 0);
-            Canvas.SetLeft(R_XAV, 7 * 80 + 10 + 50);
+            Canvas.SetLeft(R_XAV, 16 * anchocanva / 18);
 
-            R_PP.MouseEnter += (sender, e) => MostrarValor(el.PP, 0 * 80 + 10 + 50);
+            R_PP.MouseEnter += (sender, e) => MostrarValor(el.PP, (int)(2 * anchocanva / 18));
             R_PP.MouseLeave += (sender, e) => OcultarValor();
-            R_PSOE.MouseEnter += (sender, e) => MostrarValor(el.PSOE, 1 * 80 + 10 + 50);
+            R_PSOE.MouseEnter += (sender, e) => MostrarValor(el.PSOE, (int)(4 * anchocanva / 18));
             R_PSOE.MouseLeave += (sender, e) => OcultarValor();
-            R_VOX.MouseEnter += (sender, e) => MostrarValor(el.VOX, 2 * 80 + 10 + 50);
+            R_VOX.MouseEnter += (sender, e) => MostrarValor(el.VOX, (int)(6 * anchocanva / 18));
             R_VOX.MouseLeave += (sender, e) => OcultarValor();
-            R_UPL.MouseEnter += (sender, e) => MostrarValor(el.UPL, 3 * 80 + 10 + 50);
+            R_UPL.MouseEnter += (sender, e) => MostrarValor(el.UPL, (int)(8 * anchocanva / 18));
             R_UPL.MouseLeave += (sender, e) => OcultarValor();
-            R_SY.MouseEnter += (sender, e) => MostrarValor(el.SY, 4 * 80 + 10 + 50);
+            R_SY.MouseEnter += (sender, e) => MostrarValor(el.SY, (int)(10 * anchocanva / 18));
             R_SY.MouseLeave += (sender, e) => OcultarValor();
-            R_PODEMOS.MouseEnter += (sender, e) => MostrarValor(el.PODEMOS, 5 * 80 + 10 + 50);
+            R_PODEMOS.MouseEnter += (sender, e) => MostrarValor(el.PODEMOS, (int)(12 * anchocanva / 18));
             R_PODEMOS.MouseLeave += (sender, e) => OcultarValor();
-            R_CS.MouseEnter += (sender, e) => MostrarValor(el.CS, 6 * 80 + 10 + 50);
+            R_CS.MouseEnter += (sender, e) => MostrarValor(el.CS, (int)(14 * anchocanva / 18));
             R_CS.MouseLeave += (sender, e) => OcultarValor();
-            R_XAV.MouseEnter += (sender, e) => MostrarValor(el.XAV, 7 * 80 + 10 + 50);
+            R_XAV.MouseEnter += (sender, e) => MostrarValor(el.XAV, (int)(16 * anchocanva / 18));
             R_XAV.MouseLeave += (sender, e) => OcultarValor();
 
             //STACKPANEL
@@ -534,7 +534,7 @@ namespace EL_PACTOMETRO {
             StackPanelPartidos.Children.Add(CS);
             StackPanelPartidos.Children.Add(XAV);
 
-            CanvaFondo.MouseEnter += (sender, e) => ReDibujar(el);
+            CanvaFondo.MouseLeftButtonDown += (sender, e) => ReDibujar(el);
         }
 
         void MostrarValor(int valor, int left) {

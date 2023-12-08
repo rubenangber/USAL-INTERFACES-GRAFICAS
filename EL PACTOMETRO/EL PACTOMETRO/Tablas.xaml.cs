@@ -71,7 +71,7 @@ namespace EL_PACTOMETRO {
         }
 
         private void MostrarVentanaElementoSeleccionado(Elecciones eleccion) {
-            Tablas2 detallesVentana = new Tablas2(eleccion);
+            Tablas2 detallesVentana = new Tablas2(eleccion, null);
             detallesVentana.ShowDialog();
         }
 
@@ -84,7 +84,7 @@ namespace EL_PACTOMETRO {
         }
 
         private void MostrarVentanaElementoSeleccionado(Autonomicas eleccion) {
-            Tablas3 detallesVentana = new Tablas3(eleccion);
+            Tablas2 detallesVentana = new Tablas2(null, eleccion);
             detallesVentana.ShowDialog();
         }
 
