@@ -39,8 +39,8 @@ namespace EL_PACTOMETRO {
         int t_bildu = 2;
         int t_pnv = 2;
         int t_bng = 2;
-        int t_cca = 2;
-        int t_upn = 2;
+        int t_cca = 1;
+        int t_upn = 1;
         int t_podemos = 2;
         int t_cs = 1;
         int t_maspais = 2;

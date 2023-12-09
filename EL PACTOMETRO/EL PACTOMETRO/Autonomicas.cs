@@ -24,11 +24,11 @@ namespace EL_PACTOMETRO {
         int t_pp = 1;
         int t_psoe = 2;
         int t_vox = 1;
-        int t_upl = 2;
+        int t_upl = 1;
         int t_sy = 2;
         int t_podemos = 2;
-        int t_cs = 2;
-        int t_xav = 2;
+        int t_cs = 1;
+        int t_xav = 1;
 
         public Autonomicas(string Nombre, int PP, int PSOE, int VOX, int UPL, int SY, int PODEMOS, int CS, int XAV, DateTime FECHA) {
             nombre = Nombre;

@@ -20,8 +20,9 @@
                     <MenuItem Header="Importar" Click="ImportarCSV"/>
                 </MenuItem>
                 <MenuItem Header="Tablas" Click="Mostrar_Tablas"/>
-                <MenuItem Header="Grafico comun" Click="Grafico_Comun"/>
-                <MenuItem Header="Grafico comparativo" Click="Grafico_Comparativo"/>
+                <CheckBox Name="Normal" Content="Gráfico de barras" IsChecked="True" Checked="Mostrar_Grafico_normal"></CheckBox>
+                <CheckBox Name="Pactometro" Content="Pactómetro" IsChecked="False" Checked="Mostrar_Pactometro"></CheckBox>
+                <CheckBox Name="Comparar" Content="Gráfico comparativo" IsChecked="False" Checked="Mostrar_Grafico_Comparativo"></CheckBox>
             </Menu>
         </DockPanel>
         <Canvas Grid.Row="1" Name="CanvaFondo" Background="#FFDDDDD3" Margin="20"/>
