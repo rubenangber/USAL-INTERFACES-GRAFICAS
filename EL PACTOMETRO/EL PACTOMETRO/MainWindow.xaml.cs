@@ -71,7 +71,7 @@ namespace EL_PACTOMETRO {
                 datoscoste[i] = (max / 10) * (i + 1);
 
                 TextBlock datacoste = new TextBlock {
-                    Text = "-" + datoscoste[i].ToString("0.#"),
+                    Text = "-" + datoscoste[i].ToString(),
                     Foreground = Brushes.Red,
                 };
                 CanvaFondo.Children.Add(datacoste);
@@ -83,82 +83,82 @@ namespace EL_PACTOMETRO {
             Rectangle R_PP = new Rectangle();
             R_PP.Height = ((((altocanva - 20) * el.PP) / max));
             R_PP.Width = anchocanva / 34;
-            R_PP.Fill = new SolidColorBrush(Colors.Blue);
+            R_PP.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0023ff"));
 
             Rectangle R_PSOE = new Rectangle();
             R_PSOE.Height = ((((altocanva - 20) * el.PSOE) / max));
             R_PSOE.Width = anchocanva / 34;
-            R_PSOE.Fill = new SolidColorBrush(Colors.Red);
+            R_PSOE.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff0000"));
 
             Rectangle R_VOX = new Rectangle();
             R_VOX.Height = ((((altocanva - 20) * el.VOX) / max));
             R_VOX.Width = anchocanva / 34;
-            R_VOX.Fill = new SolidColorBrush(Colors.LightGreen);
+            R_VOX.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2f8103"));
 
             Rectangle R_SUMAR = new Rectangle();
             R_SUMAR.Height = ((((altocanva - 20) * el.SUMAR) / max));
             R_SUMAR.Width = anchocanva / 34;
-            R_SUMAR.Fill = new SolidColorBrush(Colors.Pink);
+            R_SUMAR.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e31e5c"));
 
             Rectangle R_ERC = new Rectangle();
             R_ERC.Height = ((((altocanva - 20) * el.ERC) / max));
             R_ERC.Width = anchocanva / 34;
-            R_ERC.Fill = new SolidColorBrush(Colors.Yellow);
+            R_ERC.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffc147"));
 
             Rectangle R_JUNTS = new Rectangle();
             R_JUNTS.Height = ((((altocanva - 20) * el.JUNTS) / max));
             R_JUNTS.Width = anchocanva / 34;
-            R_JUNTS.Fill = new SolidColorBrush(Colors.Aquamarine);
+            R_JUNTS.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#08c5b4"));
 
             Rectangle R_BILDU = new Rectangle();
             R_BILDU.Height = ((((altocanva - 20) * el.BILDU) / max));
             R_BILDU.Width = anchocanva / 34;
-            R_BILDU.Fill = new SolidColorBrush(Colors.LightBlue);
+            R_BILDU.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#98c326"));
 
             Rectangle R_PNV = new Rectangle();
             R_PNV.Height = ((((altocanva - 20) * el.PNV) / max));
             R_PNV.Width = anchocanva / 34;
-            R_PNV.Fill = new SolidColorBrush(Colors.Green);
+            R_PNV.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#db3b26"));
 
             Rectangle R_BNG = new Rectangle();
             R_BNG.Height = ((((altocanva - 20) * el.BNG) / max));
             R_BNG.Width = anchocanva / 34;
-            R_BNG.Fill = new SolidColorBrush(Colors.Blue);
+            R_BNG.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#7ab5de"));
 
             Rectangle R_CCA = new Rectangle();
             R_CCA.Height = ((((altocanva - 20) * el.CCA) / max));
             R_CCA.Width = anchocanva / 34;
-            R_CCA.Fill = new SolidColorBrush(Colors.Gray);
+            R_CCA.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffde08"));
 
             Rectangle R_UPN = new Rectangle();
             R_UPN.Height = ((((altocanva - 20) * el.UPN) / max));
             R_UPN.Width = anchocanva / 34;
-            R_UPN.Fill = new SolidColorBrush(Colors.LightPink);
+            R_UPN.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#086aaa"));
 
             Rectangle R_PODEMOS = new Rectangle();
             R_PODEMOS.Height = ((((altocanva - 20) * el.PODEMOS) / max));
             R_PODEMOS.Width = anchocanva / 34;
-            R_PODEMOS.Fill = new SolidColorBrush(Colors.Purple);
+            R_PODEMOS.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#b900ff"));
 
             Rectangle R_CS = new Rectangle();
             R_CS.Height = ((((altocanva - 20) * el.CS) / max));
             R_CS.Width = anchocanva / 34;
-            R_CS.Fill = new SolidColorBrush(Colors.Orange);
+            R_CS.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff8300"));
 
             Rectangle R_MASPAIS = new Rectangle();
             R_MASPAIS.Height = ((((altocanva - 20) * el.MASPAIS) / max));
             R_MASPAIS.Width = anchocanva / 34;
-            R_MASPAIS.Fill = new SolidColorBrush(Colors.Purple);
+            R_MASPAIS.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#12796a"));
 
             Rectangle R_CUP = new Rectangle();
             R_CUP.Height = ((((altocanva - 20) * el.CUP) / max));
             R_CUP.Width = anchocanva / 34;
-            R_CUP.Fill = new SolidColorBrush(Colors.Purple);
+            R_CUP.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff208"));
 
             Rectangle R_OTROS = new Rectangle();
             R_OTROS.Height = ((((altocanva - 20) * el.OTROS) / max));
             R_OTROS.Width = anchocanva / 34;
-            R_OTROS.Fill = new SolidColorBrush(Colors.Black);
+            R_OTROS.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
 
             CanvaFondo.Children.Add(R_PP);
             CanvaFondo.Children.Add(R_PSOE);
@@ -260,82 +260,82 @@ namespace EL_PACTOMETRO {
 
             Label PP = new Label();
             PP.Content = "PP";
-            PP.Foreground = new SolidColorBrush(Colors.Blue);
+            PP.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0023ff"));
             PP.FontWeight = FontWeights.Bold;
 
             Label PSOE = new Label();
             PSOE.Content = "PSOE";
-            PSOE.Foreground = new SolidColorBrush(Colors.Red);
+            PSOE.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff0000"));
             PSOE.FontWeight = FontWeights.Bold;
 
             Label VOX = new Label();
             VOX.Content = "VOX";
-            VOX.Foreground = new SolidColorBrush(Colors.LightGreen);
+            VOX.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2f8103"));
             VOX.FontWeight = FontWeights.Bold;
 
             Label SUMAR = new Label();
             SUMAR.Content = "SUMAR";
-            SUMAR.Foreground = new SolidColorBrush(Colors.Pink);
+            SUMAR.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e31e5c"));
             SUMAR.FontWeight = FontWeights.Bold;
 
             Label ERC = new Label();
             ERC.Content = "ERC";
-            ERC.Foreground = new SolidColorBrush(Colors.Yellow);
+            ERC.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffc147"));
             ERC.FontWeight = FontWeights.Bold;
 
             Label JUNTS = new Label();
             JUNTS.Content = "JUNTS";
-            JUNTS.Foreground = new SolidColorBrush(Colors.Aquamarine);
+            JUNTS.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#08c5b4"));
             JUNTS.FontWeight = FontWeights.Bold;
 
             Label BILDU = new Label();
             BILDU.Content = "BILDU";
-            BILDU.Foreground = new SolidColorBrush(Colors.LightBlue);
+            BILDU.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#98c326"));
             BILDU.FontWeight = FontWeights.Bold;
 
             Label PNV = new Label();
             PNV.Content = "PNV";
-            PNV.Foreground = new SolidColorBrush(Colors.Green);
+            PNV.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#db3b26"));
             PNV.FontWeight = FontWeights.Bold;
 
             Label BNG = new Label();
             BNG.Content = "BNG";
-            BNG.Foreground = new SolidColorBrush(Colors.Blue);
+            BNG.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#7ab5de"));
             BNG.FontWeight = FontWeights.Bold;
 
             Label CCA = new Label();
             CCA.Content = "CCA";
-            CCA.Foreground = new SolidColorBrush(Colors.Gray);
+            CCA.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffde08"));
             CCA.FontWeight = FontWeights.Bold;
 
             Label UPN = new Label();
             UPN.Content = "UPN";
-            UPN.Foreground = new SolidColorBrush(Colors.LightPink);
+            UPN.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#086aaa"));
             UPN.FontWeight = FontWeights.Bold;
 
             Label PODEMOS = new Label();
             PODEMOS.Content = "PODEMOS";
-            PODEMOS.Foreground = new SolidColorBrush(Colors.Purple);
+            PODEMOS.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#b900ff"));
             PODEMOS.FontWeight = FontWeights.Bold;
 
             Label CS = new Label();
             CS.Content = "CS";
-            CS.Foreground = new SolidColorBrush(Colors.Orange);
+            CS.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff8300"));
             CS.FontWeight = FontWeights.Bold;
 
             Label MASPAIS = new Label();
             MASPAIS.Content = "MAS PAIS";
-            MASPAIS.Foreground = new SolidColorBrush(Colors.Purple);
+            MASPAIS.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#12796a"));
             MASPAIS.FontWeight = FontWeights.Bold;
 
             Label CUP = new Label();
             CUP.Content = "CUP";
-            CUP.Foreground = new SolidColorBrush(Colors.Purple);
+            CUP.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff208"));
             CUP.FontWeight = FontWeights.Bold;
 
             Label OTROS = new Label();
             OTROS.Content = "OTROS";
-            OTROS.Foreground = new SolidColorBrush(Colors.Black);
+            OTROS.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             OTROS.FontWeight = FontWeights.Bold;
 
 
@@ -385,7 +385,7 @@ namespace EL_PACTOMETRO {
                 datoscoste[i] = (max / 10) * (i + 1);
 
                 TextBlock datacoste = new TextBlock {
-                    Text = "-" + datoscoste[i].ToString("0.#"),
+                    Text = "-" + datoscoste[i].ToString(),
                     Foreground = Brushes.Red,
                 };
                 CanvaFondo.Children.Add(datacoste);
@@ -397,42 +397,42 @@ namespace EL_PACTOMETRO {
             Rectangle R_PP = new Rectangle();
             R_PP.Height = ((((altocanva - 20) * el.PP) / max));
             R_PP.Width = anchocanva / 18;
-            R_PP.Fill = new SolidColorBrush(Colors.Blue);
+            R_PP.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0023ff"));
 
             Rectangle R_PSOE = new Rectangle();
             R_PSOE.Height = ((((altocanva - 20) * el.PSOE) / max));
             R_PSOE.Width = anchocanva / 18;
-            R_PSOE.Fill = new SolidColorBrush(Colors.Red);
+            R_PSOE.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff0000"));
 
             Rectangle R_VOX = new Rectangle();
             R_VOX.Height = ((((altocanva - 20) * el.VOX) / max));
             R_VOX.Width = anchocanva / 18;
-            R_VOX.Fill = new SolidColorBrush(Colors.LightGreen);
+            R_VOX.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2f8103"));
 
             Rectangle R_UPL = new Rectangle();
             R_UPL.Height = ((((altocanva - 20) * el.UPL) / max));
             R_UPL.Width = anchocanva / 18;
-            R_UPL.Fill = new SolidColorBrush(Colors.LightPink);
+            R_UPL.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#b71966"));
 
             Rectangle R_SY = new Rectangle();
             R_SY.Height = ((((altocanva - 20) * el.SY) / max));
             R_SY.Width = anchocanva / 18;
-            R_SY.Fill = new SolidColorBrush(Colors.Black);
+            R_SY.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
 
             Rectangle R_PODEMOS = new Rectangle();
             R_PODEMOS.Height = ((((altocanva - 20) * el.PODEMOS) / max));
             R_PODEMOS.Width = anchocanva / 18;
-            R_PODEMOS.Fill = new SolidColorBrush(Colors.Purple);
+            R_PODEMOS.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#b900ff"));
 
             Rectangle R_CS = new Rectangle();
             R_CS.Height = ((((altocanva - 20) * el.CS) / max));
             R_CS.Width = anchocanva / 18;
-            R_CS.Fill = new SolidColorBrush(Colors.Orange);
+            R_CS.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff8300"));
 
             Rectangle R_XAV = new Rectangle();
             R_XAV.Height = ((((altocanva - 20) * el.XAV) / max));
             R_XAV.Width = anchocanva / 18;
-            R_XAV.Fill = new SolidColorBrush(Colors.Yellow);
+            R_XAV.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff300"));
 
             CanvaFondo.Children.Add(R_PP);
             CanvaFondo.Children.Add(R_PSOE);
@@ -487,42 +487,42 @@ namespace EL_PACTOMETRO {
             //STACKPANEL
             Label PP = new Label();
             PP.Content = "PP";
-            PP.Foreground = new SolidColorBrush(Colors.Blue);
+            PP.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0023ff"));
             PP.FontWeight = FontWeights.Bold;
 
             Label PSOE = new Label();
             PSOE.Content = "PSOE";
-            PSOE.Foreground = new SolidColorBrush(Colors.Red);
+            PSOE.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff0000"));
             PSOE.FontWeight = FontWeights.Bold;
 
             Label VOX = new Label();
             VOX.Content = "VOX";
-            VOX.Foreground = new SolidColorBrush(Colors.LightGreen);
+            VOX.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2f8103"));
             VOX.FontWeight = FontWeights.Bold;
 
             Label UPL = new Label();
             UPL.Content = "UPL";
-            UPL.Foreground = new SolidColorBrush(Colors.LightPink);
+            UPL.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#b71966"));
             UPL.FontWeight = FontWeights.Bold;
 
             Label SY = new Label();
             SY.Content = "SY";
-            SY.Foreground = new SolidColorBrush(Colors.Black);
+            SY.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
             SY.FontWeight = FontWeights.Bold;
 
             Label PODEMOS = new Label();
             PODEMOS.Content = "PODEMOS";
-            PODEMOS.Foreground = new SolidColorBrush(Colors.Purple);
+            PODEMOS.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#b900ff"));
             PODEMOS.FontWeight = FontWeights.Bold;
 
             Label CS = new Label();
             CS.Content = "CS";
-            CS.Foreground = new SolidColorBrush(Colors.Orange);
+            CS.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff8300"));
             CS.FontWeight = FontWeights.Bold;
 
             Label XAV = new Label();
             XAV.Content = "XAV";
-            XAV.Foreground = new SolidColorBrush(Colors.Yellow);
+            XAV.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff300"));
             XAV.FontWeight = FontWeights.Bold;
 
             StackPanelPartidos.Children.Add(PP);

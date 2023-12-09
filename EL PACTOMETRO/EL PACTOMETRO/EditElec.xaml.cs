@@ -157,6 +157,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosPP.Text) && int.TryParse(EscañosPP.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosPP.Text);
+                } else {
+                    EscañosPP.BorderBrush = Brushes.Red;
+                    errorpp.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosPP.BorderBrush = Brushes.Red;
@@ -168,6 +172,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosPSOE.Text) && int.TryParse(EscañosPSOE.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosPSOE.Text);
+                } else {
+                    EscañosPSOE.BorderBrush = Brushes.Red;
+                    errorpsoe.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosPSOE.BorderBrush = Brushes.Red;
@@ -179,6 +187,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosVOX.Text) && int.TryParse(EscañosVOX.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosVOX.Text);
+                } else {
+                    EscañosVOX.BorderBrush = Brushes.Red;
+                    errorvox.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosVOX.BorderBrush = Brushes.Red;
@@ -190,6 +202,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosSUMAR.Text) && int.TryParse(EscañosSUMAR.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosSUMAR.Text);
+                } else {
+                    EscañosSUMAR.BorderBrush = Brushes.Red;
+                    errorsumar.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosSUMAR.BorderBrush = Brushes.Red;
@@ -201,6 +217,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosERC.Text) && int.TryParse(EscañosERC.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosERC.Text);
+                } else {
+                    EscañosERC.BorderBrush = Brushes.Red;
+                    errorerc.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosERC.BorderBrush = Brushes.Red;
@@ -212,6 +232,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosJUNTS.Text) && int.TryParse(EscañosJUNTS.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosJUNTS.Text);
+                } else {
+                    EscañosJUNTS.BorderBrush = Brushes.Red;
+                    errorjunts.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosJUNTS.BorderBrush = Brushes.Red;
@@ -223,6 +247,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosBILDU.Text) && int.TryParse(EscañosBILDU.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosBILDU.Text);
+                } else {
+                    EscañosBILDU.BorderBrush = Brushes.Red;
+                    errorbildu.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosBILDU.BorderBrush = Brushes.Red;
@@ -234,6 +262,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosPNV.Text) && int.TryParse(EscañosPNV.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosPNV.Text);
+                } else {
+                    EscañosPNV.BorderBrush = Brushes.Red;
+                    errorpnv.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosPNV.BorderBrush = Brushes.Red;
@@ -245,6 +277,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosBNG.Text) && int.TryParse(EscañosBNG.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosBNG.Text);
+                } else {
+                    EscañosBNG.BorderBrush = Brushes.Red;
+                    errorbng.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosBNG.BorderBrush = Brushes.Red;
@@ -256,6 +292,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosCCA.Text) && int.TryParse(EscañosCCA.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosCCA.Text);
+                } else {
+                    EscañosCCA.BorderBrush = Brushes.Red;
+                    errorcca.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosCCA.BorderBrush = Brushes.Red;
@@ -265,9 +305,12 @@ namespace EL_PACTOMETRO {
 
             //UPN
             if (!String.IsNullOrEmpty(EscañosUPN.Text) && int.TryParse(EscañosUPN.Text, out cuenta)) {
-                if (cuenta >= 0)
-                {
+                if (cuenta >= 0) {
                     sum += int.Parse(EscañosUPN.Text);
+                } else {
+                    EscañosUPN.BorderBrush = Brushes.Red;
+                    errorupn.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosUPN.BorderBrush = Brushes.Red;
@@ -279,6 +322,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosPODEMOS.Text) && int.TryParse(EscañosPODEMOS.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosPODEMOS.Text);
+                } else {
+                    EscañosPODEMOS.BorderBrush = Brushes.Red;
+                    errorpodemos.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosPODEMOS.BorderBrush = Brushes.Red;
@@ -290,6 +337,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosCS.Text) && int.TryParse(EscañosCS.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosCS.Text);
+                } else {
+                    EscañosCS.BorderBrush = Brushes.Red;
+                    errorcs.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosCS.BorderBrush = Brushes.Red;
@@ -301,6 +352,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosMASPAIS.Text) && int.TryParse(EscañosMASPAIS.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosMASPAIS.Text);
+                } else {
+                    EscañosMASPAIS.BorderBrush = Brushes.Red;
+                    errormaspais.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosMASPAIS.BorderBrush = Brushes.Red;
@@ -312,6 +367,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosCUP.Text) && int.TryParse(EscañosCUP.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosCUP.Text);
+                } else {
+                    EscañosCUP.BorderBrush = Brushes.Red;
+                    errorcup.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosCUP.BorderBrush = Brushes.Red;
@@ -323,6 +382,10 @@ namespace EL_PACTOMETRO {
             if (!String.IsNullOrEmpty(EscañosOTROS.Text) && int.TryParse(EscañosOTROS.Text, out cuenta)) {
                 if (cuenta >= 0) {
                     sum += int.Parse(EscañosOTROS.Text);
+                } else {
+                    EscañosOTROS.BorderBrush = Brushes.Red;
+                    errorotros.Visibility = Visibility.Visible;
+                    comprobar = false;
                 }
             } else {
                 EscañosOTROS.BorderBrush = Brushes.Red;
@@ -340,6 +403,7 @@ namespace EL_PACTOMETRO {
                 comprobar = false;
                 errorsuma.Visibility = Visibility.Visible;
             }
+
             return comprobar;
         }
     }
