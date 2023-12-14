@@ -28,13 +28,11 @@ namespace EL_PACTOMETRO {
     public partial class MainWindow : Window {
         Tablas t;
         ObservableCollection<Elecciones> listElecciones = new ObservableCollection<Elecciones>();
-        ObservableCollection<Autonomicas> listAutonomicas = new ObservableCollection<Autonomicas>();
         public MainWindow() {
             InitializeComponent();
-            t = new Tablas(listElecciones, listAutonomicas);
+            t = new Tablas(listElecciones);
             t.Show();
             t.EleccionSeleccionada += t_EleccionSeleccionada;
-            t.AutonomicaSeleccionada += t_AutonomicaSeleccionada;
         }
 
         private void Mostrar_Grafico_normal(object sender, RoutedEventArgs e) {
@@ -63,17 +61,6 @@ namespace EL_PACTOMETRO {
                 Grafica_Pactometro(eleccionSeleccionada);
             } else if (Comparar.IsChecked == true) {
                 GraficaComparativa(listElecciones);
-            }
-        }
-
-        private void t_AutonomicaSeleccionada(object sender, AutonomicaSeleccionadoEventArgs e) {
-            Autonomicas autonomicaSeleccionada = e.au;
-            if (Normal.IsChecked == true) {
-                GraficaAutonomicas(autonomicaSeleccionada);
-            } else if (Pactometro.IsChecked == true) {
-                Grafica_Pactometro(autonomicaSeleccionada);
-            } else if (Comparar.IsChecked == true) {
-                GraficaComparativa(listAutonomicas);
             }
         }
 
