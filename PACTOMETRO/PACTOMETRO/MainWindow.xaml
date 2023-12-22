@@ -17,6 +17,11 @@
                 <MenuItem Header="Ver">
                     <MenuItem Header="Tablas" Click="Mostrar_Tablas"/>
                 </MenuItem>
+                <MenuItem Header="Gráficos">
+                    <MenuItem Header="Grafico de barras" Click="Grafico_De_Barras"/>
+                    <MenuItem Header="Pactómetro" Click="Pactómetro"/>
+                    <MenuItem Header="Grafico comparativo" Click="Grafico_Comparativo"/>
+                </MenuItem>
             </Menu>
         </DockPanel>
         <Canvas Grid.Row="1" Name="CanvaFondo" Background="#f5f5dc" Margin="20"/>

@@ -20,6 +20,7 @@ namespace PACTOMETRO {
     public partial class EditEleccion : Window {
         private readonly Eleccion elecciones;
         ObservableCollection<Partido> listaPartidos;
+        int sum = 0;
 
         public List<string> TiposDeElecciones { get; set; }
 
@@ -113,6 +114,10 @@ namespace PACTOMETRO {
         private bool ComprobarEleccion() {
             bool comp = true;
 
+            foreach (Partido p in listaPartidos) {
+                sum += p.Escaños;
+            }
+
             if (TipoComboBox.SelectedItem != null) {
                 ComboBoxItem selectedTipoItem = (ComboBoxItem)TipoComboBox.SelectedItem;
                 string tipo = selectedTipoItem.Content.ToString();
@@ -121,8 +126,19 @@ namespace PACTOMETRO {
                 comp = false;
             }
 
+            if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Generales") {
+                if (sum != 350) {
+                    MessageBox.Show("Los partidos no suman 350 escaños", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    comp = false;
+                }
+            } else if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Autonómicas") {
+                if (sum != 81) {
+                    MessageBox.Show("Los partidos no suman 81 escaños", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    comp = false;
+                }
+            }
+
             if (String.IsNullOrEmpty(NombreEleccion.Text)) {
-                //Error
                 NombreEleccion.BorderBrush = Brushes.Red;
                 comp = false;
             }
@@ -163,7 +179,6 @@ namespace PACTOMETRO {
                 }
             }
         }
-
 
         //CANCELAR
         private void Cancelar_Eleccion(object sender, RoutedEventArgs e) {

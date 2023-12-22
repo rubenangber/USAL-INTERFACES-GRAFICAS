@@ -21,6 +21,7 @@ namespace PACTOMETRO {
         Eleccion newEleccion;
         public Eleccion AddElecciones { get { return newEleccion; } }
         ObservableCollection<Partido> listaPartidos = new ObservableCollection<Partido>();
+        int sum = 0;
         public NewEleccion() {
             InitializeComponent();
             partidosListView.ItemsSource = listaPartidos;
@@ -55,7 +56,7 @@ namespace PACTOMETRO {
 
             if (!String.IsNullOrEmpty(EscañosPartido.Text) && int.TryParse(EscañosPartido.Text, out cuenta)) {
                 if (cuenta >= 0) {
-                    //OK
+                    sum += cuenta;
                 } else {
                     EscañosPartido.BorderBrush = Brushes.Red;
                     comp = false;
@@ -96,6 +97,18 @@ namespace PACTOMETRO {
             } else {
                 TipoComboBox.BorderBrush = Brushes.Red;
                 comp = false;
+            }
+
+            if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Generales") { 
+                if (sum != 350) {
+                    MessageBox.Show("Los partidos no suman 350 escaños", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    comp = false;
+                }
+            } else if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Autonómicas") {
+                if (sum != 81) {
+                    MessageBox.Show("Los partidos no suman 81 escaños", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    comp = false;
+                }
             }
 
             if (String.IsNullOrEmpty(NombreEleccion.Text)) {
