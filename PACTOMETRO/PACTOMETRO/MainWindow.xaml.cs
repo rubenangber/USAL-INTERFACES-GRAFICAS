@@ -42,7 +42,7 @@ namespace PACTOMETRO {
                 if (Normal) {
                     GraficoNormal(eleccionSeleccionada);
                 } else if (Pactometro) {
-                    //GraficoPactometro(eleccionSeleccionada);
+                    GraficoPactometro(eleccionSeleccionada);
                 } else if (Comparativo) {
                     GraficoComparativo(listaElecciones);
                 }
@@ -258,6 +258,104 @@ namespace PACTOMETRO {
                 postop += 20;
                 i = i + 1;
                 posleft += 20;
+            }
+        }
+
+        //PACTOMETRO
+        private void GraficoPactometro(Eleccion el) {
+            //LIMPIAMOS EL CANVAS
+            CanvaFondo.Children.Clear();
+
+            //METODO DE GENERAR LA GRÁFICA
+            float altocanva = (float)CanvaFondo.ActualHeight;
+            float anchocanva = (float)CanvaFondo.ActualWidth;
+
+            //TOP
+            Label top = new Label();
+            top.Content = el.Nombre.ToString() + " " + el.Fecha.ToString("dd/MM/yyyy");
+            top.FontWeight = FontWeights.Bold;
+
+            CanvaFondo.Children.Add(top);
+
+            Canvas.SetTop(top, -23);
+
+            int j = 2;
+            int alturagenerica = 0;
+            int alturaizq = 0;
+            int alturader = 0;
+            foreach (Partido partido in el.Partidos) {
+                //RECTANGULO
+                if (partido.Escaños >= el.Mayoria) {
+                    Rectangle r = new Rectangle();
+                    r.Height = ((((altocanva - 20) * partido.Escaños) / el.Escaños));
+                    r.Width = anchocanva / 7;
+
+                    // Convierte el nombre del color a un objeto Brush
+                    Brush colorBrush = (Brush)new BrushConverter().ConvertFromString(partido.Color);
+                    r.Fill = colorBrush;
+
+                    CanvaFondo.Children.Add(r);
+
+                    Canvas.SetBottom(r, alturaizq);
+                    Canvas.SetLeft(r, (anchocanva / 7) * 1);
+                    alturaizq += (int)((altocanva - 20) * partido.Escaños) / el.Escaños;
+                    // Agregar el manejador de eventos MouseLeftButtonDown a cada rectángulo
+                    r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(r, alturaizq, alturader);
+                } else {
+                    Rectangle r = new Rectangle();
+                    r.Height = ((((altocanva - 20) * partido.Escaños) / el.Escaños));
+                    r.Width = anchocanva / 7;
+
+                    // Convierte el nombre del color a un objeto Brush
+                    Brush colorBrush = (Brush)new BrushConverter().ConvertFromString(partido.Color);
+                    r.Fill = colorBrush;
+
+                    CanvaFondo.Children.Add(r);
+
+                    Canvas.SetBottom(r, alturagenerica);
+                    Canvas.SetLeft(r, (anchocanva / 7) * 5);
+                    r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(r, alturaizq, alturader);
+
+                    j += 2;
+                    alturagenerica += (int)((altocanva - 20) * partido.Escaños) / el.Escaños;
+                }
+            }
+            //LINEA MAYORIA
+            Rectangle linea = new Rectangle();
+            linea.Height = 2;
+            linea.Width = anchocanva;
+            linea.Fill = new SolidColorBrush(Colors.Black);
+            CanvaFondo.Children.Add(linea);
+            Canvas.SetBottom(linea, ((((altocanva - 20) * el.Mayoria) / el.Escaños)));
+            Canvas.SetLeft(linea, 0);
+        }
+
+        private void CambiarPosicionRectangulo(Rectangle rectangulo, int posizq, int posder) {
+            float altocanva = (float)CanvaFondo.ActualHeight;
+            float anchocanva = (float)CanvaFondo.ActualWidth;
+            double nuevaPosicion;
+
+            // Obtener la posición actual del rectángulo
+            double posicionActual = Canvas.GetLeft(rectangulo);
+
+            // Cambiar la posición a una nueva posición (por ejemplo, desplazar 50 píxeles a la derecha)
+            if(posicionActual == anchocanva / 7 * 5) {
+                nuevaPosicion = anchocanva / 7 * 1;
+                posizq += (int)rectangulo.Height;
+                Canvas.SetBottom(rectangulo, posizq);
+                Canvas.SetLeft(rectangulo, nuevaPosicion);
+            } else if(posicionActual == anchocanva / 7 * 1) {
+                nuevaPosicion = anchocanva / 7 * 3;
+                posizq -= (int)rectangulo.Height;
+                posder += (int)rectangulo.Width;
+                Canvas.SetBottom(rectangulo, posder);
+                Canvas.SetLeft(rectangulo, nuevaPosicion);
+            } else if(posicionActual == anchocanva / 7 * 3) {
+                nuevaPosicion = anchocanva / 7 * 1;
+                posizq += (int)rectangulo.Height;
+                posder -= (int)rectangulo.Width;
+                Canvas.SetBottom(rectangulo, posizq);
+                Canvas.SetLeft(rectangulo, nuevaPosicion);
             }
         }
 
