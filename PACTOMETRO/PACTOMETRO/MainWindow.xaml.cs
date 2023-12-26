@@ -83,17 +83,17 @@ namespace PACTOMETRO {
 
         private void CargaDeDatos() {
             ObservableCollection<Partido> lp1 = new ObservableCollection<Partido>();
-            Partido p1 = new Partido("PP", 136, "Blue");
-            Partido p2 = new Partido("PSOE", 122, "Red");
-            Partido p3 = new Partido("VOX", 33, "Green");
-            Partido p4 = new Partido("SUMAR", 31, "Purple");
-            Partido p5 = new Partido("ERC", 7, "Yellow");
-            Partido p6 = new Partido("JUNTS", 7, "Blue");
-            Partido p7 = new Partido("EH_BILDU", 6, "Green");
-            Partido p8 = new Partido("EAJ_PNV", 5, "Red");
-            Partido p9 = new Partido("BNG", 1, "LightBlue");
-            Partido p10 = new Partido("CCA", 1, "Yellow");
-            Partido p11 = new Partido("UPN", 1, "Blue");
+            Partido p1 = new Partido("PP", 136, "#1e4b8f");
+            Partido p2 = new Partido("PSOE", 122, "#da291c");
+            Partido p3 = new Partido("VOX", 33, "#63BE21");
+            Partido p4 = new Partido("SUMAR", 31, "#E51C55");
+            Partido p5 = new Partido("ERC", 7, "#ffc147");
+            Partido p6 = new Partido("JUNTS", 7, "#3ee1d1");
+            Partido p7 = new Partido("EH_BILDU", 6, "#00d0b6");
+            Partido p8 = new Partido("EAJ_PNV", 5, "#00822a");
+            Partido p9 = new Partido("BNG", 1, "#77b5de");
+            Partido p10 = new Partido("CCA", 1, "#ffd855");
+            Partido p11 = new Partido("UPN", 1, "#0255b4");
             
             lp1.Add(p1);
             lp1.Add(p2);
@@ -109,20 +109,20 @@ namespace PACTOMETRO {
             listaElecciones.Add(new Eleccion("Generales 1", lp1, new DateTime(2023, 7, 23)));
 
             ObservableCollection<Partido> lp2 = new ObservableCollection<Partido>();
-            Partido p12 = new Partido("PSOE", 120, "Red");
-            Partido p13 = new Partido("PP", 89, "Blue");
-            Partido p14 = new Partido("VOX", 52, "Green");
-            Partido p15 = new Partido("PODEMOS", 35, "Purple");
-            Partido p16 = new Partido("ERC", 13, "Yellow");
-            Partido p17 = new Partido("JUNTS", 8, "Blue");
-            Partido p18 = new Partido("CS", 10, "Orange");
-            Partido p19 = new Partido("EAJ_PNV", 6, "Red");
-            Partido p20 = new Partido("EH_BILDU", 5, "LightBlue");
-            Partido p21 = new Partido("MASPAIS", 3, "Blue");
-            Partido p22 = new Partido("CUP_PR", 2, "Blue");
-            Partido p23 = new Partido("CCA", 2, "Blue");
-            Partido p24 = new Partido("BNG", 1, "Blue");
-            Partido p25 = new Partido("OTROS", 4, "Black");
+            Partido p12 = new Partido("PSOE", 120, "#da291c");
+            Partido p13 = new Partido("PP", 89, "#1e4b8f");
+            Partido p14 = new Partido("VOX", 52, "#63BE21");
+            Partido p15 = new Partido("PODEMOS", 35, "#693279");
+            Partido p16 = new Partido("ERC", 13, "#ffc147");
+            Partido p17 = new Partido("JUNTS", 8, "#3ee1d1");
+            Partido p18 = new Partido("CS", 10, "#ff5a23");
+            Partido p19 = new Partido("EAJ_PNV", 6, "#00822a");
+            Partido p20 = new Partido("EH_BILDU", 5, "#00d0b6");
+            Partido p21 = new Partido("MASPAIS", 3, "#12796a");
+            Partido p22 = new Partido("CUP_PR", 2, "#fff200");
+            Partido p23 = new Partido("CCA", 2, "#ffd855");
+            Partido p24 = new Partido("BNG", 1, "#77b5de");
+            Partido p25 = new Partido("OTROS", 4, "#000000");
 
             lp2.Add(p12);
             lp2.Add(p13);
@@ -139,6 +139,46 @@ namespace PACTOMETRO {
             lp2.Add(p24);
             lp2.Add(p25);
             listaElecciones.Add(new Eleccion("Generales 2", lp2, new DateTime(2019, 11, 10)));
+
+            ObservableCollection<Partido> lp3 = new ObservableCollection<Partido>();
+            Partido p26 = new Partido("PP", 31, "#1e4b8f");
+            Partido p27 = new Partido("PSOE", 28, "#da291c");
+            Partido p28 = new Partido("VOX", 13, "#63BE21");
+            Partido p29 = new Partido("UPL", 3, "#b91267");
+            Partido p30 = new Partido("SY", 3, "#1c1c1a");
+            Partido p31 = new Partido("PODEMOS", 1, "#693279");
+            Partido p32 = new Partido("CS", 1, "#ff5a23");
+            Partido p33 = new Partido("XAV", 1, "#f7d806");
+
+            lp3.Add(p26);
+            lp3.Add(p27);
+            lp3.Add(p28);
+            lp3.Add(p29);
+            lp3.Add(p30);
+            lp3.Add(p31);
+            lp3.Add(p32);
+            lp3.Add(p33);
+
+            listaElecciones.Add(new Eleccion("Autonómicas CyL", lp3, new DateTime(2022, 2, 14)));
+
+            ObservableCollection<Partido> lp4 = new ObservableCollection<Partido>();
+            Partido p34 = new Partido("PSOE", 35, "#da291c");
+            Partido p35 = new Partido("PP", 29, "#1e4b8f");
+            Partido p36 = new Partido("CS", 12, "#ff5a23");
+            Partido p37 = new Partido("PODEMOS", 2, "#693279");
+            Partido p38 = new Partido("VOX", 1, "#63BE21");
+            Partido p39 = new Partido("UPL", 1, "#b91267");
+            Partido p40 = new Partido("XAV", 1, "#f7d806");
+
+            lp4.Add(p34);
+            lp4.Add(p35);
+            lp4.Add(p36);
+            lp4.Add(p37);
+            lp4.Add(p38);
+            lp4.Add(p39);
+            lp4.Add(p40);
+
+            listaElecciones.Add(new Eleccion("Autonómicas CyL", lp4, new DateTime(2019, 5, 26)));
         }
 
         //GRAFICO DE BARRAS
@@ -262,7 +302,11 @@ namespace PACTOMETRO {
         }
 
         //PACTOMETRO
+        int alturaizq = 0;
+        int alturader = 0;
         private void GraficoPactometro(Eleccion el) {
+            alturaizq = 0;
+            alturader = 0;
             //LIMPIAMOS EL CANVAS
             CanvaFondo.Children.Clear();
 
@@ -281,8 +325,7 @@ namespace PACTOMETRO {
 
             int j = 2;
             int alturagenerica = 0;
-            int alturaizq = 0;
-            int alturader = 0;
+            
             foreach (Partido partido in el.Partidos) {
                 //RECTANGULO
                 if (partido.Escaños >= el.Mayoria) {
@@ -300,7 +343,7 @@ namespace PACTOMETRO {
                     Canvas.SetLeft(r, (anchocanva / 7) * 1);
                     alturaizq += (int)((altocanva - 20) * partido.Escaños) / el.Escaños;
                     // Agregar el manejador de eventos MouseLeftButtonDown a cada rectángulo
-                    r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(r, alturaizq, alturader);
+                    r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(r);
                 } else {
                     Rectangle r = new Rectangle();
                     r.Height = ((((altocanva - 20) * partido.Escaños) / el.Escaños));
@@ -314,7 +357,7 @@ namespace PACTOMETRO {
 
                     Canvas.SetBottom(r, alturagenerica);
                     Canvas.SetLeft(r, (anchocanva / 7) * 5);
-                    r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(r, alturaizq, alturader);
+                    r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(r);
 
                     j += 2;
                     alturagenerica += (int)((altocanva - 20) * partido.Escaños) / el.Escaños;
@@ -330,7 +373,7 @@ namespace PACTOMETRO {
             Canvas.SetLeft(linea, 0);
         }
 
-        private void CambiarPosicionRectangulo(Rectangle rectangulo, int posizq, int posder) {
+        private void CambiarPosicionRectangulo(Rectangle rectangulo) {
             float altocanva = (float)CanvaFondo.ActualHeight;
             float anchocanva = (float)CanvaFondo.ActualWidth;
             double nuevaPosicion;
@@ -341,37 +384,48 @@ namespace PACTOMETRO {
             // Cambiar la posición a una nueva posición (por ejemplo, desplazar 50 píxeles a la derecha)
             if(posicionActual == anchocanva / 7 * 5) {
                 nuevaPosicion = anchocanva / 7 * 1;
-                posizq += (int)rectangulo.Height;
-                Canvas.SetBottom(rectangulo, posizq);
+                Canvas.SetBottom(rectangulo, alturaizq);
                 Canvas.SetLeft(rectangulo, nuevaPosicion);
+                alturaizq += (int)rectangulo.Height;
             } else if(posicionActual == anchocanva / 7 * 1) {
                 nuevaPosicion = anchocanva / 7 * 3;
-                posizq -= (int)rectangulo.Height;
-                posder += (int)rectangulo.Width;
-                Canvas.SetBottom(rectangulo, posder);
+                Canvas.SetBottom(rectangulo, alturader);
                 Canvas.SetLeft(rectangulo, nuevaPosicion);
+                alturaizq -= (int)rectangulo.Height;
+                alturader += (int)rectangulo.Height;
             } else if(posicionActual == anchocanva / 7 * 3) {
                 nuevaPosicion = anchocanva / 7 * 1;
-                posizq += (int)rectangulo.Height;
-                posder -= (int)rectangulo.Width;
-                Canvas.SetBottom(rectangulo, posizq);
+                Canvas.SetBottom(rectangulo, alturaizq);
                 Canvas.SetLeft(rectangulo, nuevaPosicion);
+                alturaizq += (int)rectangulo.Height;
+                alturader -= (int)rectangulo.Height;
             }
         }
 
         // Método para mostrar el número de escaños
         private void MostrarNumeroEscaños(int numeroEscaños, UIElement relativeTo) {
-            Label etiqueta = new Label();
-            etiqueta.Content = $"{numeroEscaños} escaños";
-            etiqueta.Foreground = Brushes.Black; // Ajusta el color de texto según tus preferencias
+            if(numeroEscaños == 1) {
+                Label etiqueta = new Label();
+                etiqueta.Content = $"{numeroEscaños} escaño";
+                etiqueta.Foreground = Brushes.Black;
+                // Agrega la etiqueta al Canvas y establece su posición relativa al rectángulo
+                CanvaFondo.Children.Add(etiqueta);
+                Canvas.SetBottom(etiqueta, Canvas.GetBottom(relativeTo) + 10); // Ajusta la posición según tus necesidades
+                Canvas.SetLeft(etiqueta, Canvas.GetLeft(relativeTo));
 
-            // Agrega la etiqueta al Canvas y establece su posición relativa al rectángulo
-            CanvaFondo.Children.Add(etiqueta);
-            Canvas.SetBottom(etiqueta, Canvas.GetBottom(relativeTo) + 10); // Ajusta la posición según tus necesidades
-            Canvas.SetLeft(etiqueta, Canvas.GetLeft(relativeTo));
+                // Guarda una referencia a la etiqueta para poder eliminarla más tarde
+                etiquetaActual = etiqueta;
+            } else {
+                Label etiqueta = new Label();
+                etiqueta.Content = $"{numeroEscaños} escaños";
+                etiqueta.Foreground = Brushes.Black;
 
-            // Guarda una referencia a la etiqueta para poder eliminarla más tarde
-            etiquetaActual = etiqueta;
+                CanvaFondo.Children.Add(etiqueta);
+                Canvas.SetBottom(etiqueta, Canvas.GetBottom(relativeTo) + 10);
+                Canvas.SetLeft(etiqueta, Canvas.GetLeft(relativeTo));
+
+                etiquetaActual = etiqueta;
+            }
         }
 
         // Método para ocultar el número de escaños

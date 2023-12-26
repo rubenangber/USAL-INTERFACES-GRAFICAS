@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -158,24 +159,21 @@ namespace PACTOMETRO {
                 Partido partidoSeleccionado = (Partido)partidosListView.SelectedItem;
                 NombrePartido.Text = partidoSeleccionado.Nombre;
                 EscañosPartido.Text = partidoSeleccionado.Escaños.ToString();
-                if (partidoSeleccionado.Color.StartsWith("Red")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Red");
-                } else if (partidoSeleccionado.Color.StartsWith("Orange")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Orange");
-                } else if (partidoSeleccionado.Color.StartsWith("Yellow")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Yellow");
-                } else if (partidoSeleccionado.Color.StartsWith("Green")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Green");
-                } else if (partidoSeleccionado.Color.StartsWith("Blue")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Blue");
-                } else if (partidoSeleccionado.Color.StartsWith("Purple")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Purple");
-                } else if (partidoSeleccionado.Color.StartsWith("Gray")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Gray");
-                } else if (partidoSeleccionado.Color.StartsWith("White")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "White");
-                } else if (partidoSeleccionado.Color.StartsWith("Black")) {
-                    colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Black");
+                 colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == partidoSeleccionado.Color.Split(' ')[0]);
+            }
+        }
+
+        private void colorComboBox_Loaded(object sender, RoutedEventArgs e) {
+            foreach (PropertyInfo property in typeof(Colors).GetProperties()) {
+                if (property.PropertyType == typeof(Color)) {
+                    Color color = (Color)property.GetValue(null, null);
+
+                    ComboBoxItem comboBoxItem = new ComboBoxItem {
+                        Content = property.Name,
+                        Background = new SolidColorBrush(color)
+                    };
+
+                    colorComboBox.Items.Add(comboBoxItem);
                 }
             }
         }

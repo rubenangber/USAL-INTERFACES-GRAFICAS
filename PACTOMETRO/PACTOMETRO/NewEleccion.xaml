@@ -56,16 +56,8 @@
         <!--COLUMNA 5-->
         <TextBox Grid.Column="4" Grid.Row="1" x:Name="NombrePartido" Margin="15"/>
         <TextBox Grid.Column="4" Grid.Row="2" x:Name="EscañosPartido" Margin="15"/>
-        <ComboBox Grid.Column="4" Grid.Row="3" x:Name="colorComboBox" Margin="15">
-            <ComboBoxItem Content="Red" Background="Red"/>
-            <ComboBoxItem Content="Orange" Background="Orange"/>
-            <ComboBoxItem Content="Yellow" Background="Yellow"/>
-            <ComboBoxItem Content="Green" Background="Green"/>
-            <ComboBoxItem Content="Blue" Background="Blue"/>
-            <ComboBoxItem Content="Purple" Background="Purple"/>
-            <ComboBoxItem Content="Gray" Background="Gray"/>
-            <ComboBoxItem Content="White" Background="White"/>
-            <ComboBoxItem Content="Black" Background="Black"/>
+        <ComboBox Grid.Column="4" Grid.Row="3" x:Name="colorComboBox" Margin="15" Loaded="colorComboBox_Loaded">
+            <!-- Los elementos se agregarán dinámicamente en el código C# -->
         </ComboBox>
         <Button Grid.Column="4" Grid.Row="4" Margin="10" Content="Añadir" Click="Añadir_Partido"/>
     </Grid>
