@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,7 @@ namespace PACTOMETRO {
         bool Normal = true;
         bool Pactometro = false;
         bool Comparativo = false;
+        Eleccion eleccionSeleccionada;
 
         public MainWindow() {
             InitializeComponent();
@@ -33,11 +36,12 @@ namespace PACTOMETRO {
             t = new Tablas(listaElecciones);
             t.Show();
             t.EleccionSeleccionada += T_EleccionSeleccionada;
+            this.SizeChanged += MainWindow_SizeChanged;
         }
 
         private void T_EleccionSeleccionada(object sender, EleccionSeleccionadaEventArgs e) {
             // Manejar la elección seleccionada en el MainWindow
-            Eleccion eleccionSeleccionada = e.EleccionSeleccionada;
+            eleccionSeleccionada = e.EleccionSeleccionada;
             if (eleccionSeleccionada != null) {
                 if (Normal) {
                     GraficoNormal(eleccionSeleccionada);
@@ -66,12 +70,18 @@ namespace PACTOMETRO {
             Normal = true;
             Pactometro = false;
             Comparativo = false;
+            if(eleccionSeleccionada != null) {
+                GraficoNormal(eleccionSeleccionada);
+            }
         }
 
         private void Pactómetro(object sender, RoutedEventArgs e) {
             Normal = false;
             Pactometro = true;
             Comparativo = false;
+            if (eleccionSeleccionada != null) {
+                GraficoPactometro(eleccionSeleccionada);
+            }
         }
 
         private void Grafico_Comparativo(object sender, RoutedEventArgs e) {
@@ -263,12 +273,22 @@ namespace PACTOMETRO {
             int i = 0;
             int posleft = 20;
             int postop = 0;
-            foreach (Eleccion el in listaElecciones) { 
-                foreach(Partido partido in el.Partidos) {
+
+            int sum = 0;
+            foreach (Eleccion el in listaElecciones) {
+                sum += el.Partidos.Count() + 1;
+            }
+            int numElecciones = listaElecciones.Count();
+            if (numElecciones > 3) { 
+                numElecciones = 3;
+            }
+
+            for (int x = 0; x < numElecciones; x++) { 
+                foreach (Partido partido in listaElecciones[i].Partidos) {
                     //RECTANGULO
                     Rectangle r = new Rectangle();
                     r.Height = ((((altocanva - 20) * partido.Escaños) / max));
-                    r.Width = 20;
+                    r.Width = anchocanva / sum;
 
                     // Convierte el nombre del color a un objeto Brush
                     Brush colorBrush = (Brush)new BrushConverter().ConvertFromString(partido.Color);
@@ -283,10 +303,10 @@ namespace PACTOMETRO {
                     r.MouseEnter += (sender, e) => MostrarNumeroEscaños(partido.Escaños, r);
                     r.MouseLeave += (sender, e) => OcultarNumeroEscaños(r);
 
-                    posleft += 20;
+                    posleft += (int)anchocanva / sum;
                 }
                 Label l = new Label();
-                l.Content = el.Nombre.ToString() + " " + el.Fecha.ToString("dd/MM/yyyy");
+                l.Content = listaElecciones[i].Nombre.ToString() + " " + listaElecciones[i].Fecha.ToString("dd/MM/yyyy");
                 l.FontWeight = FontWeights.Bold;
                 l.Opacity = 1.0 / (double)Math.Pow(2, i);
 
@@ -296,17 +316,16 @@ namespace PACTOMETRO {
                 Canvas.SetRight(l, 0);
 
                 postop += 20;
-                i = i + 1;
-                posleft += 20;
+                i++;
+                posleft += (int)anchocanva / sum;
             }
         }
 
         //PACTOMETRO
-        int alturaizq = 0;
-        int alturader = 0;
         private void GraficoPactometro(Eleccion el) {
-            alturaizq = 0;
-            alturader = 0;
+            int altura1 = 0;
+            int altura2 = 0;
+            int altura3 = 0;
             //LIMPIAMOS EL CANVAS
             CanvaFondo.Children.Clear();
 
@@ -322,47 +341,39 @@ namespace PACTOMETRO {
             CanvaFondo.Children.Add(top);
 
             Canvas.SetTop(top, -23);
-
-            int j = 2;
-            int alturagenerica = 0;
             
             foreach (Partido partido in el.Partidos) {
-                //RECTANGULO
                 if (partido.Escaños >= el.Mayoria) {
-                    Rectangle r = new Rectangle();
-                    r.Height = ((((altocanva - 20) * partido.Escaños) / el.Escaños));
-                    r.Width = anchocanva / 7;
-
-                    // Convierte el nombre del color a un objeto Brush
-                    Brush colorBrush = (Brush)new BrushConverter().ConvertFromString(partido.Color);
-                    r.Fill = colorBrush;
-
-                    CanvaFondo.Children.Add(r);
-
-                    Canvas.SetBottom(r, alturaizq);
-                    Canvas.SetLeft(r, (anchocanva / 7) * 1);
-                    alturaizq += (int)((altocanva - 20) * partido.Escaños) / el.Escaños;
-                    // Agregar el manejador de eventos MouseLeftButtonDown a cada rectángulo
-                    r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(r);
-                } else {
-                    Rectangle r = new Rectangle();
-                    r.Height = ((((altocanva - 20) * partido.Escaños) / el.Escaños));
-                    r.Width = anchocanva / 7;
-
-                    // Convierte el nombre del color a un objeto Brush
-                    Brush colorBrush = (Brush)new BrushConverter().ConvertFromString(partido.Color);
-                    r.Fill = colorBrush;
-
-                    CanvaFondo.Children.Add(r);
-
-                    Canvas.SetBottom(r, alturagenerica);
-                    Canvas.SetLeft(r, (anchocanva / 7) * 5);
-                    r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(r);
-
-                    j += 2;
-                    alturagenerica += (int)((altocanva - 20) * partido.Escaños) / el.Escaños;
-                }
+                    partido.PosPactometro = 1;
+                } 
             }
+
+            foreach (Partido partido in el.Partidos) {
+                Rectangle r = new Rectangle();
+                r.Height = ((((altocanva - 20) * partido.Escaños) / el.Escaños));
+                r.Width = anchocanva / 7;
+
+                CanvaFondo.Children.Add(r);
+
+                Brush colorBrush = (Brush)new BrushConverter().ConvertFromString(partido.Color);
+                r.Fill = colorBrush;
+
+                if (partido.PosPactometro == 1) {
+                    Canvas.SetBottom(r, altura1);
+                    Canvas.SetLeft(r, anchocanva / 7);
+                    altura1 += (int)((((altocanva - 20) * partido.Escaños) / el.Escaños));
+                } else if (partido.PosPactometro == 2) {
+                    Canvas.SetBottom(r, altura2);
+                    Canvas.SetLeft(r, (anchocanva / 7) * 3);
+                    altura2 += (int)((((altocanva - 20) * partido.Escaños) / el.Escaños));
+                } else if (partido.PosPactometro == 3) {
+                    Canvas.SetBottom(r, altura3);
+                    Canvas.SetLeft(r, (anchocanva / 7) * 5);
+                    altura3 += (int)((((altocanva - 20) * partido.Escaños) / el.Escaños));
+                }
+                r.MouseLeftButtonDown += (sender, e) => CambiarPosicionRectangulo(partido);
+            }
+
             //LINEA MAYORIA
             Rectangle linea = new Rectangle();
             linea.Height = 2;
@@ -373,33 +384,18 @@ namespace PACTOMETRO {
             Canvas.SetLeft(linea, 0);
         }
 
-        private void CambiarPosicionRectangulo(Rectangle rectangulo) {
-            float altocanva = (float)CanvaFondo.ActualHeight;
-            float anchocanva = (float)CanvaFondo.ActualWidth;
-            double nuevaPosicion;
-
-            // Obtener la posición actual del rectángulo
-            double posicionActual = Canvas.GetLeft(rectangulo);
-
-            // Cambiar la posición a una nueva posición (por ejemplo, desplazar 50 píxeles a la derecha)
-            if(posicionActual == anchocanva / 7 * 5) {
-                nuevaPosicion = anchocanva / 7 * 1;
-                Canvas.SetBottom(rectangulo, alturaizq);
-                Canvas.SetLeft(rectangulo, nuevaPosicion);
-                alturaizq += (int)rectangulo.Height;
-            } else if(posicionActual == anchocanva / 7 * 1) {
-                nuevaPosicion = anchocanva / 7 * 3;
-                Canvas.SetBottom(rectangulo, alturader);
-                Canvas.SetLeft(rectangulo, nuevaPosicion);
-                alturaizq -= (int)rectangulo.Height;
-                alturader += (int)rectangulo.Height;
-            } else if(posicionActual == anchocanva / 7 * 3) {
-                nuevaPosicion = anchocanva / 7 * 1;
-                Canvas.SetBottom(rectangulo, alturaizq);
-                Canvas.SetLeft(rectangulo, nuevaPosicion);
-                alturaizq += (int)rectangulo.Height;
-                alturader -= (int)rectangulo.Height;
-            }
+        //Cambio posicion pactómetro
+        private void CambiarPosicionRectangulo(Partido p) {
+            if (p.PosPactometro == 3) {
+                p.PosPactometro = 1;
+                GraficoPactometro(eleccionSeleccionada);
+            } else if(p.PosPactometro == 1) {
+                p.PosPactometro = 2;
+                GraficoPactometro(eleccionSeleccionada);
+            } else if(p.PosPactometro == 2) {
+                p.PosPactometro = 3;
+                GraficoPactometro(eleccionSeleccionada);
+            } 
         }
 
         // Método para mostrar el número de escaños
@@ -438,6 +434,24 @@ namespace PACTOMETRO {
         }
         private Label etiquetaActual;
 
+        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e) {
+            // Verifica si hay una elección seleccionada antes de redibujar el gráfico
+            if (eleccionSeleccionada != null) {
+                // Llama al método correspondiente según el tipo de gráfico seleccionado
+                if (Normal) {
+                    GraficoNormal(eleccionSeleccionada);
+                } else if (Pactometro) {
+                    GraficoPactometro(eleccionSeleccionada);
+                } else if (Comparativo) {
+                    GraficoComparativo(listaElecciones);
+                }
+            }
+            if (Comparativo) {
+                GraficoComparativo(listaElecciones);
+            }
+        }
+
+
         //CIERRE
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             // Obtener todas las ventanas abiertas
@@ -446,6 +460,46 @@ namespace PACTOMETRO {
                     window.Close();
                 } 
             }
+        }
+
+        private void ExportarCSV_Click(object sender, RoutedEventArgs e) {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
+
+            if (saveFileDialog.ShowDialog() == true) {
+                string filePath = saveFileDialog.FileName;
+                try {
+                    using (var writer = new StreamWriter(filePath)) {
+                        foreach (var eleccion in listaElecciones) {
+                            // Se asume que el formato de las fechas se puede convertir directamente a una cadena
+                            string partidosComoCadena = ObtenerPartidosComoCadena(eleccion.Partidos);
+                            writer.WriteLine($"{eleccion.Nombre},{eleccion.Escaños},{eleccion.Fecha},{eleccion.Mayoria},{partidosComoCadena}");
+                        }
+                    }
+
+                    MessageBox.Show("Datos exportados correctamente.", "Exportar CSV", MessageBoxButton.OK, MessageBoxImage.Information);
+                } catch (Exception ex) {
+                    MessageBox.Show($"Error al exportar datos: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private string ObtenerPartidosComoCadena(ObservableCollection<Partido> partidos) {
+            if (partidos == null || partidos.Count == 0) {
+                return string.Empty;
+            }
+
+            //Utiliza StringBuilder para poder hacer el return de un string
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var partido in partidos) {
+                sb.Append($"{partido.Nombre},{partido.Escaños},{partido.Color},");
+            }
+
+            // Elimina la última "," 
+            sb.Length--;
+
+            return sb.ToString();
         }
     }
 }

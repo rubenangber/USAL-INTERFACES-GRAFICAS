@@ -11,6 +11,7 @@ namespace PACTOMETRO {
         string nombre;
         int escaños;
         string color;
+        int posPactometro = 3;
 
         // Constructor
         public Partido(string nombre, int escaños, string color) {
@@ -35,6 +36,12 @@ namespace PACTOMETRO {
         public string Color {
             get { return color; }
             set { color = value; OnPropertyChanged("Color"); }
+        }
+
+        // Getter y Setter para el campo "posPactometro"
+        public int PosPactometro {
+            get { return posPactometro; }
+            set { posPactometro = value; OnPropertyChanged("PosPactometro"); }
         }
 
         void OnPropertyChanged(string propertyName) {

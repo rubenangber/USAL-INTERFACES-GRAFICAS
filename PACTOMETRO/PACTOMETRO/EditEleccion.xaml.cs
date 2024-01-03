@@ -159,7 +159,7 @@ namespace PACTOMETRO {
                 Partido partidoSeleccionado = (Partido)partidosListView.SelectedItem;
                 NombrePartido.Text = partidoSeleccionado.Nombre;
                 EscañosPartido.Text = partidoSeleccionado.Escaños.ToString();
-                 colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == partidoSeleccionado.Color.Split(' ')[0]);
+                colorComboBox.SelectedItem = colorComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == partidoSeleccionado.Color.Split(' ')[0]);
             }
         }
 

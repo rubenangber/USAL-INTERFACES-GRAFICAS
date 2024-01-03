@@ -22,7 +22,6 @@ namespace PACTOMETRO {
         Eleccion newEleccion;
         public Eleccion AddElecciones { get { return newEleccion; } }
         ObservableCollection<Partido> listaPartidos = new ObservableCollection<Partido>();
-        int sum = 0;
         public NewEleccion() {
             InitializeComponent();
             partidosListView.ItemsSource = listaPartidos;
@@ -57,7 +56,7 @@ namespace PACTOMETRO {
 
             if (!String.IsNullOrEmpty(EscañosPartido.Text) && int.TryParse(EscañosPartido.Text, out cuenta)) {
                 if (cuenta >= 0) {
-                    sum += cuenta;
+                    
                 } else {
                     EscañosPartido.BorderBrush = Brushes.Red;
                     comp = false;
@@ -91,6 +90,7 @@ namespace PACTOMETRO {
         //COMPROBAR ELECCION
         private bool ComprobarEleccion() {
             bool comp = true;
+            int sum = 0;
 
             if (TipoComboBox.SelectedItem != null) {
                 ComboBoxItem selectedTipoItem = (ComboBoxItem)TipoComboBox.SelectedItem;
@@ -98,6 +98,10 @@ namespace PACTOMETRO {
             } else {
                 TipoComboBox.BorderBrush = Brushes.Red;
                 comp = false;
+            }
+
+            foreach (Partido partido in listaPartidos) {
+                sum += partido.Escaños;
             }
 
             if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Generales") { 

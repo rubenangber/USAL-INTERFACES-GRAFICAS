@@ -52,7 +52,6 @@ namespace PACTOMETRO {
             }
         }
 
-
         protected virtual void OnEleccionSeleccionada(EleccionSeleccionadaEventArgs e) {
             EleccionSeleccionada?.Invoke(this, e);
         }
