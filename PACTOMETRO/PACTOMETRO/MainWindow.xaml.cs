@@ -25,6 +25,7 @@ namespace PACTOMETRO {
     public partial class MainWindow : Window {
         Tablas t;
         ObservableCollection<Eleccion> listaElecciones = new ObservableCollection<Eleccion>();
+        ObservableCollection<Eleccion> eleccionesSeleccionadas = new ObservableCollection<Eleccion>();
         bool Normal = true;
         bool Pactometro = false;
         bool Comparativo = false;
@@ -37,6 +38,7 @@ namespace PACTOMETRO {
             t.Show();
             t.EleccionSeleccionada += T_EleccionSeleccionada;
             this.SizeChanged += MainWindow_SizeChanged;
+            t.eleccionesListView.SelectionChanged += EleccionesListView_SelectionChanged;
         }
 
         private void T_EleccionSeleccionada(object sender, EleccionSeleccionadaEventArgs e) {
@@ -48,14 +50,28 @@ namespace PACTOMETRO {
                 } else if (Pactometro) {
                     GraficoPactometro(eleccionSeleccionada);
                 } else if (Comparativo) {
-                    GraficoComparativo(listaElecciones);
+                    GraficoComparativo(eleccionesSeleccionadas);
                 }
             } else {
                 CanvaFondo.Children.Clear();
             }
         }
 
+        private void EleccionesListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            // Obtener elementos que se han agregado a la selección
+            if (Comparativo == true) {
+                foreach (Eleccion eleccionAgregada in e.AddedItems) {
+                    eleccionesSeleccionadas.Add(eleccionAgregada);
+                    GraficoComparativo(eleccionesSeleccionadas);
+                }
 
+                // Obtener elementos que se han eliminado de la selección
+                foreach (Eleccion eleccionEliminada in e.RemovedItems) {
+                    eleccionesSeleccionadas.Remove(eleccionEliminada);
+                    GraficoComparativo(eleccionesSeleccionadas);
+                }
+            }
+        }
 
         //BOTONES
         private void Mostrar_Tablas(object sender, RoutedEventArgs e) {
@@ -73,6 +89,7 @@ namespace PACTOMETRO {
             if(eleccionSeleccionada != null) {
                 GraficoNormal(eleccionSeleccionada);
             }
+            t.eleccionesListView.SelectionMode = SelectionMode.Single;
         }
 
         private void Pactómetro(object sender, RoutedEventArgs e) {
@@ -82,13 +99,15 @@ namespace PACTOMETRO {
             if (eleccionSeleccionada != null) {
                 GraficoPactometro(eleccionSeleccionada);
             }
+            t.eleccionesListView.SelectionMode = SelectionMode.Single;
         }
 
         private void Grafico_Comparativo(object sender, RoutedEventArgs e) {
             Normal = false;
             Pactometro = false;
             Comparativo = true;
-            GraficoComparativo(listaElecciones);
+            t.eleccionesListView.SelectionMode = SelectionMode.Multiple;
+            GraficoComparativo(eleccionesSeleccionadas);
         }
 
         private void CargaDeDatos() {
@@ -275,9 +294,6 @@ namespace PACTOMETRO {
             int postop = 0;
 
             int numElecciones = listaElecciones.Count();
-            if (numElecciones > 3) { 
-                numElecciones = 3;
-            }
 
             int sum = 0;
             for (int x = 0; x < numElecciones; x++) {
@@ -290,8 +306,8 @@ namespace PACTOMETRO {
                 }
             }
 
-            for (int x = 0; x < numElecciones; x++) { 
-                foreach (Partido partido in listaElecciones[i].Partidos) {
+            foreach(Eleccion ele in listaElecciones) { 
+                foreach(Partido partido in ele.Partidos) {
                     //RECTANGULO
                     Rectangle r = new Rectangle();
                     r.Height = ((((altocanva - 20) * partido.Escaños) / max));
@@ -330,6 +346,9 @@ namespace PACTOMETRO {
             int altura1 = 0;
             int altura2 = 0;
             int altura3 = 0;
+
+            int votos1 = 0;
+            int votos2 = 0;
             //LIMPIAMOS EL CANVAS
             CanvaFondo.Children.Clear();
 
@@ -366,10 +385,12 @@ namespace PACTOMETRO {
                     Canvas.SetBottom(r, altura1);
                     Canvas.SetLeft(r, anchocanva / 7);
                     altura1 += (int)((((altocanva - 20) * partido.Escaños) / el.Escaños));
+                    votos1 += partido.Escaños;
                 } else if (partido.PosPactometro == 2) {
                     Canvas.SetBottom(r, altura2);
                     Canvas.SetLeft(r, (anchocanva / 7) * 3);
                     altura2 += (int)((((altocanva - 20) * partido.Escaños) / el.Escaños));
+                    votos2 += partido.Escaños;
                 } else if (partido.PosPactometro == 3) {
                     Canvas.SetBottom(r, altura3);
                     Canvas.SetLeft(r, (anchocanva / 7) * 5);
@@ -386,6 +407,18 @@ namespace PACTOMETRO {
             CanvaFondo.Children.Add(linea);
             Canvas.SetBottom(linea, ((((altocanva - 20) * el.Mayoria) / el.Escaños)));
             Canvas.SetLeft(linea, 0);
+
+            Label v1 = new Label();
+            v1.Content = votos1.ToString();
+            CanvaFondo.Children.Add(v1);
+            Canvas.SetBottom(v1, -23);
+            Canvas.SetLeft(v1, anchocanva / 7);
+
+            Label v2 = new Label();
+            v2.Content = votos2.ToString();
+            CanvaFondo.Children.Add(v2);
+            Canvas.SetBottom(v2, -23);
+            Canvas.SetLeft(v2, (anchocanva / 7) * 3);
         }
 
         //Cambio posicion pactómetro
@@ -438,25 +471,28 @@ namespace PACTOMETRO {
         }
         private Label etiquetaActual;
 
-        public static bool MainWindowClosed { get; internal set; }
-
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e) {
-            // Verifica si hay una elección seleccionada antes de redibujar el gráfico
+            double minWidth = 300; // Establece el ancho mínimo deseado
+            double minHeight = 200; // Establece la altura mínima deseada
+
+            if (e.NewSize.Width < minWidth) {
+                this.Width = minWidth;
+            }
+
+            if (e.NewSize.Height < minHeight) {
+                this.Height = minHeight;
+            }
+
             if (eleccionSeleccionada != null) {
-                // Llama al método correspondiente según el tipo de gráfico seleccionado
                 if (Normal) {
                     GraficoNormal(eleccionSeleccionada);
                 } else if (Pactometro) {
                     GraficoPactometro(eleccionSeleccionada);
                 } else if (Comparativo) {
-                    GraficoComparativo(listaElecciones);
+                    GraficoComparativo(eleccionesSeleccionadas);
                 }
             }
-            if (Comparativo) {
-                GraficoComparativo(listaElecciones);
-            }
         }
-
 
         //CIERRE
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
@@ -512,6 +548,8 @@ namespace PACTOMETRO {
 
         //IMPORTAR
         private void ImportarCSV_Click(object sender, RoutedEventArgs e) {
+            //Eliminar todas las elecciones al importar
+            //listaElecciones.Clear();
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
             openFileDialog.Title = "Selecciona un archivo CSV";

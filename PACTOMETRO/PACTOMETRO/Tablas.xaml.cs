@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace PACTOMETRO {
             InitializeComponent();
             this.listaElecciones = listaElecciones;
             eleccionesListView.ItemsSource = listaElecciones;
+            this.SizeChanged += Tablas_SizeChanged;
         }
 
         private void EleccionesListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -54,7 +56,6 @@ namespace PACTOMETRO {
         protected virtual void OnEleccionSeleccionada(EleccionSeleccionadaEventArgs e) {
             EleccionSeleccionada?.Invoke(this, e);
         }
-
         
         //AÑADIR ELECCION
         private void Add_Eleccion(object sender, RoutedEventArgs e) {
@@ -93,6 +94,19 @@ namespace PACTOMETRO {
                 }
             } else {
                 MessageBox.Show("No se ha seleccionado ninguna elección", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Tablas_SizeChanged(object sender, SizeChangedEventArgs e) {
+            double minWidth = 800; // Establece el ancho mínimo deseado
+            double minHeight = 450; // Establece la altura mínima deseada
+
+            if (e.NewSize.Width < minWidth) {
+                this.Width = minWidth;
+            }
+
+            if (e.NewSize.Height < minHeight) {
+                this.Height = minHeight;
             }
         }
     }
