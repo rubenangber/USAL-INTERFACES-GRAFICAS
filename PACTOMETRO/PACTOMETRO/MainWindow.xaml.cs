@@ -269,18 +269,25 @@ namespace PACTOMETRO {
             float altocanva = (float)CanvaFondo.ActualHeight;
             float anchocanva = (float)CanvaFondo.ActualWidth;
 
-            int max = 350;
+            int max = 0;
             int i = 0;
             int posleft = 20;
             int postop = 0;
 
-            int sum = 0;
-            foreach (Eleccion el in listaElecciones) {
-                sum += el.Partidos.Count() + 1;
-            }
             int numElecciones = listaElecciones.Count();
             if (numElecciones > 3) { 
                 numElecciones = 3;
+            }
+
+            int sum = 0;
+            for (int x = 0; x < numElecciones; x++) {
+                sum += listaElecciones[x].Partidos.Count() + 1;
+            }
+
+            for (int x = 0; x < numElecciones; x++) {
+                if (max < listaElecciones[x].ObtenerMaximo(listaElecciones[x].Partidos)) {
+                    max = listaElecciones[x].ObtenerMaximo(listaElecciones[x].Partidos);
+                }
             }
 
             for (int x = 0; x < numElecciones; x++) { 
@@ -299,9 +306,6 @@ namespace PACTOMETRO {
 
                     Canvas.SetBottom(r, 0);
                     Canvas.SetLeft(r, posleft);
-
-                    r.MouseEnter += (sender, e) => MostrarNumeroEscaños(partido.Escaños, r);
-                    r.MouseLeave += (sender, e) => OcultarNumeroEscaños(r);
 
                     posleft += (int)anchocanva / sum;
                 }
@@ -434,6 +438,8 @@ namespace PACTOMETRO {
         }
         private Label etiquetaActual;
 
+        public static bool MainWindowClosed { get; internal set; }
+
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e) {
             // Verifica si hay una elección seleccionada antes de redibujar el gráfico
             if (eleccionSeleccionada != null) {
@@ -462,9 +468,11 @@ namespace PACTOMETRO {
             }
         }
 
+        //EXPORTAR
         private void ExportarCSV_Click(object sender, RoutedEventArgs e) {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
+            saveFileDialog.Title = "Selecciona donde guardar el archivo CSV";
 
             if (saveFileDialog.ShowDialog() == true) {
                 string filePath = saveFileDialog.FileName;
@@ -500,6 +508,39 @@ namespace PACTOMETRO {
             sb.Length--;
 
             return sb.ToString();
+        }
+
+        //IMPORTAR
+        private void ImportarCSV_Click(object sender, RoutedEventArgs e) {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
+            openFileDialog.Title = "Selecciona un archivo CSV";
+
+            if (openFileDialog.ShowDialog() == true) {
+                string filePath = openFileDialog.FileName;
+
+                try {
+                    var lines = File.ReadLines(filePath);
+
+                    foreach (var line in lines) {
+                        string[] values = line.Split(',');
+
+                        if (values.Length >= 4) {
+                            Eleccion eleccion = new Eleccion(values[0], new ObservableCollection<Partido>(), DateTime.Parse(values[2]));
+
+                            for (int i = 4; i < values.Length; i += 3) {
+                                Partido partido = new Partido(values[i], int.Parse(values[i + 1]), values[i + 2]);
+                                eleccion.Partidos.Add(partido);
+                            }
+                            listaElecciones.Add(eleccion);
+                        } else {
+                            MessageBox.Show("Formato de línea incorrecto en el archivo CSV", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                } catch (Exception ex) {
+                    MessageBox.Show($"Error al importar el archivo CSV: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

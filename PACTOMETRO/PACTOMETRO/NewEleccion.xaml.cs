@@ -161,6 +161,6 @@ namespace PACTOMETRO {
             if (MessageBox.Show("¿Quieres cancelar la creacion de la eleccion?", "Cancelar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
                 this.Close();
             }
-        }
+        }     
     }
 }

@@ -30,7 +30,6 @@ namespace PACTOMETRO {
             }
         }
 
-
         public Tablas(ObservableCollection<Eleccion> listaElecciones) {
             InitializeComponent();
             this.listaElecciones = listaElecciones;
