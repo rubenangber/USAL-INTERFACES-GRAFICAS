@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -37,10 +38,12 @@ namespace PACTOMETRO {
             t = new Tablas(listaElecciones);
             t.Show();
             t.EleccionSeleccionada += T_EleccionSeleccionada;
-            this.SizeChanged += MainWindow_SizeChanged;
             t.eleccionesListView.SelectionChanged += EleccionesListView_SelectionChanged;
+            t.Closing += TablasClosing;
+            this.SizeChanged += MainWindow_SizeChanged;
         }
 
+        //Eleccion seleccionada simple
         private void T_EleccionSeleccionada(object sender, EleccionSeleccionadaEventArgs e) {
             // Manejar la elección seleccionada en el MainWindow
             eleccionSeleccionada = e.EleccionSeleccionada;
@@ -57,9 +60,10 @@ namespace PACTOMETRO {
             }
         }
 
+        //Eleccion seleccionada múltiple
         private void EleccionesListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            // Obtener elementos que se han agregado a la selección
             if (Comparativo == true) {
+                // Obtener elementos que se han agregado a la selección
                 foreach (Eleccion eleccionAgregada in e.AddedItems) {
                     eleccionesSeleccionadas.Add(eleccionAgregada);
                     GraficoComparativo(eleccionesSeleccionadas);
@@ -90,6 +94,7 @@ namespace PACTOMETRO {
                 GraficoNormal(eleccionSeleccionada);
             }
             t.eleccionesListView.SelectionMode = SelectionMode.Single;
+            eleccionesSeleccionadas.Clear();
         }
 
         private void Pactómetro(object sender, RoutedEventArgs e) {
@@ -100,6 +105,7 @@ namespace PACTOMETRO {
                 GraficoPactometro(eleccionSeleccionada);
             }
             t.eleccionesListView.SelectionMode = SelectionMode.Single;
+            eleccionesSeleccionadas.Clear();
         }
 
         private void Grafico_Comparativo(object sender, RoutedEventArgs e) {
@@ -110,6 +116,82 @@ namespace PACTOMETRO {
             GraficoComparativo(eleccionesSeleccionadas);
         }
 
+        //EXPORTAR
+        private void ExportarCSV_Click(object sender, RoutedEventArgs e) {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
+            saveFileDialog.Title = "Selecciona donde guardar el archivo CSV";
+
+            if (saveFileDialog.ShowDialog() == true) {
+                string filePath = saveFileDialog.FileName;
+                try {
+                    using (var writer = new StreamWriter(filePath)) {
+                        foreach (var eleccion in listaElecciones) {
+                            string partidosComoCadena = ObtenerPartidosComoCadena(eleccion.Partidos);
+                            writer.WriteLine($"{eleccion.Nombre},{eleccion.Escaños},{eleccion.Fecha},{eleccion.Mayoria},{partidosComoCadena}");
+                        }
+                    }
+                    MessageBox.Show("Datos exportados correctamente.", "Exportar CSV", MessageBoxButton.OK, MessageBoxImage.Information);
+                } catch (Exception ex) {
+                    MessageBox.Show($"Error al exportar datos: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private string ObtenerPartidosComoCadena(ObservableCollection<Partido> partidos) {
+            if (partidos == null || partidos.Count == 0) {
+                return string.Empty;
+            }
+
+            //Utiliza StringBuilder para poder hacer el return de un string
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var partido in partidos) {
+                sb.Append($"{partido.Nombre},{partido.Escaños},{partido.Color},");
+            }
+
+            // Elimina la última "," 
+            sb.Length--;
+
+            return sb.ToString();
+        }
+
+        //IMPORTAR
+        private void ImportarCSV_Click(object sender, RoutedEventArgs e) {
+            //Eliminar todas las elecciones al importar
+            //listaElecciones.Clear();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
+            openFileDialog.Title = "Selecciona un archivo CSV";
+
+            if (openFileDialog.ShowDialog() == true) {
+                string filePath = openFileDialog.FileName;
+
+                try {
+                    var lines = File.ReadLines(filePath);
+
+                    foreach (var line in lines) {
+                        string[] values = line.Split(',');
+
+                        if (values.Length >= 4) {
+                            Eleccion eleccion = new Eleccion(values[0], new ObservableCollection<Partido>(), DateTime.Parse(values[2]));
+
+                            for (int i = 4; i < values.Length; i += 3) {
+                                Partido partido = new Partido(values[i], int.Parse(values[i + 1]), values[i + 2]);
+                                eleccion.Partidos.Add(partido);
+                            }
+                            listaElecciones.Add(eleccion);
+                        } else {
+                            MessageBox.Show("Formato de línea incorrecto en el archivo CSV", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                } catch (Exception ex) {
+                    MessageBox.Show($"Error al importar el archivo CSV: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        //CARGA DE DATOS
         private void CargaDeDatos() {
             ObservableCollection<Partido> lp1 = new ObservableCollection<Partido>();
             Partido p1 = new Partido("PP", 136, "#1e4b8f");
@@ -292,17 +374,16 @@ namespace PACTOMETRO {
             int i = 0;
             int posleft = 20;
             int postop = 0;
-
             int numElecciones = listaElecciones.Count();
-
             int sum = 0;
-            for (int x = 0; x < numElecciones; x++) {
-                sum += listaElecciones[x].Partidos.Count() + 1;
+
+            foreach (Eleccion ele in listaElecciones) {
+                sum += ele.Partidos.Count() + 1;
             }
 
-            for (int x = 0; x < numElecciones; x++) {
-                if (max < listaElecciones[x].ObtenerMaximo(listaElecciones[x].Partidos)) {
-                    max = listaElecciones[x].ObtenerMaximo(listaElecciones[x].Partidos);
+            foreach (Eleccion ele in listaElecciones) { 
+                if (max < ele.ObtenerMaximo(ele.Partidos)) {
+                    max = ele.ObtenerMaximo(ele.Partidos);
                 }
             }
 
@@ -312,10 +393,7 @@ namespace PACTOMETRO {
                     Rectangle r = new Rectangle();
                     r.Height = ((((altocanva - 20) * partido.Escaños) / max));
                     r.Width = anchocanva / sum;
-
-                    // Convierte el nombre del color a un objeto Brush
-                    Brush colorBrush = (Brush)new BrushConverter().ConvertFromString(partido.Color);
-                    r.Fill = colorBrush;
+                    r.Fill = (Brush)new BrushConverter().ConvertFromString(partido.Color);
                     r.Opacity = 1.0 / (double)Math.Pow(2, i);
 
                     CanvaFondo.Children.Add(r);
@@ -326,7 +404,7 @@ namespace PACTOMETRO {
                     posleft += (int)anchocanva / sum;
                 }
                 Label l = new Label();
-                l.Content = listaElecciones[i].Nombre.ToString() + " " + listaElecciones[i].Fecha.ToString("dd/MM/yyyy");
+                l.Content = ele.Nombre.ToString() + " " + ele.Fecha.ToString("dd/MM/yyyy");
                 l.FontWeight = FontWeights.Bold;
                 l.Opacity = 1.0 / (double)Math.Pow(2, i);
 
@@ -435,7 +513,7 @@ namespace PACTOMETRO {
             } 
         }
 
-        // Método para mostrar el número de escaños
+        //Método para mostrar el número de escaños
         private void MostrarNumeroEscaños(int numeroEscaños, UIElement relativeTo) {
             if(numeroEscaños == 1) {
                 Label etiqueta = new Label();
@@ -471,6 +549,7 @@ namespace PACTOMETRO {
         }
         private Label etiquetaActual;
 
+        //CAMBIO TAMAÑO
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e) {
             double minWidth = 300; // Establece el ancho mínimo deseado
             double minHeight = 200; // Establece la altura mínima deseada
@@ -494,91 +573,33 @@ namespace PACTOMETRO {
             }
         }
 
-        //CIERRE
+        //CIERRES
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             // Obtener todas las ventanas abiertas
             foreach (Window window in App.Current.Windows) {
                 if (window != this) {
-                    window.Close();
-                } 
-            }
-        }
-
-        //EXPORTAR
-        private void ExportarCSV_Click(object sender, RoutedEventArgs e) {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
-            saveFileDialog.Title = "Selecciona donde guardar el archivo CSV";
-
-            if (saveFileDialog.ShowDialog() == true) {
-                string filePath = saveFileDialog.FileName;
-                try {
-                    using (var writer = new StreamWriter(filePath)) {
-                        foreach (var eleccion in listaElecciones) {
-                            // Se asume que el formato de las fechas se puede convertir directamente a una cadena
-                            string partidosComoCadena = ObtenerPartidosComoCadena(eleccion.Partidos);
-                            writer.WriteLine($"{eleccion.Nombre},{eleccion.Escaños},{eleccion.Fecha},{eleccion.Mayoria},{partidosComoCadena}");
-                        }
+                    // Manejar el evento Closing de la ventana t por separado
+                    if (window is Tablas t) {
+                        t.Closing += TablasClosingMain;
+                        t.Close();
+                    } else {
+                        window.Close();
                     }
-
-                    MessageBox.Show("Datos exportados correctamente.", "Exportar CSV", MessageBoxButton.OK, MessageBoxImage.Information);
-                } catch (Exception ex) {
-                    MessageBox.Show($"Error al exportar datos: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            e.Cancel = false;
         }
 
-        private string ObtenerPartidosComoCadena(ObservableCollection<Partido> partidos) {
-            if (partidos == null || partidos.Count == 0) {
-                return string.Empty;
-            }
-
-            //Utiliza StringBuilder para poder hacer el return de un string
-            StringBuilder sb = new StringBuilder();
-
-            foreach (var partido in partidos) {
-                sb.Append($"{partido.Nombre},{partido.Escaños},{partido.Color},");
-            }
-
-            // Elimina la última "," 
-            sb.Length--;
-
-            return sb.ToString();
+        private void TablasClosing(object sender, CancelEventArgs e) {
+            // Cancela el cierre de la ventana
+            e.Cancel = true;
+            // Ocultamos la ventana
+            t.Hide();
         }
 
-        //IMPORTAR
-        private void ImportarCSV_Click(object sender, RoutedEventArgs e) {
-            //Eliminar todas las elecciones al importar
-            //listaElecciones.Clear();
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
-            openFileDialog.Title = "Selecciona un archivo CSV";
-
-            if (openFileDialog.ShowDialog() == true) {
-                string filePath = openFileDialog.FileName;
-
-                try {
-                    var lines = File.ReadLines(filePath);
-
-                    foreach (var line in lines) {
-                        string[] values = line.Split(',');
-
-                        if (values.Length >= 4) {
-                            Eleccion eleccion = new Eleccion(values[0], new ObservableCollection<Partido>(), DateTime.Parse(values[2]));
-
-                            for (int i = 4; i < values.Length; i += 3) {
-                                Partido partido = new Partido(values[i], int.Parse(values[i + 1]), values[i + 2]);
-                                eleccion.Partidos.Add(partido);
-                            }
-                            listaElecciones.Add(eleccion);
-                        } else {
-                            MessageBox.Show("Formato de línea incorrecto en el archivo CSV", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    }
-                } catch (Exception ex) {
-                    MessageBox.Show($"Error al importar el archivo CSV: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
+        private void TablasClosingMain(object sender, System.ComponentModel.CancelEventArgs e) {
+            // Permite que la ventana t se cierre cuando se cierra el Main
+            e.Cancel = false;
         }
     }
 }

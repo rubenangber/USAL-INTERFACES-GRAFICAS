@@ -58,9 +58,9 @@ namespace PACTOMETRO {
             set { fecha = value; OnPropertyChanged("Fecha"); }
         }
 
+        //Obtener partido con más escaños
         public int ObtenerMaximo(ObservableCollection<Partido> partidos) {
             if (partidos == null || partidos.Count == 0) {
-                // Devolver un valor predeterminado o lanzar una excepción según tus necesidades
                 return 0;
             }
 

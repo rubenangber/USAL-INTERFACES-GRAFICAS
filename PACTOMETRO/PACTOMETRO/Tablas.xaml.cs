@@ -90,6 +90,7 @@ namespace PACTOMETRO {
                         MessageBox.Show("Edición exitosa", "", MessageBoxButton.OK, MessageBoxImage.Information);
                     } else {
                         // La edición no fue exitosa o se canceló
+                        MessageBox.Show("Edición cancelada", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             } else {
