@@ -11,7 +11,7 @@ namespace PACTOMETRO {
         string nombre;
         int escaños;
         string color;
-        int posPactometro = 3;
+        int posPactometro = 2;
 
         // Constructor
         public Partido(string nombre, int escaños, string color) {

@@ -25,6 +25,7 @@
                 <MenuItem Header="Archivos">
                     <MenuItem Header="Exportar" Click="ExportarCSV_Click"/>
                     <MenuItem Header="Importar" Click="ImportarCSV_Click"/>
+                    <MenuItem Header="Añadir" Click="AñadirCSV_Click"/>
                 </MenuItem>
             </Menu>
         </DockPanel>
