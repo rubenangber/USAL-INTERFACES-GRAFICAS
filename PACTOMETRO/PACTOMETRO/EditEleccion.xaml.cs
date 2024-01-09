@@ -28,7 +28,7 @@ namespace PACTOMETRO {
         public EditEleccion(Eleccion elecciones) {
             InitializeComponent();
             this.elecciones = elecciones;
-            listaPartidos = elecciones.Partidos;
+            listaPartidos = new ObservableCollection<Partido>(elecciones.Partidos);
             partidosListView.ItemsSource = listaPartidos;
 
             if (elecciones.Nombre.StartsWith("Generales")) {
