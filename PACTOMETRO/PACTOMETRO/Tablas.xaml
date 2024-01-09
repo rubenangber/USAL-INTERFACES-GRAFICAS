@@ -44,9 +44,15 @@
         </ListView>
         <!--COLUMNA 2-->
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Margin="15">
-            <Button Content="ADD" Margin="5" Click="Add_Eleccion"/>
-            <Button Content="EDIT" Margin="5" Click="Editar_Eleccion"/>
-            <Button Content="DELETE" Margin="5" Click="Del_Eleccion"/>
+            <Button Margin="5" Click="Add_Eleccion">
+                <Image Source="add.png"/>
+            </Button>
+            <Button Margin="5" Click="Editar_Eleccion">
+                <Image Source="edit.png"/>
+            </Button>
+            <Button Margin="5" Click="Del_Eleccion">
+                <Image Source="delete.png"/>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

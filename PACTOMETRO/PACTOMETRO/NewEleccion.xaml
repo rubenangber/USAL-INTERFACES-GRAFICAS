@@ -25,13 +25,13 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <!--COLUMNA 1-->
-        <Label Grid.Column="0" Grid.Row="1" Content="Tipo" Margin="5" VerticalContentAlignment="Center"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Nombre" Margin="5" VerticalContentAlignment="Center"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Tipo" Margin="5" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="Nombre" Margin="5" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <Label Grid.Column="0" Grid.Row="2" Content="Partidos" Margin="5,50,0,0" VerticalContentAlignment="Top" Grid.RowSpan="2"/>
         <Label Grid.Column="0" Grid.Row="5" Content="Fecha" Margin="5" VerticalContentAlignment="Center"/>
         <Button Grid.Column="0" Grid.Row="7" Margin="10" Content="Añadir" Click="Añadir_Eleccion"/>
         <!--COLUMNA 2-->
-        <ComboBox Grid.Column="1" Grid.Row="1" Margin="15" x:Name="TipoComboBox">
+        <ComboBox Grid.Column="1" Grid.Row="1" Margin="15" x:Name="TipoComboBox" >
             <ComboBoxItem Content="Generales"/>
             <ComboBoxItem Content="Autonómicas"/>
         </ComboBox>
@@ -41,7 +41,14 @@
                 <GridView>
                     <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" />
                     <GridViewColumn Header="Escaños" DisplayMemberBinding="{Binding Escaños}" />
-                    <GridViewColumn Header="Color" DisplayMemberBinding="{Binding Color}" />
+                    <GridViewColumn Header="Color">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Utiliza un Rectangle en lugar de simplemente mostrar el nombre del color -->
+                                <Rectangle Width="40" Height="20" Fill="{Binding Color}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

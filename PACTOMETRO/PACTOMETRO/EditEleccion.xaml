@@ -41,7 +41,14 @@
                 <GridView>
                     <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" />
                     <GridViewColumn Header="Escaños" DisplayMemberBinding="{Binding Escaños}" />
-                    <GridViewColumn Header="Color" DisplayMemberBinding="{Binding Color}" />
+                    <GridViewColumn Header="Color">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Utiliza un Rectangle en lugar de simplemente mostrar el nombre del color -->
+                                <Rectangle Width="40" Height="20" Fill="{Binding Color}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
