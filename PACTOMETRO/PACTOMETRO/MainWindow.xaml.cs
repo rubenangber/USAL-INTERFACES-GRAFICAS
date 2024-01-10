@@ -564,7 +564,7 @@ namespace PACTOMETRO {
                 r.Fill = colorBrush;
 
                 Label l = new Label();
-                l.Content = partido.Escaños == 1 ? $"" : $"{partido.Nombre} - {partido.Escaños}";
+                l.Content = partido.Escaños < 0.05 * el.Escaños ? $"" : $"{partido.Nombre} - {partido.Escaños}"; // Si no constituye el 5% de los escaños de la eleccion, no mostrar
 
                 CanvaFondo.Children.Add(l);
 

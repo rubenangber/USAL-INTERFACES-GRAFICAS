@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\PACTOMETRO\PACTOMETRO\obj\Debug\
+C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\PACTOMETRO\PACTOMETRO\obj\Release\
 PACTOMETRO
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\ruben\OneDrive\Documentos\GitHub\INTERFACES-GRAFICAS\PACTOMETRO\PACTOMETRO\App.xaml
 4-1309719202
 
-111654748459
+10-558130219
 13-1310406943
 EditEleccion.xaml;MainWindow.xaml;NewEleccion.xaml;Tablas.xaml;
 
