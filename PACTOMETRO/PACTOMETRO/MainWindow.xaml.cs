@@ -384,7 +384,7 @@ namespace PACTOMETRO {
 
                 // TEXTO
                 Label l = new Label();
-                l.Content = partido.Nombre.ToString();
+                l.Content = partido.Nombre.Length >= 10 ? partido.Nombre.Substring(0, 10) : partido.Nombre.ToString();
                 l.Foreground = colorBrush;
                 l.FontWeight = FontWeights.Bold;
 
@@ -437,7 +437,7 @@ namespace PACTOMETRO {
 
             foreach (string nombreP in nombrePartidos) {
                 Label l = new Label();
-                l.Content = nombreP.ToString();
+                l.Content = nombreP.Length >= 10 ? nombreP.Substring(0, 10) : nombreP.ToString();
 
                 CanvaFondo.Children.Add(l);
 
@@ -503,8 +503,8 @@ namespace PACTOMETRO {
                 posleft += (int)anchocanva / sum;
             }
 
-            int[] posdatos = new int[10];
-            int[] datosescaños = new int[10];
+            int[] posdatos = new int[5];
+            int[] datosescaños = new int[5];
             int diez = 20;
             // MARGEN IZQ
             for (int z = 0; z < 5; z++) {
@@ -564,7 +564,12 @@ namespace PACTOMETRO {
                 r.Fill = colorBrush;
 
                 Label l = new Label();
-                l.Content = partido.Escaños < 0.05 * el.Escaños ? $"" : $"{partido.Nombre} - {partido.Escaños}"; // Si no constituye el 5% de los escaños de la eleccion, no mostrar
+                if (partido.Nombre.Length >= 10) {
+                    l.Content = partido.Escaños < 0.05 * el.Escaños ? $"" : $"{partido.Nombre.Substring(0, 10)} - {partido.Escaños}"; // Si no constituye el 5% de los escaños de la eleccion, no mostrar
+                } else {
+                    l.Content = partido.Escaños < 0.05 * el.Escaños ? $"" : $"{partido.Nombre} - {partido.Escaños}"; // Si no constituye el 5% de los escaños de la eleccion, no mostrar
+                }
+                
 
                 CanvaFondo.Children.Add(l);
 

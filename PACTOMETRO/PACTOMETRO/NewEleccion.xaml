@@ -35,7 +35,7 @@
             <ComboBoxItem Content="Generales"/>
             <ComboBoxItem Content="Autonómicas"/>
         </ComboBox>
-        <TextBox Grid.Column="1" Grid.Row="2" x:Name="NombreEleccion" Margin="15"/>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="NombreEleccion" Margin="15" BorderBrush="Gray" BorderThickness="2"/>
         <ListView x:Name="partidosListView" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="15,0,115,0" SelectionChanged="partidosListView_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -52,7 +52,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <DatePicker Name="introducirfecha" Grid.Column="1" Grid.Row="5" Margin="15" VerticalAlignment="Center" Background="White" SelectedDateFormat="Short"/>
+        <DatePicker Name="introducirfecha" Grid.Column="1" Grid.Row="5" Margin="15" VerticalAlignment="Center" Background="White" SelectedDateFormat="Short" BorderBrush="Gray" BorderThickness="2"/>
         <Button Grid.Column="1" Grid.Row="7" Margin="10" Content="Cancelar" Click="Cancelar_Eleccion"/>
         <!--COLUMNA 3-->
         <Label Grid.Column="2" Grid.Row="0" Content="Elección" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="30" />
@@ -62,8 +62,8 @@
         <Label Grid.Column="3" Grid.Row="3" Content="Escaños" Margin="5" VerticalContentAlignment="Center"/>
         <Label Grid.Column="3" Grid.Row="4" Content="Color" Margin="5" VerticalContentAlignment="Center"/>
         <!--COLUMNA 5-->
-        <TextBox Grid.Column="4" Grid.Row="2" x:Name="NombrePartido" Margin="15"/>
-        <TextBox Grid.Column="4" Grid.Row="3" x:Name="EscañosPartido" Margin="15"/>
+        <TextBox Grid.Column="4" Grid.Row="2" x:Name="NombrePartido" Margin="15" BorderBrush="Gray" BorderThickness="2"/>
+        <TextBox Grid.Column="4" Grid.Row="3" x:Name="EscañosPartido" Margin="15" BorderBrush="Gray" BorderThickness="2"/>
         <ComboBox Grid.Column="4" Grid.Row="4" x:Name="colorComboBox" Margin="15" Loaded="colorComboBox_Loaded">
             <!-- Los elementos se agregarán dinámicamente en el código C# -->
         </ComboBox>

@@ -45,6 +45,10 @@ namespace PACTOMETRO {
         //AÑADIR PARTIDO
         private void Añadir_Partido(object sender, RoutedEventArgs e) {
             if (ComprobarPartido() == true) {
+                NombrePartido.BorderBrush = Brushes.Gray;
+                EscañosPartido.BorderBrush = Brushes.Gray;
+                colorComboBox.BorderBrush = Brushes.Gray;
+
                 Partido p = new Partido(NombrePartido.Text, int.Parse(EscañosPartido.Text), (colorComboBox.SelectedItem as ComboBoxItem)?.Content.ToString());
                 listaPartidos.Add(p);
                 // Limpiar las cajas de texto y el ComboBox después de agregar el partido
@@ -85,7 +89,7 @@ namespace PACTOMETRO {
                 ComboBoxItem selectedColorItem = (ComboBoxItem)colorComboBox.SelectedItem;
                 string colorName = selectedColorItem.Content.ToString();
             } else {
-                colorComboBox.BorderBrush = Brushes.Red;
+                MessageBox.Show("No se ha introducido color del partido", "", MessageBoxButton.OK, MessageBoxImage.Error);
                 comp = false;
             }
 
@@ -95,6 +99,10 @@ namespace PACTOMETRO {
         //EDITAR ELECCION
         private void Editar_Eleccion(object sender, RoutedEventArgs e) {
             if (ComprobarEleccion() == true) {
+                TipoComboBox.BorderBrush = Brushes.Gray;
+                NombreEleccion.BorderBrush = Brushes.Gray;
+                introducirfecha.BorderBrush = Brushes.Gray;
+
                 string tipo = (TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
                 string nombre = tipo + " " + NombreEleccion.Text;
                 elecciones.Nombre = nombre;
@@ -114,6 +122,7 @@ namespace PACTOMETRO {
         //COMPROBAR ELECCION
         private bool ComprobarEleccion() {
             bool comp = true;
+            sum = 0;
 
             foreach (Partido p in listaPartidos) {
                 sum += p.Escaños;
@@ -123,18 +132,18 @@ namespace PACTOMETRO {
                 ComboBoxItem selectedTipoItem = (ComboBoxItem)TipoComboBox.SelectedItem;
                 string tipo = selectedTipoItem.Content.ToString();
             } else {
-                TipoComboBox.BorderBrush = Brushes.Red;
+                MessageBox.Show("No se ha introducido tipo de elección", "", MessageBoxButton.OK, MessageBoxImage.Error);
                 comp = false;
             }
 
             if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Generales") {
                 if (sum != 350) {
-                    MessageBox.Show("Los partidos no suman 350 escaños", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Los partidos no suman 350 escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     comp = false;
                 }
             } else if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Autonómicas") {
                 if (sum != 81) {
-                    MessageBox.Show("Los partidos no suman 81 escaños", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Los partidos no suman 81 escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     comp = false;
                 }
             }
