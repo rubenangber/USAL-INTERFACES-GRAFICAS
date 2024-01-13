@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
-            <Menu IsMainMenu="True" DockPanel.Dock="Top" Name="menu1" VerticalAlignment="Top">
+            <Menu IsMainMenu="True" DockPanel.Dock="Top" Name="menu1" Height="23">
                 <MenuItem Header="Ver">
                     <MenuItem Header="Tablas" Click="Mostrar_Tablas"/>
                 </MenuItem>
@@ -22,7 +22,7 @@
                     <MenuItem Header="Pactómetro" Click="Pactómetro"/>
                     <MenuItem Header="Grafico comparativo" Click="Grafico_Comparativo"/>
                 </MenuItem>
-                <MenuItem Header="Archivos">
+                <MenuItem Header="Archivos" Height="23">
                     <MenuItem Header="Exportar" Click="ExportarCSV_Click"/>
                     <MenuItem Header="Importar" Click="ImportarCSV_Click"/>
                     <MenuItem Header="Añadir" Click="AñadirCSV_Click"/>

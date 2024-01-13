@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -67,7 +69,7 @@ namespace PACTOMETRO {
             bool comp = true;
             int cuenta;
 
-            if (String.IsNullOrEmpty(NombrePartido.Text)) {
+            if (String.IsNullOrEmpty(NombrePartido.Text) || !Regex.IsMatch(NombrePartido.Text, "^[^;\"']+$")) {
                 //Error
                 NombrePartido.BorderBrush = Brushes.Red;
                 comp = false;
@@ -148,7 +150,7 @@ namespace PACTOMETRO {
                 }
             }
 
-            if (String.IsNullOrEmpty(NombreEleccion.Text)) {
+            if (String.IsNullOrEmpty(NombreEleccion.Text) || !Regex.IsMatch(NombreEleccion.Text, "^[^;\"']+$")) {
                 NombreEleccion.BorderBrush = Brushes.Red;
                 comp = false;
             }
@@ -189,7 +191,7 @@ namespace PACTOMETRO {
 
         //CANCELAR
         private void Cancelar_Eleccion(object sender, RoutedEventArgs e) {
-            if (MessageBox.Show("¿Quieres cancelar la creacion de la eleccion?", "Cancelar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
+            if (MessageBox.Show("¿Quieres cancelar la edicion de la eleccion?", "Cancelar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
                 this.Close();
             }
         }

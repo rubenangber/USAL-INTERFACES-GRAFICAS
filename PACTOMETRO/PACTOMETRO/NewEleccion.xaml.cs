@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -51,7 +52,7 @@ namespace PACTOMETRO {
             bool comp = true;
             int cuenta;
 
-            if (String.IsNullOrEmpty(NombrePartido.Text)) { 
+            if (String.IsNullOrEmpty(NombrePartido.Text) || !Regex.IsMatch(NombrePartido.Text, "^[^;\"']+$")) { 
                 //Error
                 NombrePartido.BorderBrush = Brushes.Red;
                 comp = false;
@@ -122,7 +123,7 @@ namespace PACTOMETRO {
                 }
             }
 
-            if (String.IsNullOrEmpty(NombreEleccion.Text)) {
+            if (String.IsNullOrEmpty(NombreEleccion.Text) || !Regex.IsMatch(NombreEleccion.Text, "^[^;\"']+$")) {
                 //Error
                 NombreEleccion.BorderBrush = Brushes.Red;
                 comp = false;

@@ -358,7 +358,7 @@ namespace PACTOMETRO {
 
             // TOP
             Label top = new Label();
-            top.Content = el.Nombre.ToString() + " " + el.Fecha.ToString("dd/MM/yyyy");
+            top.Content = el.Nombre.Length >= 30 ? el.Nombre.Substring(0, 30) + " " + el.Fecha.ToString("dd/MM/yyyy") : el.Nombre.ToString() + " " + el.Fecha.ToString("dd/MM/yyyy");
             top.FontWeight = FontWeights.Bold;
 
             CanvaFondo.Children.Add(top);
@@ -391,7 +391,7 @@ namespace PACTOMETRO {
                 CanvaFondo.Children.Add(l);
 
                 Canvas.SetBottom(l, -25);
-                Canvas.SetLeft(l, (j * anchocanva / ((el.Partidos.Count + 1) * 2)) -5);
+                Canvas.SetLeft(l, (j * anchocanva / ((el.Partidos.Count + 1) * 2)) - 5);
 
                 j += 2;
             }
@@ -489,7 +489,7 @@ namespace PACTOMETRO {
             i = 0;
             foreach (Eleccion ele in listaElecciones) {
                 Label l = new Label();
-                l.Content = ele.Nombre.ToString() + " " + ele.Fecha.ToString("dd/MM/yyyy");
+                l.Content = ele.Nombre.Length >= 30 ? ele.Nombre.Substring(0, 30) + " " + ele.Fecha.ToString("dd/MM/yyyy") : ele.Nombre.ToString() + " " + ele.Fecha.ToString("dd/MM/yyyy");
                 l.FontWeight = FontWeights.Bold;
                 l.Opacity = 1.0 / (double)Math.Pow(2, i);
 
@@ -540,7 +540,7 @@ namespace PACTOMETRO {
 
             // TOP
             Label top = new Label();
-            top.Content = el.Nombre.ToString() + " " + el.Fecha.ToString("dd/MM/yyyy");
+            top.Content = el.Nombre.Length >= 30 ? el.Nombre.Substring(0, 30) + " " + el.Fecha.ToString("dd/MM/yyyy") : el.Nombre.ToString() + " " + el.Fecha.ToString("dd/MM/yyyy");
             top.FontWeight = FontWeights.Bold;
 
             CanvaFondo.Children.Add(top);
@@ -653,7 +653,7 @@ namespace PACTOMETRO {
         }
 
         //CIERRES
-        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+        private void MainWindow_Closing(object sender, CancelEventArgs e) {
             // Obtener todas las ventanas abiertas
             foreach (Window window in App.Current.Windows) {
                 if (window != this) {
