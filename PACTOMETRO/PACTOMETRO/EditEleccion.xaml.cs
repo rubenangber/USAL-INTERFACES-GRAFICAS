@@ -40,7 +40,10 @@ namespace PACTOMETRO {
                 TipoComboBox.SelectedItem = TipoComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Autonómicas");
             }
 
-            NombreEleccion.Text = elecciones.Nombre.Split(' ')[1];
+            string[] palabras = elecciones.Nombre.Split(' ');
+            string resultado = string.Join(" ", palabras.Skip(1));
+            NombreEleccion.Text = resultado;
+
             introducirfecha.Text = Convert.ToString(elecciones.Fecha);
         }
 
