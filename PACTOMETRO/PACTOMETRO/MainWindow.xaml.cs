@@ -30,6 +30,7 @@ namespace PACTOMETRO {
         bool Normal = true;
         bool Pactometro = false;
         bool Comparativo = false;
+        bool Circular = false;
         Eleccion eleccionSeleccionada;
 
         public MainWindow() {
@@ -54,6 +55,8 @@ namespace PACTOMETRO {
                     GraficoPactometro(eleccionSeleccionada);
                 } else if (Comparativo) {
                     GraficoComparativo(eleccionesSeleccionadas);
+                } else if (Circular) { 
+                    GraficoCircular(eleccionSeleccionada);
                 }
             } else {
                 CanvaFondo.Children.Clear();
@@ -91,7 +94,8 @@ namespace PACTOMETRO {
             Normal = true;
             Pactometro = false;
             Comparativo = false;
-            if(eleccionSeleccionada != null) {
+            Circular = false;
+            if (eleccionSeleccionada != null) {
                 GraficoNormal(eleccionSeleccionada);
             }
             t.eleccionesListView.SelectionMode = SelectionMode.Single;
@@ -103,6 +107,7 @@ namespace PACTOMETRO {
             Normal = false;
             Pactometro = true;
             Comparativo = false;
+            Circular = false;
             if (eleccionSeleccionada != null) {
                 GraficoPactometro(eleccionSeleccionada);
             }
@@ -115,8 +120,23 @@ namespace PACTOMETRO {
             Normal = false;
             Pactometro = false;
             Comparativo = true;
+            Circular = false;
             t.eleccionesListView.SelectionMode = SelectionMode.Multiple;
             GraficoComparativo(eleccionesSeleccionadas);
+        }
+
+        // Gráfico circular
+        private void Grafico_Circular(object sender, RoutedEventArgs e) {
+            Normal = false;
+            Pactometro = false;
+            Comparativo = false;
+            Circular = true;
+
+            if (eleccionSeleccionada != null) {
+                GraficoCircular(eleccionSeleccionada);
+            }
+            t.eleccionesListView.SelectionMode = SelectionMode.Single;
+            eleccionesSeleccionadas.Clear();
         }
 
         // Exportar
@@ -326,6 +346,84 @@ namespace PACTOMETRO {
             lp4.Add(p40);
 
             listaElecciones.Add(new Eleccion("Autonómicas CyL", lp4, new DateTime(2019, 5, 26)));
+        }
+
+        // GRÁFICO CIRCULAR
+        private void GraficoCircular(Eleccion el) {
+            CanvaFondo.Children.Clear();
+
+            Label top = new Label();
+            top.Content = el.Nombre.Length >= 30 ? el.Nombre.Substring(0, 30) + " " + el.Fecha.ToString("dd/MM/yyyy") : el.Nombre.ToString() + " " + el.Fecha.ToString("dd/MM/yyyy");
+            top.FontWeight = FontWeights.Bold;
+
+            CanvaFondo.Children.Add(top);
+
+            Canvas.SetTop(top, -23);
+
+            int numPartidos = el.Partidos.Count;
+            double[] porcentajes = new double[numPartidos];
+
+            int i = 0;
+            foreach (Partido p in el.Partidos) {
+                porcentajes[i] = p.Escaños * 100.0 / el.Escaños;
+                i++;
+            }
+
+            double centroX = CanvaFondo.ActualWidth / 2;
+            double centroY = CanvaFondo.ActualHeight / 2;
+            double radio = Math.Min(centroX, centroY) - 50;
+
+            double total = 0;
+            foreach (double porcentaje in porcentajes) {
+                total += porcentaje;
+            }
+
+            double anguloInicial = 0;
+            i = 0;
+
+            foreach (Partido p in el.Partidos) {
+                double anguloBarrido = 360 * (porcentajes[i] / total);
+
+                System.Windows.Shapes.Path path = new System.Windows.Shapes.Path();
+                path.Fill = (Brush)new BrushConverter().ConvertFromString(p.Color);
+
+                PathGeometry pathGeometry = new PathGeometry();
+                PathFigure pathFigure = new PathFigure();
+
+                pathFigure.StartPoint = new Point(centroX, centroY);
+                pathFigure.Segments.Add(new LineSegment(new Point(centroX + radio * Math.Cos(anguloInicial * Math.PI / 180), centroY + radio * Math.Sin(anguloInicial * Math.PI / 180)), true));
+                pathFigure.Segments.Add(new ArcSegment(new Point(centroX + radio * Math.Cos((anguloInicial + anguloBarrido) * Math.PI / 180), centroY + radio * Math.Sin((anguloInicial + anguloBarrido) * Math.PI / 180)), new Size(radio, radio), 0, anguloBarrido > 180, SweepDirection.Clockwise, true));
+                pathFigure.Segments.Add(new LineSegment(new Point(centroX, centroY), true));
+
+                pathGeometry.Figures.Add(pathFigure);
+                path.Data = pathGeometry;
+
+                // Agregar tooltip al path
+                ToolTip tooltip = new ToolTip();
+                porcentajes[i] = Math.Round(porcentajes[i], 2);
+                tooltip.Content = p.Nombre + " " + porcentajes[i].ToString() + "%";
+
+                path.ToolTip = tooltip;
+
+                CanvaFondo.Children.Add(path);
+
+                // Añadir el nombre del partido como texto al lado del segmento
+                TextBlock textBlock = new TextBlock();
+                textBlock.Text = p.Nombre.Length >= 10 ? p.Nombre.Substring(0, 10) : p.Nombre.ToString();
+                textBlock.Foreground = (Brush)new BrushConverter().ConvertFromString(p.Color);
+                textBlock.FontWeight = FontWeights.Bold;
+
+                // Calcular la posición del texto
+                double textX = centroX + 1.2 * radio * Math.Cos((anguloInicial + anguloBarrido / 2) * Math.PI / 180);
+                double textY = centroY + 1.1 * radio * Math.Sin((anguloInicial + anguloBarrido / 2) * Math.PI / 180);
+                CanvaFondo.Children.Add(textBlock);
+
+                Canvas.SetLeft(textBlock, textX);
+                Canvas.SetTop(textBlock, textY);
+
+                anguloInicial += anguloBarrido;
+                i++;
+            }
         }
 
         // GRAFICO DE BARRAS
@@ -648,6 +746,8 @@ namespace PACTOMETRO {
                     GraficoPactometro(eleccionSeleccionada);
                 } else if (Comparativo) {
                     GraficoComparativo(eleccionesSeleccionadas);
+                } else if (Circular) { 
+                    GraficoCircular(eleccionSeleccionada);
                 }
             }
         }

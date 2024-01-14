@@ -21,6 +21,7 @@
                     <MenuItem Header="Grafico de barras" Click="Grafico_De_Barras"/>
                     <MenuItem Header="Pactómetro" Click="Pactómetro"/>
                     <MenuItem Header="Grafico comparativo" Click="Grafico_Comparativo"/>
+                    <MenuItem Header="Grafico circular" Click="Grafico_Circular"/>
                 </MenuItem>
                 <MenuItem Header="Archivos" Height="23">
                     <MenuItem Header="Exportar" Click="ExportarCSV_Click"/>
