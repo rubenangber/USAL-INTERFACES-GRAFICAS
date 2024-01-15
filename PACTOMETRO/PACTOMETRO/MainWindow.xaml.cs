@@ -371,7 +371,7 @@ namespace PACTOMETRO {
 
             double centroX = CanvaFondo.ActualWidth / 2;
             double centroY = CanvaFondo.ActualHeight / 2;
-            double radio = Math.Min(centroX, centroY) - 50;
+            double radio = Math.Min(centroX, centroY) - 30;
 
             double total = 0;
             foreach (double porcentaje in porcentajes) {
@@ -408,18 +408,18 @@ namespace PACTOMETRO {
                 CanvaFondo.Children.Add(path);
 
                 // Añadir el nombre del partido como texto al lado del segmento
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = p.Nombre.Length >= 10 ? p.Nombre.Substring(0, 10) : p.Nombre.ToString();
-                textBlock.Foreground = (Brush)new BrushConverter().ConvertFromString(p.Color);
-                textBlock.FontWeight = FontWeights.Bold;
+                TextBlock nomPartido = new TextBlock();
+                nomPartido.Text = p.Nombre.Length >= 10 ? p.Nombre.Substring(0, 10) : p.Nombre.ToString();
+                nomPartido.Foreground = (Brush)new BrushConverter().ConvertFromString(p.Color);
+                nomPartido.FontWeight = FontWeights.Bold;
 
                 // Calcular la posición del texto
                 double textX = centroX + 1.2 * radio * Math.Cos((anguloInicial + anguloBarrido / 2) * Math.PI / 180);
                 double textY = centroY + 1.1 * radio * Math.Sin((anguloInicial + anguloBarrido / 2) * Math.PI / 180);
-                CanvaFondo.Children.Add(textBlock);
+                CanvaFondo.Children.Add(nomPartido);
 
-                Canvas.SetLeft(textBlock, textX);
-                Canvas.SetTop(textBlock, textY);
+                Canvas.SetLeft(nomPartido, textX);
+                Canvas.SetTop(nomPartido, textY);
 
                 anguloInicial += anguloBarrido;
                 i++;
