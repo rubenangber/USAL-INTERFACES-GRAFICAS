@@ -23,7 +23,13 @@
                     <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" />
                     <GridViewColumn Header="Escaños" DisplayMemberBinding="{Binding Escaños}" />
                     <GridViewColumn Header="Mayoria" DisplayMemberBinding="{Binding Mayoria}" />
-                    <GridViewColumn Header="Fecha" DisplayMemberBinding="{Binding Fecha}" />
+                    <GridViewColumn Header="Fecha">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Fecha, StringFormat='dd/MM/yyyy'}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -126,18 +126,14 @@ namespace PACTOMETRO {
                 introducirfecha.BorderBrush = Brushes.Gray;
 
                 string tipo = (TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
-                string nombre = tipo + " " + NombreEleccion.Text;
+                string lugar = (LugarCB.SelectedItem as ComboBoxItem)?.Content.ToString();
+                string nombre = tipo + " " + lugar + " " + NombreEleccion.Text;
                 elecciones.Nombre = nombre;
                 elecciones.Partidos = listaPartidos;
                 elecciones.Fecha = introducirfecha.SelectedDate.Value.Date;
                 DialogResult = true;
-                if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Generales") {
-                    elecciones.Escaños = 350;
-                    elecciones.Mayoria = 176;
-                } else {
-                    elecciones.Escaños = 81;
-                    elecciones.Mayoria = 41;
-                }
+                elecciones.Escaños = escaños;
+                elecciones.Mayoria = escaños / 2 + 1;
             }
         }
 
@@ -265,7 +261,7 @@ namespace PACTOMETRO {
                     escaños = 25;
                     break;
                 case "Comunidad de Madrid":
-                    escaños = 136;
+                    escaños = 135;
                     break;
                 case "Comunidad Valenciana":
                     escaños = 99;

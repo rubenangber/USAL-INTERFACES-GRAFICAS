@@ -251,7 +251,6 @@ namespace PACTOMETRO {
             }
         }
 
-
         //CANCELAR
         private void Cancelar_Eleccion(object sender, RoutedEventArgs e) {
             if (MessageBox.Show("¿Quieres cancelar la creacion de la eleccion?", "Cancelar", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {

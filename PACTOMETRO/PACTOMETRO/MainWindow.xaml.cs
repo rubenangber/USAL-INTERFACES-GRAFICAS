@@ -435,25 +435,25 @@ namespace PACTOMETRO {
             // METODO DE GENERAR LA GRÁFICA
             float altocanva = (float)CanvaFondo.ActualHeight;
             float anchocanva = (float)CanvaFondo.ActualWidth;
+            int max = el.ObtenerMaximo(el.Partidos);
             int[] posdatos = new int[10];
             int[] datosescaños = new int[10];
+            int max2 = el.ObtenerMaximo(el.Partidos);
 
             // MARGEN IZQ
-            int max = el.ObtenerMaximo(el.Partidos);
-            for (int i = 0; i < 10; i++) {
-                posdatos[i] = (int)((altocanva) / 10 * i);
-                datosescaños[i] = (max / 10) * (i + 1);
+            for (int z = 0; z < 10; z++) {
+                posdatos[z] = (int)((altocanva - 20) / 10 * z);
+                datosescaños[z] = max2 / 10 * (z + 1);
 
                 TextBlock datacoste = new TextBlock {
-                    Text = "-" + datosescaños[i].ToString(),
+                    Text = "-" + datosescaños[z].ToString(),
                     Foreground = Brushes.Red,
                 };
                 CanvaFondo.Children.Add(datacoste);
 
-                Canvas.SetBottom(datacoste, posdatos[i] + 15);
+                Canvas.SetBottom(datacoste, posdatos[z] + (altocanva - 20) / 10 - 10);
                 Canvas.SetLeft(datacoste, 4);
             }
-
 
             // TOP
             Label top = new Label();
@@ -605,20 +605,20 @@ namespace PACTOMETRO {
             int[] posdatos = new int[5];
             int[] datosescaños = new int[5];
             int diez = 20;
+
             // MARGEN IZQ
             for (int z = 0; z < 5; z++) {
-                posdatos[z] = (int)((altocanva) / 5 * z);
+                posdatos[z] = (int)((altocanva - 20) / 5 * z);
                 datosescaños[z] = diez;
                 diez += 20;
 
-                TextBlock datacoste = new TextBlock
-                {
+                TextBlock datacoste = new TextBlock {
                     Text = "-" + datosescaños[z].ToString() + "%",
                     Foreground = Brushes.Red,
                 };
                 CanvaFondo.Children.Add(datacoste);
 
-                Canvas.SetBottom(datacoste, posdatos[z] + 35);
+                Canvas.SetBottom(datacoste, posdatos[z] + (altocanva - 20) / 5);
                 Canvas.SetLeft(datacoste, 4);
             }
         }
