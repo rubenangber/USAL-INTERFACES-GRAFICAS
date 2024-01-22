@@ -24,6 +24,7 @@ namespace PACTOMETRO {
         private readonly Eleccion elecciones;
         ObservableCollection<Partido> listaPartidos;
         int sum = 0;
+        int escaños;
 
         public List<string> TiposDeElecciones { get; set; }
 
@@ -35,15 +36,31 @@ namespace PACTOMETRO {
 
             if (elecciones.Nombre.StartsWith("Generales")) {
                 TipoComboBox.SelectedItem = TipoComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Generales");
-            }
-            else if (elecciones.Nombre.StartsWith("Autonómicas")) {
+                string[] palabras = elecciones.Nombre.Split(' ');
+                string resultado = string.Join(" ", palabras.Skip(1));
+                NombreEleccion.Text = resultado;
+            } else if (elecciones.Nombre.StartsWith("Autonómicas")) {
                 TipoComboBox.SelectedItem = TipoComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Autonómicas");
+                // Lista de comunidades autónomas
+                List<string> comunidadesAutonomas = new List<string> {
+                    "Andalucía", "Aragón", "Asturias", "Islas Baleares", "Islas Canarias", "Cantabria", "Castilla-La Mancha",
+                    "Castilla y León", "Cataluña", "Ceuta", "Comunidad de Madrid", "Comunidad Valenciana", "Extremadura",
+                    "Galicia", "La Rioja", "Melilla", "Región de Murcia", "Navarra", "País Vasco"
+                };
+                foreach (string comunidadAutonoma in comunidadesAutonomas) {
+                    if (elecciones.Nombre.Contains(comunidadAutonoma)) {
+                        LugarCB.SelectedItem = LugarCB.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == comunidadAutonoma);
+                        break;
+                    }
+                }
+                string nombreEleccion = elecciones.Nombre;
+                string comunidadAutonomaEncontrada = comunidadesAutonomas.FirstOrDefault(ca => nombreEleccion.Contains(ca));
+                if (comunidadAutonomaEncontrada != null) {
+                    int indice = nombreEleccion.IndexOf(comunidadAutonomaEncontrada) + comunidadAutonomaEncontrada.Length;
+                    string resultado = nombreEleccion.Substring(indice).Trim();
+                    NombreEleccion.Text = resultado;
+                }
             }
-
-            string[] palabras = elecciones.Nombre.Split(' ');
-            string resultado = string.Join(" ", palabras.Skip(1));
-            NombreEleccion.Text = resultado;
-
             introducirfecha.Text = Convert.ToString(elecciones.Fecha);
         }
 
@@ -142,14 +159,21 @@ namespace PACTOMETRO {
             }
 
             if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Generales") {
-                if (sum != 350) {
-                    MessageBox.Show($"Los partidos no suman 350 escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                escaños = 350;
+                if (sum != escaños) {
+                    MessageBox.Show($"Los partidos no suman {escaños} escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     comp = false;
                 }
             } else if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Autonómicas") {
-                if (sum != 81) {
-                    MessageBox.Show($"Los partidos no suman 81 escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (LugarCB.SelectedItem == null) {
+                    MessageBox.Show("No se ha introducido lugar de la elección", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     comp = false;
+                } else {
+                    Lugar((LugarCB.SelectedItem as ComboBoxItem)?.Content?.ToString());
+                    if (sum != escaños) {
+                        MessageBox.Show($"Los partidos no suman {escaños} escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                        comp = false;
+                    }
                 }
             }
 
@@ -189,6 +213,84 @@ namespace PACTOMETRO {
 
                     colorComboBox.Items.Add(comboBoxItem);
                 }
+            }
+        }
+
+        // AUTONOMICAS
+        private void TipoComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (TipoComboBox.SelectedItem != null) {
+                string selectedValue = (TipoComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+
+                if (selectedValue == "Autonómicas") {
+                    LugarL.Visibility = Visibility.Visible;
+                    LugarCB.Visibility = Visibility.Visible;
+                } else {
+                    LugarL.Visibility = Visibility.Hidden;
+                    LugarCB.Visibility = Visibility.Hidden;
+                    LugarCB.SelectedItem = null;
+                }
+            }
+        }
+
+        private void Lugar(string lugar) {
+            switch (lugar) {
+                case "Andalucía":
+                    escaños = 109;
+                    break;
+                case "Aragón":
+                    escaños = 67;
+                    break;
+                case "Asturias":
+                    escaños = 45;
+                    break;
+                case "Islas Baleares":
+                    escaños = 59;
+                    break;
+                case "Islas Canarias":
+                    escaños = 70;
+                    break;
+                case "Cantabria":
+                    escaños = 35;
+                    break;
+                case "Castilla-La Mancha":
+                    escaños = 33;
+                    break;
+                case "Castilla y León":
+                    escaños = 81;
+                    break;
+                case "Cataluña":
+                    escaños = 135;
+                    break;
+                case "Ceuta":
+                    escaños = 25;
+                    break;
+                case "Comunidad de Madrid":
+                    escaños = 136;
+                    break;
+                case "Comunidad Valenciana":
+                    escaños = 99;
+                    break;
+                case "Extremadura":
+                    escaños = 65;
+                    break;
+                case "Galicia":
+                    escaños = 75;
+                    break;
+                case "La Rioja":
+                    escaños = 33;
+                    break;
+                case "Melilla":
+                    escaños = 25;
+                    break;
+                case "Región de Murcia":
+                    escaños = 45;
+                    break;
+                case "Navarra":
+                    escaños = 50;
+                    break;
+                case "País Vasco":
+                    escaños = 75;
+                    break;
             }
         }
 

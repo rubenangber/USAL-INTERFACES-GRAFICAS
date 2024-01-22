@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PACTOMETRO"
+        ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="Editar Eleccion" Height="450" Width="800">
     <Grid>
@@ -31,7 +32,7 @@
         <Label Grid.Column="0" Grid.Row="5" Content="Fecha" Margin="5" VerticalContentAlignment="Center"/>
         <Button Grid.Column="0" Grid.Row="7" Margin="10" Content="Editar" Click="Editar_Eleccion"/>
         <!--COLUMNA 2-->
-        <ComboBox Grid.Column="1" Grid.Row="1" Margin="15" x:Name="TipoComboBox">
+        <ComboBox Grid.Column="1" Grid.Row="1" Margin="15" x:Name="TipoComboBox" SelectionChanged="TipoComboBox_SelectionChanged">
             <ComboBoxItem Content="Generales"/>
             <ComboBoxItem Content="Autonómicas"/>
         </ComboBox>
@@ -56,6 +57,28 @@
         <Button Grid.Column="1" Grid.Row="7" Margin="10" Content="Cancelar" Click="Cancelar_Eleccion"/>
         <!--COLUMNA 3-->
         <Label Grid.Column="2" Grid.Row="0" Content="Elección" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="30" />
+        <Label Grid.Column="2" Grid.Row="1" Content="Lugar" VerticalContentAlignment="Center" Visibility="Hidden" x:Name="LugarL"/>
+        <ComboBox Grid.Column="2" Grid.Row="1" Margin="45,15,145,15" x:Name="LugarCB" Grid.ColumnSpan="2" Visibility="Hidden">
+            <ComboBoxItem Content="Andalucía"/>
+            <ComboBoxItem Content="Aragón"/>
+            <ComboBoxItem Content="Asturias"/>
+            <ComboBoxItem Content="Islas Baleares"/>
+            <ComboBoxItem Content="Islas Canarias"/>
+            <ComboBoxItem Content="Cantabria"/>
+            <ComboBoxItem Content="Castilla-La Mancha"/>
+            <ComboBoxItem Content="Castilla y León"/>
+            <ComboBoxItem Content="Cataluña"/>
+            <ComboBoxItem Content="Ceuta"/>
+            <ComboBoxItem Content="Comunidad de Madrid"/>
+            <ComboBoxItem Content="Comunidad Valenciana"/>
+            <ComboBoxItem Content="Extremadura"/>
+            <ComboBoxItem Content="Galicia"/>
+            <ComboBoxItem Content="La Rioja"/>
+            <ComboBoxItem Content="Melilla"/>
+            <ComboBoxItem Content="Región de Murcia"/>
+            <ComboBoxItem Content="Navarra"/>
+            <ComboBoxItem Content="País Vasco"/>
+        </ComboBox>
         <!--COLUMNA 4-->
         <Label Grid.Column="3" Content="Partido" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="20" Grid.ColumnSpan="2" Margin="0,54,0,54" Grid.RowSpan="3" />
         <Label Grid.Column="3" Grid.Row="2" Content="Nombre" Margin="5" VerticalContentAlignment="Center"/>

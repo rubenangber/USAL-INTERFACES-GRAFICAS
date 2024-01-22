@@ -16,14 +16,10 @@ namespace PACTOMETRO {
         DateTime fecha;
 
         // Constructor con parámetros
-        public Eleccion(string nombre, ObservableCollection<Partido> partidos, DateTime fecha) {
+        public Eleccion(string nombre, int escaños, ObservableCollection<Partido> partidos, DateTime fecha) {
             this.nombre = nombre;
             this.partidos = partidos;
-            if (nombre.StartsWith("Generales")) {
-                this.escaños = 350;
-            } else if (nombre.StartsWith("Autonómicas")) {
-                this.escaños = 81;
-            }
+            this.escaños = escaños;
             this.mayoria = this.escaños / 2 + 1;
             this.fecha = fecha;
         }

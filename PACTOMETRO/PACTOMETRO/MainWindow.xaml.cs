@@ -48,6 +48,9 @@ namespace PACTOMETRO {
         private void T_EleccionSeleccionada(object sender, EleccionSeleccionadaEventArgs e) {
             // Manejar la elección seleccionada en el MainWindow
             eleccionSeleccionada = e.EleccionSeleccionada;
+            foreach (Partido p in eleccionSeleccionada.Partidos) {
+                p.PosPactometro = 2;
+            }
             if (eleccionSeleccionada != null) {
                 if (Normal) {
                     GraficoNormal(eleccionSeleccionada);
@@ -197,8 +200,7 @@ namespace PACTOMETRO {
                         string[] values = line.Split(',');
 
                         if (values.Length >= 4) {
-                            Eleccion eleccion = new Eleccion(values[0], new ObservableCollection<Partido>(), DateTime.Parse(values[2]));
-
+                            Eleccion eleccion = new Eleccion(values[0], int.Parse(values[1]), new ObservableCollection<Partido>(), DateTime.Parse(values[2]));
                             for (int i = 4; i < values.Length; i += 3) {
                                 Partido partido = new Partido(values[i], int.Parse(values[i + 1]), values[i + 2]);
                                 eleccion.Partidos.Add(partido);
@@ -230,8 +232,7 @@ namespace PACTOMETRO {
                         string[] values = line.Split(',');
 
                         if (values.Length >= 4) {
-                            Eleccion eleccion = new Eleccion(values[0], new ObservableCollection<Partido>(), DateTime.Parse(values[2]));
-
+                            Eleccion eleccion = new Eleccion(values[0], int.Parse(values[1]), new ObservableCollection<Partido>(), DateTime.Parse(values[2]));
                             for (int i = 4; i < values.Length; i += 3) {
                                 Partido partido = new Partido(values[i], int.Parse(values[i + 1]), values[i + 2]);
                                 eleccion.Partidos.Add(partido);
@@ -273,7 +274,7 @@ namespace PACTOMETRO {
             lp1.Add(p9);
             lp1.Add(p10);
             lp1.Add(p11);
-            listaElecciones.Add(new Eleccion("Generales 1", lp1, new DateTime(2023, 7, 23)));
+            listaElecciones.Add(new Eleccion("Generales 1", 350, lp1, new DateTime(2023, 7, 23)));
 
             ObservableCollection<Partido> lp2 = new ObservableCollection<Partido>();
             Partido p12 = new Partido("PSOE", 120, "#da291c");
@@ -305,7 +306,7 @@ namespace PACTOMETRO {
             lp2.Add(p23);
             lp2.Add(p24);
             lp2.Add(p25);
-            listaElecciones.Add(new Eleccion("Generales 2", lp2, new DateTime(2019, 11, 10)));
+            listaElecciones.Add(new Eleccion("Generales 2", 350, lp2, new DateTime(2019, 11, 10)));
 
             ObservableCollection<Partido> lp3 = new ObservableCollection<Partido>();
             Partido p26 = new Partido("PP", 31, "#1e4b8f");
@@ -326,7 +327,7 @@ namespace PACTOMETRO {
             lp3.Add(p32);
             lp3.Add(p33);
 
-            listaElecciones.Add(new Eleccion("Autonómicas CyL", lp3, new DateTime(2022, 2, 14)));
+            listaElecciones.Add(new Eleccion("Autonómicas Castilla y León 1", 81, lp3, new DateTime(2022, 2, 14)));
 
             ObservableCollection<Partido> lp4 = new ObservableCollection<Partido>();
             Partido p34 = new Partido("PSOE", 35, "#da291c");
@@ -345,7 +346,7 @@ namespace PACTOMETRO {
             lp4.Add(p39);
             lp4.Add(p40);
 
-            listaElecciones.Add(new Eleccion("Autonómicas CyL", lp4, new DateTime(2019, 5, 26)));
+            listaElecciones.Add(new Eleccion("Autonómicas Castilla y León 2", 81, lp4, new DateTime(2019, 5, 26)));
         }
 
         // GRÁFICO CIRCULAR

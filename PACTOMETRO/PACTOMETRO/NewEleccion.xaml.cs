@@ -28,6 +28,8 @@ namespace PACTOMETRO {
             partidosListView.ItemsSource = listaPartidos;
         }
 
+        int escaños;
+
         //AÑADIR PARTIDO
         private void Añadir_Partido(object sender, RoutedEventArgs e) {
             if (ComprobarPartido() == true) {
@@ -88,8 +90,9 @@ namespace PACTOMETRO {
                 introducirfecha.BorderBrush = Brushes.Gray;
 
                 string tipo = (TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
-                string nombre = tipo + " " + NombreEleccion.Text;
-                newEleccion = new Eleccion(nombre, listaPartidos, introducirfecha.SelectedDate.Value.Date);
+                string lugar = (LugarCB.SelectedItem as ComboBoxItem)?.Content.ToString();
+                string nombre = tipo + " " + lugar + " " + NombreEleccion.Text;
+                newEleccion = new Eleccion(nombre, escaños, listaPartidos, introducirfecha.SelectedDate.Value.Date);
                 DialogResult = true;
             }
         }
@@ -111,15 +114,22 @@ namespace PACTOMETRO {
                 sum += partido.Escaños;
             }
 
-            if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Generales") { 
-                if (sum != 350) {
-                    MessageBox.Show($"Los partidos no suman 350 escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
+            if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Generales") {
+                escaños = 350;
+                if (sum != escaños) {
+                    MessageBox.Show($"Los partidos no suman {escaños} escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     comp = false;
                 }
             } else if ((TipoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == "Autonómicas") {
-                if (sum != 81) {
-                    MessageBox.Show($"Los partidos no suman 81 escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (LugarCB.SelectedItem == null) {
+                    MessageBox.Show("No se ha introducido lugar de la elección", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     comp = false;
+                } else {
+                    Lugar((LugarCB.SelectedItem as ComboBoxItem)?.Content?.ToString());
+                    if (sum != escaños) {
+                        MessageBox.Show($"Los partidos no suman {escaños} escaños ({sum})", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                        comp = false;
+                    }
                 }
             }
 
@@ -162,6 +172,85 @@ namespace PACTOMETRO {
                 }
             }
         }
+
+        // AUTONOMICAS
+        private void TipoComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (TipoComboBox.SelectedItem != null) {
+                string selectedValue = (TipoComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+
+                if (selectedValue == "Autonómicas") {
+                    LugarL.Visibility = Visibility.Visible;
+                    LugarCB.Visibility = Visibility.Visible;
+                } else {
+                    LugarL.Visibility = Visibility.Hidden;
+                    LugarCB.Visibility = Visibility.Hidden;
+                    LugarCB.SelectedItem = null;
+                }
+            }
+        }
+
+        private void Lugar(string lugar) {
+            switch (lugar) {
+                case "Andalucía":
+                    escaños = 109;
+                    break;
+                case "Aragón":
+                    escaños = 67;
+                    break;
+                case "Asturias":
+                    escaños = 45;
+                    break;
+                case "Islas Baleares":
+                    escaños = 59;
+                    break;
+                case "Islas Canarias":
+                    escaños = 70;
+                    break;
+                case "Cantabria":
+                    escaños = 35;
+                    break;
+                case "Castilla-La Mancha":
+                    escaños = 33;
+                    break;
+                case "Castilla y León":
+                    escaños = 81;
+                    break;
+                case "Cataluña":
+                    escaños = 135;
+                    break;
+                case "Ceuta":
+                    escaños = 25;
+                    break;
+                case "Comunidad de Madrid":
+                    escaños = 135;
+                    break;
+                case "Comunidad Valenciana":
+                    escaños = 99;
+                    break;
+                case "Extremadura":
+                    escaños = 65;
+                    break;
+                case "Galicia":
+                    escaños = 75;
+                    break;
+                case "La Rioja":
+                    escaños = 33;
+                    break;
+                case "Melilla":
+                    escaños = 25;
+                    break;
+                case "Navarra":
+                    escaños = 50;
+                    break;
+                case "País Vasco":
+                    escaños = 75;
+                    break;
+                case "Región de Murcia":
+                    escaños = 45;
+                    break;
+            }
+        }
+
 
         //CANCELAR
         private void Cancelar_Eleccion(object sender, RoutedEventArgs e) {
